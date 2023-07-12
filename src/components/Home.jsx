@@ -1,9 +1,14 @@
-
+import styled from 'styled-components'
+import heroImg from '../assets/flower-power.avif'
 
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <main>
+      <Hero/>
+     
+
+      </main>
   )
 }
 
