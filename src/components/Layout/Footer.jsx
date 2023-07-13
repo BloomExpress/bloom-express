@@ -149,5 +149,4 @@ const Container = styled.footer`
     justify-content: space-between;
   }
 `;
-
 export default Footer;
