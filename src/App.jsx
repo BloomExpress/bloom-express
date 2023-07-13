@@ -1,16 +1,17 @@
-import Template from "./components/Layout/Template";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Home from "./components/Home";
-import ProductsIndex from "./components/Products/Index";
-import NotFound from "./components/NotFound";
+import Template from './components/Layout/Template';
+import About from './components/About';
+import Contact from './components/Contact';
+import Home from './components/Home';
+import ProductsIndex from './components/Products/Index';
+import NotFound from './components/NotFound';
+import Header from './components/Layout/Header';
 
 import {
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 
 function App() {
   const router = createBrowserRouter(
