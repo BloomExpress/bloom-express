@@ -14,11 +14,14 @@ const Home = () => {
 export default Home;
 
 const Hero = () => {
-  return (             
+  return (
     <Wrapper className="section-center">
       <article className="content">
-        <h1>Bloom  <br/>
-         Express</h1>
+        <h1>
+          Nurture Moments, Inspire with
+          <br />
+          Blooms.
+        </h1>
         <p>
           Welcome to our online flower store, where we bring the beauty of
           nature directly to your doorstep. At our store, we offer a unique
@@ -28,11 +31,21 @@ const Hero = () => {
           mission is to provide you with the joy and vibrancy of seasonal
           flowers throughout the year.
         </p>
-      <Link to="products" className="btn hero-btn">shop now</Link>
+        <Link to="products" className="btn hero-btn">
+          Shop Now
+        </Link>
       </article>
       <article className="img-container">
-        <img src={heroImg1} alt="bike with a basket of flowers" className="main-img" />
-        <img src={heroImg2} alt="heart made with flowers" className="accent-img" />
+        <img
+          src={heroImg1}
+          alt="bike with a basket of flowers"
+          className="main-img"
+        />
+        <img
+          src={heroImg2}
+          alt="heart made with flowers"
+          className="accent-img"
+        />
       </article>
     </Wrapper>
   );
@@ -52,7 +65,6 @@ const Wrapper = styled.section`
     margin-bottom: 2rem;
     color: var(--clr-grey-5);
     font-size: 1rem;
-  
   }
   @media (min-width: 992px) {
     height: calc(100vh - 5rem);
@@ -67,7 +79,15 @@ const Wrapper = styled.section`
     .hero-btn {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
+      background-color: var(--clr-button);
+      color: var(--clr-grey-1);
     }
+
+    .hero-btn:hover {
+      background-color: #397f84;
+      color: var(--clr-white);
+    }
+
     .img-container {
       display: block;
       position: relative;
@@ -91,11 +111,11 @@ const Wrapper = styled.section`
     .img-container::before {
       content: "";
       position: absolute;
-      width: 10%;
+      width: 15%;
       height: 80%;
       background: var(--clr-primary-9);
       bottom: 0%;
-      left: -8%;
+      left: -15%;
       border-radius: var(--radius);
     }
   }
