@@ -74,12 +74,12 @@ const Footer = () => {
 };
 
 const Container = styled.footer`
-  height: 5rem;
+  height: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--clr-black);
+  background: var(--clr-navbar);
   text-align: center;
 
   section {
@@ -89,7 +89,7 @@ const Container = styled.footer`
     margin-bottom: 1rem;
 
     h5 {
-      color: var(--clr-white);
+      color: var(--clr-black);
       margin: 0.1rem;
       font-weight: 400;
       text-transform: none;
@@ -105,11 +105,11 @@ const Container = styled.footer`
         margin-bottom: 0.5rem;
 
         a {
-          color: var(--clr-white);
+          color: var(--clr-black);
           text-decoration: none;
 
           &:hover {
-            color: var(--clr-primary-5);
+            color: var(--clr-black);
           }
         }
       }
@@ -125,7 +125,7 @@ const Container = styled.footer`
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          color: var(--clr-white);
+          color: var(--clr-black);
           width: 2rem;
           height: 2rem;
           border-radius: 50%;
