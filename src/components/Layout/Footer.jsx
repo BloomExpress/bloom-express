@@ -162,11 +162,11 @@ const Container = styled.footer`
           width: 2rem;
           height: 2rem;
           border-radius: 50%;
-          background: var(--clr-primary-5);
+          background: var(--clr-white);
           text-decoration: none;
 
           &:hover {
-            background: var(--clr-primary-6);
+            background: var(--clr-grey-6);
           }
 
           i {

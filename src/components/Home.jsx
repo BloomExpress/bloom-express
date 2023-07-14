@@ -2,11 +2,15 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import heroImg1 from "../assets/flower-power.avif";
 import heroImg2 from "../assets/flower-power2.avif";
+import Newsletter from "./Newsletter";
+import FeaturedProducts from "./FeaturedProducts";
 
 const Home = () => {
   return (
     <main>
       <Hero />
+      <FeaturedProducts />
+      <Newsletter />
     </main>
   );
 };
@@ -52,7 +56,7 @@ const Hero = () => {
 };
 
 const Wrapper = styled.section`
-  min-height: 60vh;
+  height: 100vh;
   display: grid;
   place-items: center;
   .img-container {
@@ -81,6 +85,10 @@ const Wrapper = styled.section`
       font-size: 1rem;
       background-color: var(--clr-button);
       color: var(--clr-grey-1);
+      text-transform: capitalize;
+      letter-spacing: var(--spacing);
+      cursor: pointer;
+      transition: var(--transition);
     }
 
     .hero-btn:hover {
@@ -104,18 +112,18 @@ const Wrapper = styled.section`
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 200px;
-      transform: translateX(-50%);
+      width: 250px;
+      transform: translateX(-60%);
       border-radius: var(--radius);
     }
     .img-container::before {
       content: "";
       position: absolute;
-      width: 15%;
+      width: 25%;
       height: 80%;
-      background: var(--clr-primary-9);
+      background: var(--clr-primary-darkpink);
       bottom: 0%;
-      left: -15%;
+      left: -25%;
       border-radius: var(--radius);
     }
   }
