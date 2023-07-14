@@ -1,17 +1,16 @@
 import styled from "styled-components";
 import aboutImg from "../assets/bouquet.avif";
-import {Link} from 'react-router-dom'
-
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
     <main>
-     <PageHero title="about"/>
+      <PageHero title="about" />
       <Wrapper className="page section section-center">
         <img src={aboutImg} alt="bouquet" />
         <article>
           <div className="title">
-            <h2>our story</h2>
+            <h2>About Us</h2>
             <div className="underline"></div>
           </div>
           <p>
@@ -43,6 +42,7 @@ const About = () => {
 };
 
 const Wrapper = styled.section`
+  height: 100vh;
   display: grid;
   gap: 4rem;
   img {
@@ -72,22 +72,19 @@ const Wrapper = styled.section`
 
 export default About;
 
-
-const PageHero = ({title}) => {
+const PageHero = ({ title }) => {
   return (
     <WrapperHero>
       <div className="section-center">
-        <h3>
-          <Link to='/'>Home</Link>/ {title}
-        </h3>
+        <h4>
+          <Link to="/">Home</Link> > {title}
+        </h4>
       </div>
     </WrapperHero>
-  )
-}
-
+  );
+};
 
 const WrapperHero = styled.section`
-  background: var(--clr-primary-10);
   width: 100%;
   min-height: 20vh;
   display: flex;
@@ -95,14 +92,11 @@ const WrapperHero = styled.section`
 
   color: var(--clr-primary-1);
   a {
-    color: var(--clr-primary-3);
+    color: var(--clr-grey-8);
     padding: 0.5rem;
     transition: var(--transition);
   }
   a:hover {
-    color: var(--clr-primary-1);
+    color: var(--clr-grey-5);
   }
 `;
-
-
-

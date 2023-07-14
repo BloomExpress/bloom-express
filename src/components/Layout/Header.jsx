@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import logo from '../../assets/logo.png';
-import { Link } from 'react-router-dom';
-import { links } from '../../utils/constants';
+import React from "react";
+import styled from "styled-components";
+import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
+import { links } from "../../utils/constants";
 // import CartButtons from './CartButtons';
 // import { useProductContext } from '../context/products_context';
 // import { useUserContext } from '../context/user_context';
@@ -45,6 +45,7 @@ const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--clr-primary-navbar);
 
   .nav-center {
     width: 90vw;
@@ -97,7 +98,8 @@ const NavContainer = styled.nav`
         letter-spacing: var(--spacing);
         padding: 0.5rem;
         &:hover {
-          border-bottom: 2px solid var(--clr-primary-7);
+          border-bottom: 2px solid var(--clr-primary-hover);
+          color: var(--clr-white);
         }
       }
     }

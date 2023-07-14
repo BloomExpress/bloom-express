@@ -4,7 +4,7 @@ import error from "../assets/error.png";
 
 const NotFound = () => {
   return (
-    <Wrapper className="page-100">
+    <Wrapper>
       <section>
         <img src={error} alt="error404" />
         <h3>Sorry, look like we sent you to the wrong way</h3>
@@ -17,6 +17,8 @@ const NotFound = () => {
 };
 
 const Wrapper = styled.main`
+  height: 80vh;
+  width: 100%;
   background: var(--clr-primary-background);
   display: flex;
   justify-content: center;
@@ -28,6 +30,20 @@ const Wrapper = styled.main`
   h3 {
     text-transform: none;
     margin-bottom: 2rem;
+  }
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: transparent;
+    color: var(--clr-grey-1);
+    text-transform: capitalize;
+    letter-spacing: var(--spacing);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .btn:hover {
+    background-color: #397f84;
+    color: var(--clr-white);
   }
 `;
 

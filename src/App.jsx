@@ -10,7 +10,8 @@ import {
   createRoutesFromElements,
   RouterProvider,
   Route,
-} from 'react-router-dom';
+} from "react-router-dom";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function App() {
   const router = createBrowserRouter(
