@@ -1,11 +1,11 @@
-import AddProduct from "./AddProduct"
+import Products from "./Products";
 
 const ProductsIndex = () => {
   return (
     <div>
-        <AddProduct />
+      <Products />
     </div>
-  )
-}
+  );
+};
 
-export default ProductsIndex
+export default ProductsIndex;
