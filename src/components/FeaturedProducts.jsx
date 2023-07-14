@@ -61,6 +61,7 @@ const Wrapper = styled.section`
     letter-spacing: var(--spacing);
     cursor: pointer;
     transition: var(--transition);
+    margin-bottom: 2rem;
   }
 
   .btn:hover {
@@ -70,6 +71,7 @@ const Wrapper = styled.section`
 
   img:hover {
     opacity: 1;
+    transform: scale(1.1);
   }
 
   .underline {
@@ -79,6 +81,10 @@ const Wrapper = styled.section`
     background: var(--clr-primary-hover);
     margin-left: auto;
     margin-right: auto;
+  }
+
+  p {
+    margin-top: 2rem;
   }
 
   @media (min-width: 576px) {
