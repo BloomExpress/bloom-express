@@ -4,7 +4,6 @@ import Contact from "./components/Contact";
 import Home from "./components/Home";
 import ProductsIndex from "./components/Products/Index";
 import NotFound from "./components/NotFound";
-import "./index.module.css";
 import {
   createBrowserRouter,
   createRoutesFromElements,
