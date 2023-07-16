@@ -14,6 +14,7 @@ import gridImg10 from "../assets/about-grid10.avif";
 import gridImg11 from "../assets/about-grid11.avif";
 import gridImg12 from "../assets/about-grid12.avif";
 
+
 const About = () => {
   return (
     <main>
@@ -116,9 +117,9 @@ const WrapperHero = styled.section`
 
 const AboutGridGallery = () => {
   return (
-    <div className="container">
+    <div className="container my-5">
       <div className="row">
-        <h3 className="text-center mb-5">
+        <h3 className="text-center my-5">
           "Embrace the Magic of Blooms in our Picturesque Garden."
         </h3>
         <div className="col-4">
@@ -161,6 +162,9 @@ const AboutGridGallery = () => {
           </div>
         </div>
       </div>
+      <Link to="products" className="btn hero-btn">
+          Let's go buy us some flowers!
+        </Link>
     </div>
   );
 };
