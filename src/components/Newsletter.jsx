@@ -44,9 +44,10 @@ const Newsletter = () => {
   );
 };
 const Wrapper = styled.section`
-  height: 10vh;
-  padding: 5rem 0;
+  min-height: 10vh;
+  padding: 15rem 1rem;
   background-color: var(--clr-primary-lightpink);
+
   h3 {
     text-transform: none;
   }
@@ -56,7 +57,7 @@ const Wrapper = styled.section`
     color: var(--clr-grey-5);
   }
   .contact-form {
-    width: 90vw;
+    width: 100%;
     max-width: 500px;
     display: grid;
     grid-template-columns: 1fr auto;
@@ -67,6 +68,8 @@ const Wrapper = styled.section`
     font-size: 1rem;
     padding: 0.5rem 1rem;
     border: 2px solid var(--clr-black);
+    width: 100%;
+    box-sizing: border-box;
   }
   .form-input {
     border-right: none;

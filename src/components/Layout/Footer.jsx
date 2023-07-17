@@ -78,7 +78,7 @@ const Footer = () => {
 };
 
 const Container = styled.footer`
-  height: 10rem;
+  min-height: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,7 +96,7 @@ const Container = styled.footer`
       color: var(--clr-black);
       margin: 0.1rem;
       font-weight: 800;
-      font-size: 1.8rem;
+      font-size: 1rem;
       margin-top: 2rem;
       text-transform: none;
       line-height: 1.25;
@@ -178,7 +178,7 @@ const Container = styled.footer`
   }
 
   @media (min-width: 776px) {
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 
     .section-large {
