@@ -74,7 +74,7 @@ const flowers = [
     name: "Roses and Lilies Bouquet",
     price: 37.99,
     color: ["Pink", "red"],
-    description: "pink and red flower bouguet",
+    description: "pink and red flower bouquet",
     image:
       "https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTd8fGZsb3dlciUyMGJvdXF1ZXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
     category: "Romance",
