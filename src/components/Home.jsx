@@ -19,8 +19,8 @@ export default Home;
 
 const Hero = () => {
   return (
-    <Wrapper className="section-center">
-      <article className="content">
+    <Wrapper className="section-center mt-5">
+      <article className="content mt-3">
         <h1>
           Nurture Moments, Inspire with
           <br />
