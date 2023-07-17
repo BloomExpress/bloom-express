@@ -1,224 +1,204 @@
 const flowers = [
-    {
-        id: '1',
-        name: 'Rose',
-        category: 'Annual',
-        season: 'Spring',
-        color: ['Red', 'Pink'],
-        price: 10,
-        description: 'A beautiful flower known for its thorns.',
-        image: 'rose.jpg',
-        featured: true
-    },
-    {
-        id: '2',
-        name: 'Sunflower',
-        category: 'Perennial',
-        season: 'Summer',
-        color: ['Yellow'],
-        price: 8,
-        description: 'A large flower that follows the sun.',
-        image: 'sunflower.jpg',
-        featured: false
-    },
-    {
-        id: '3',
-        name: 'Tulip',
-        category: 'Perennial',
-        season: 'Spring',
-        color: ['Red', 'White', 'Yellow'],
-        price: 6,
-        description: 'A popular flower symbolizing love and beauty.',
-        image: 'tulip.jpg',
-        featured: true
-    },
-    {
-        id: '4',
-        name: 'Lily',
-        category: 'Perennial',
-        season: 'Summer',
-        color: ['White', 'Pink', 'Purple'],
-        price: 12,
-        description: 'An elegant flower with a pleasant fragrance.',
-        image: 'lily.jpg',
-        featured: true
-    },
-    {
-        id: '5',
-        name: 'Daisy',
-        category: 'Perennial',
-        season: 'Spring',
-        color: ['White', 'Yellow'],
-        price: 5,
-        description: 'A cheerful flower with a simple and classic beauty.',
-        image: 'daisy.jpg',
-        featured: false
-    },
-    {
-        id: '6',
-        name: 'Carnation',
-        category: 'Annual',
-        season: 'Winter',
-        color: ['Red', 'Pink', 'White'],
-        price: 7,
-        description: 'A fragrant flower often used for special occasions.',
-        image: 'carnation.jpg',
-        featured: true
-    },
-    {
-        id: '7',
-        name: 'Gerbera',
-        category: 'Annual',
-        season: 'Summer',
-        color: ['Orange', 'Yellow', 'Pink'],
-        price: 9,
-        description: 'A vibrant flower that adds a pop of color to any arrangement.',
-        image: 'gerbera.jpg',
-        featured: true
-    },
-    {
-        id: '8',
-        name: 'Iris',
-        category: 'Perennial',
-        season: 'Spring',
-        color: ['Purple', 'Blue', 'White'],
-        price: 11,
-        description: 'A beautiful flower with distinctive sword-like leaves.',
-        image: 'iris.jpg',
-        featured: false
-    },
-    {
-        id: '9',
-        name: 'Crocus',
-        category: 'Perennial',
-        season: 'Winter',
-        color: ['Purple', 'Yellow', 'White'],
-        price: 6,
-        description: 'An early blooming flower that signals the arrival of spring.',
-        image: 'crocus.jpg',
-        featured: true
-    },
-    {
-        id: '10',
-        name: 'Hyacinth',
-        category: 'Perennial',
-        season: 'Spring',
-        color: ['Purple', 'Pink', 'White'],
-        price: 8,
-        description: 'A fragrant flower that blooms in dense clusters.',
-        image: 'hyacinth.jpg',
-        featured: false
-    },
-    {
-        id: '11',
-        name: 'Peony',
-        category: 'Perennial',
-        season: 'Spring',
-        color: ['Pink', 'White', 'Red'],
-        price: 13,
-        description: 'A romantic flower with large, ruffled petals.',
-        image: 'peony.jpg',
-        featured: true
-    },
-    {
-        id: '12',
-        name: 'Daffodil',
-        category: 'Perennial',
-        season: 'Spring',
-        color: ['Yellow', 'White'],
-        price: 7,
-        description: 'A cheerful flower that symbolizes new beginnings.',
-        image: 'daffodil.jpg',
-        featured: true
-    },
-    {
-        id: '13',
-        name: 'Canna Lily',
-        category: 'Perennial',
-        season: 'Summer',
-        color: ['Red', 'Yellow', 'Orange'],
-        price: 9,
-        description: 'A tropical flower with large, vibrant blooms.',
-        image: 'canna_lily.jpg',
-        featured: false
-    },
-    {
-        id: '14',
-        name: 'Marigold',
-        category: 'Annual',
-        season: 'Summer',
-        color: ['Orange', 'Yellow'],
-        price: 5,
-        description: 'A hardy flower often used for companion planting.',
-        image: 'marigold.jpg',
-        featured: false
-    },
-    {
-        id: '15',
-        name: 'Chrysanthemum',
-        category: 'Perennial',
-        season: 'Autumn',
-        color: ['Yellow', 'Orange', 'Red'],
-        price: 10,
-        description: 'A fall flower known for its vibrant colors and longevity.',
-        image: 'chrysanthemum.jpg',
-        featured: true
-    },
-    {
-        id: '16',
-        name: 'Pansy',
-        category: 'Annual',
-        season: 'Winter',
-        color: ['Purple', 'Yellow', 'White'],
-        price: 6,
-        description: 'A cool-season flower with delicate "faces."',
-        image: 'pansy.jpg',
-        featured: true
-    },
-    {
-        id: '17',
-        name: 'Snapdragon',
-        category: 'Annual',
-        season: 'Spring',
-        color: ['Red', 'Yellow', 'Pink'],
-        price: 7,
-        description: 'A vertical flower that adds height and color to gardens.',
-        image: 'snapdragon.jpg',
-        featured: false
-    },
-    {
-        id: '18',
-        name: 'Gladiolus',
-        category: 'Perennial',
-        season: 'Summer',
-        color: ['Red', 'Pink', 'Purple'],
-        price: 9,
-        description: 'A tall flower with showy spikes of blooms.',
-        image: 'gladiolus.jpg',
-        featured: true
-    },
-    {
-        id: '19',
-        name: 'Zinnia',
-        category: 'Annual',
-        season: 'Summer',
-        color: ['Red', 'Yellow', 'Purple'],
-        price: 8,
-        description: 'A low-maintenance flower with bold and bright petals.',
-        image: 'zinnia.jpg',
-        featured: true
-    },
-    {
-        id: '20',
-        name: 'Cosmos',
-        category: 'Annual',
-        season: 'Summer',
-        color: ['Pink', 'White', 'Purple'],
-        price: 7,
-        description: 'A daisy-like flower that attracts butterflies and bees.',
-        image: 'cosmos.jpg',
-        featured: false
-    }
+  {
+    id: 1,
+    name: "Sunshine Bouquet",
+    price: 18.99,
+    color: "Yellow",
+    description: "Yellow sun flower bouquet",
+    image:
+      "https://images.unsplash.com/photo-1629386255808-c3ceb405173c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHN1bmZsb3dlciUyMGJvdXF1ZXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+    category: "Birthday",
+  },
+  {
+    id: 2,
+    name: "Classic Rose Bouquet",
+    price: 24.99,
+    color: "Red",
+    description: "Red rose and white orchid flowers",
+    image:
+      "https://images.unsplash.com/photo-1522142540300-60ae5b4bc569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHJvc2UlMjAlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Romance",
+  },
+  {
+    id: 3,
+    name: "Pretty in Pink Bouquet",
+    price: 22.99,
+    color: "Pink",
+    description: "Pink rose bouquet",
+    image:
+      "https://images.unsplash.com/photo-1533793241176-a270e75ef2ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzV8fHBpbmslMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Celebration",
+  },
+  {
+    id: 4,
+    name: "Purple Dream Bouquet",
+    price: 29.99,
+    color: "Purple",
+    description: "A purple bouquet",
+    image:
+      "https://images.unsplash.com/photo-1659519677228-4ae11f3f79d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzg3fHxwdXJwbGUlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Sympathy",
+  },
+  {
+    id: 5,
+    name: "Sweet Baby Bouquet",
+    price: 15.99,
+    color: "Pink",
+    description: "Pink and white peony bouquet",
+    image:
+      "https://images.unsplash.com/photo-1549576351-2b0829ac81f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGluayUyMGJvdXF1ZXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+    category: "New Baby",
+  },
+  {
+    id: 6,
+    name: "Bright Blooms Bouquet",
+    price: 42.99,
+    color: "Mixed",
+    description: "Bouquet of colorful flowers",
+    image:
+      "https://images.unsplash.com/photo-1487530811176-3780de880c2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjV8fGZsb3dlciUyMGJvdXF1ZXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+    category: "Thank You",
+  },
+  {
+    id: 7,
+    name: "Home Sweet Home Bouquet",
+    price: 34.99,
+    color: "Mixed",
+    description: "pink yellow and green flowers in vase",
+    image:
+      "https://images.unsplash.com/photo-1572267381748-9e0a20a97844?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAzfHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "New Home",
+  },
+  {
+    id: 8,
+    name: "Roses and Lilies Bouquet",
+    price: 37.99,
+    color: ["Pink", "red"],
+    description: "pink and red flower bouguet",
+    image:
+      "https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTd8fGZsb3dlciUyMGJvdXF1ZXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+    category: "Romance",
+  },
+  {
+    id: 9,
+    name: "Purple Rain Bouquet",
+    price: 23.99,
+    color: ["Purple", "blue"],
+    description: "purple and blue flowers",
+    image:
+      "https://images.unsplash.com/photo-1561128290-005859246e58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGZsb3dlciUyMGJvdXF1ZXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+    category: "Romance",
+  },
+  {
+    id: 10,
+    name: "Pure Joy Bouquet",
+    price: 17.99,
+    color: "Yellow",
+    description: "white and yellow on green leaves",
+    image:
+      "https://images.unsplash.com/photo-1593704192197-d674dc9c913f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzY2fHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "New Baby",
+  },
+  {
+    id: 11,
+    name: "Harmony Garden Bouquet",
+    price: 28.99,
+    color: "Mixed",
+    description: "assorted flowers in clear glass vase",
+    image:
+      "https://images.unsplash.com/photo-1550237390-96532abac3ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTU5fHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Sympathy",
+  },
+  {
+    id: 12,
+    name: "Country Charm Bouquet",
+    price: 21.99,
+    color: ["Pink", "yellow"],
+    description: "Pink and yellow bouquet",
+    image:
+      "https://images.unsplash.com/photo-1589217289787-879b47f6edab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjQxfHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Celebration",
+  },
+  {
+    id: 13,
+    name: "Enchanted Forest Bouquet",
+    price: 36.99,
+    color: "Mixed",
+    description: "Forest flowers in basket",
+    image:
+      "https://images.unsplash.com/photo-1494336956603-39a3641efa1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjU4fHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Romance",
+  },
+  {
+    id: 14,
+    name: "Eternal Love Bouquet",
+    price: 32.99,
+    color: "Red",
+    description: "red and white bouquet",
+    image:
+      "https://images.unsplash.com/photo-1599791095997-5cf38bb5ff69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTc3fHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Anniversary",
+  },
+  {
+    id: "15",
+    name: "Summer Breeze Bouquet",
+    price: 25.99,
+    color: "Mixed",
+    description: "Summer flowers",
+    image:
+      "https://images.unsplash.com/photo-1602135452565-7b9ba2b1d1dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM4fHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Celebration",
+  },
+  {
+    id: "16",
+    name: "Cheerful Wishes Bouquet",
+    price: 19.99,
+    color: "Yellow",
+    description: "white and yellow arrangement",
+    image:
+      "https://images.unsplash.com/photo-1546778763-d09b214ed1b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzU0fHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Celebration",
+  },
+  {
+    id: "17",
+    name: "Mellow Melodies Bouquet",
+    price: 26.99,
+    color: "Pink",
+    description: "white and pink rose bouquet",
+    image:
+      "https://images.unsplash.com/photo-1562443089-c9e27ff4b560?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzcwfHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Romance",
+  },
+  {
+    id: "18",
+    name: "Heavenly Peace Bouquet",
+    price: 22.99,
+    color: "White",
+    description: "white flower in blue vase",
+    image:
+      "https://images.unsplash.com/photo-1616432541912-fbc3dff3a9fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDcyfHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Sympathy",
+  },
+  {
+    id: "19",
+    name: "Pure Serenity Bouquet",
+    price: 35.99,
+    color: "White",
+    description: "white rose bouquet",
+    image:
+      "https://images.unsplash.com/photo-1588097747106-5f07b7dd4133?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDA3fHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Sympathy",
+  },
+  {
+    id: "20",
+    name: "Anniversary Splendor Bouquet",
+    price: 32.99,
+    color: "Red",
+    description: "red roses and tulips in a vase",
+    image:
+      "https://images.unsplash.com/photo-1572096570533-7a483e1dd0ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjE4fHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    category: "Anniversary",
+  },
 ];
 
 export default flowers;

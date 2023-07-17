@@ -4,6 +4,8 @@ import bouquet1 from "../assets/bouquet1.png";
 import bouquet2 from "../assets/bouquet2.png";
 import bouquet3 from "../assets/bouquet3.png";
 import bouquet4 from "../assets/bouquet4.png";
+import bouquet5 from "../assets/bouquet5.png";
+import bouquet6 from "../assets/bouquet6.png";
 
 const FeaturedProducts = () => {
   return (
@@ -29,6 +31,14 @@ const FeaturedProducts = () => {
           <img src={bouquet4} alt="..." />
           <p>18 Aug</p>
         </div>
+        <div>
+          <img src={bouquet5} alt="..." />
+          <p>19 Aug</p>
+        </div>
+        <div>
+          <img src={bouquet6} alt="..." />
+          <p>20 Aug</p>
+        </div>
       </div>
       <Link to="/products" className="btn">
         all products
@@ -52,35 +62,10 @@ const Wrapper = styled.section`
       opacity: 0.7;
     }
   }
-  .btn {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    background-color: var(--clr-button);
-    color: var(--clr-grey-1);
-    text-transform: capitalize;
-    letter-spacing: var(--spacing);
-    cursor: pointer;
-    transition: var(--transition);
-    margin-bottom: 2rem;
-  }
-
-  .btn:hover {
-    background-color: #397f84;
-    color: var(--clr-white);
-  }
 
   img:hover {
     opacity: 1;
     transform: scale(1.1);
-  }
-
-  .underline {
-    width: 6rem;
-    height: 0.25rem;
-    background: #49a6e9;
-    background: var(--clr-primary-hover);
-    margin-left: auto;
-    margin-right: auto;
   }
 
   p {
