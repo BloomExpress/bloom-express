@@ -9,7 +9,7 @@ import {
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import styled from "styled-components";
-import contactbg from "../assets/contactbg.png";
+import contactbg1 from "../assets/contactbg1.png";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -209,7 +209,7 @@ const Wrapper = styled.section`
   }
 
   .border {
-    background-image: url(${contactbg});
+    background-image: url(${contactbg1});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
