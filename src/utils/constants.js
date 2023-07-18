@@ -26,9 +26,9 @@ export const links = [
     text: 'cart',
     url: '/cart',
   },
-  {
+/*   {
     id: 6,
     text: 'login',
     url: '/login',
-  },
+  }, */
 ];

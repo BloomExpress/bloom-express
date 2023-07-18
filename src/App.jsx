@@ -4,6 +4,7 @@ import Contact from "./components/Contact";
 import Home from "./components/Home";
 import ProductsIndex from "./components/Products/Index";
 import NotFound from "./components/NotFound";
+//import Login from "./components/Login";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -20,6 +21,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<ProductsIndex />} />
+      {/*   <Route path="/login" element={<Login/>} /> */}
         <Route path="*" element={<NotFound />} />
       </Route>
     )
