@@ -30,7 +30,7 @@ const Newsletter = () => {
             <input
               type="email"
               className="form-input"
-              placeholder="enter email"
+              placeholder="enter your email"
               value={email}
               onChange={handleEmailChange}
             />

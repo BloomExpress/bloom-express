@@ -12,7 +12,6 @@ const Footer = () => {
     <Container>
       <section className="section-large">
         <h5>About Us</h5>
-        <br />
         <ul>
           <li>
             <a href="#">Company Information</a>
@@ -23,26 +22,27 @@ const Footer = () => {
           <li>
             <a href="#">Delivery Methods</a>
           </li>
+          <li>
+            <a href="#">Terms and Conditions</a>
+          </li>
         </ul>
       </section>
       <section className="section-large">
         <h5>Contact</h5>
-        <br />
         <ul>
           <li>
             <a href="#">Contact Us</a>
           </li>
           <li>
-            <a href="#">Email</a>
+            <a href="#">Customer Support</a>
           </li>
           <li>
-            <a href="#">Feedback</a>
+            <a href="#">FAQ</a>
           </li>
         </ul>
       </section>
       <section className="section-small">
         <h5>Follow Us</h5>
-        <br />
         <ul className="social-icons">
           <li>
             <a href="#">
@@ -67,10 +67,22 @@ const Footer = () => {
         </ul>
       </section>
       <section className="section-large">
-        <br />
+        <h5>Customer Service</h5>
+        <ul>
+          <li>
+            <a href="#">Track Order</a>
+          </li>
+          <li>
+            <a href="#">Returns</a>
+          </li>
+          <li>
+            <a href="#">Privacy Policy</a>
+          </li>
+        </ul>
+      </section>
+      <section className="section-large">
         <h5>
-          &copy; {new Date().getFullYear()}
-          <span>Bloom-Express. All rights reserved</span>
+          &copy; {new Date().getFullYear()} Bloom-Express. All rights reserved
         </h5>
       </section>
     </Container>
@@ -80,30 +92,21 @@ const Footer = () => {
 const Container = styled.footer`
   min-height: 10rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
   background: var(--clr-navbar);
-  text-align: center;
+  padding: 3rem;
 
   .section-large {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 
     h5 {
-      color: var(--clr-black);
-      margin: 0.1rem;
-      font-weight: 800;
-      font-size: 1rem;
-      margin-top: 2rem;
-      text-transform: none;
-      line-height: 1.25;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+      color: var(--clr-white);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     ul {
@@ -113,21 +116,14 @@ const Container = styled.footer`
 
       li {
         margin-bottom: 0.5rem;
-        margin-left: 0.5rem;
-
-        &:before {
-          content: "•";
-          display: inline-block;
-          color: var(--clr-white);
-          margin-right: 0.5rem;
-        }
 
         a {
-          color: var(--clr-black);
+          color: var(--clr-white);
           text-decoration: none;
+          transition: color 0.3s;
 
           &:hover {
-            color: var(--clr-black);
+            color: var(--clr-grey-6);
           }
         }
       }
@@ -137,67 +133,65 @@ const Container = styled.footer`
   .section-small {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 
     h5 {
       color: var(--clr-white);
-      margin: 0.1rem;
-      font-weight: 600;
-      text-transform: none;
-      line-height: 1.25;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .social-icons {
       display: flex;
+      justify-content: center;
+      margin-top: 0.5rem;
 
       li {
-        margin: 0 0.5rem;
+        margin-right: 1rem;
 
         a {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          color: var(--clr-black);
-          width: 2rem;
-          height: 2rem;
+          color: var(--clr-white);
+          width: 2.5rem;
+          height: 2.5rem;
           border-radius: 50%;
-          background: var(--clr-white);
+          background: var(--clr-black);
           text-decoration: none;
+          transition: background-color 0.3s;
 
           &:hover {
-            background: var(--clr-grey-6);
-          }
-
-          i {
-            font-size: 1rem;
+            background-color: var(--clr-grey-6);
           }
         }
       }
     }
   }
 
-  @media (min-width: 776px) {
-    flex-direction: column;
-    justify-content: space-between;
+  @media (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
-    .section-large {
-      margin-bottom: 1;
-      justify-content: center;
-      align-items: center;
-
-      h5 {
-        text-align: center;
-      }
+    .section-large,
+    .section-small {
+      width: 100%;
+      max-width: 30rem;
     }
 
-    .section-small {
-      align-items: center;
-      margin-bottom: 0;
-      h5 {
-        font-size: 2rem;
+    .newsletter-form {
+      flex-direction: column;
+
+      input {
+        border-radius: 0.25rem 0.25rem 0 0;
+      }
+
+      button {
+        border-radius: 0 0 0.25rem 0.25rem;
       }
     }
   }
 `;
+
 export default Footer;
