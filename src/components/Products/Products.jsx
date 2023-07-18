@@ -18,7 +18,7 @@ const Products = () => {
     setSelectedCategory(category);
   };
 
-  const filteredFlower = selectedCategory
+  const filteredFlowers = selectedCategory
     ? flowers.filter((flower) => flower.category === selectedCategory)
     : flowers;
 
@@ -37,15 +37,26 @@ const Products = () => {
 
   const links = {
     display: "flex",
-    flexFlow: "row no-wrap",
+    flexFlow: "row wrap",
     justifyContent: "space-between",
+  };
+
+  const dropDownLabel = {
+    transform: "scale(.85) translateY(-0.5rem) translateX(0.8rem)",
+  };
+
+  const headerFlowers = {
+    display: "flex",
+    flexFlow: "row wrap",
+    justifyContent: "space-between",
+    padding: "1rem 0rem",
   };
 
   return (
     <>
       <div className="container">
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-md-3">
             <div className="row pt-4">
               <div className="form-floating ">
                 <select
@@ -54,22 +65,27 @@ const Products = () => {
                   aria-label="Select Category"
                   onChange={changeCategory}
                 >
-                  <option value="all">all</option>
+                  <option value="">all</option>
                   {categories.map((category, index) => (
                     <option key={index} value={category}>
                       {category}
                     </option>
                   ))}
                 </select>
-                <label htmlFor="floatingSelect" className="">
+                <label htmlFor="floatingSelect" style={dropDownLabel}>
                   Select Category
                 </label>
               </div>
             </div>
           </div>
-          <div className="col-md-10">
+          <div className="col-md-9">
+            <div style={headerFlowers}>
+              <h4>3 products found</h4>
+              <h4>jflsljk</h4>
+            </div>
+
             <div className="row mt-3">
-              {filteredFlower.map((f) => (
+              {filteredFlowers.map((f) => (
                 <div className=" col-md-4" style={cardContainer} key={f.id}>
                   <NavLink to={`/product/${f.id}`}>
                     <div style={card}>
