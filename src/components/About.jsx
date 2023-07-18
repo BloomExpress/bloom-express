@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
-import aboutImg from "../assets/bouquet.avif";
+import aboutImg1 from "../assets/aboutImg1.png";
 import { Link } from "react-router-dom";
 import gridImg1 from "../assets/about-grid1.avif";
 import gridImg2 from "../assets/about-grid2.avif";
@@ -19,10 +19,10 @@ const About = () => {
     <main>
       <PageHero title="about" />
       <Wrapper className="page section section-center">
-        <img src={aboutImg} alt="bouquet" />
+        <img src={aboutImg1} alt="bouquet" />
         <article>
           <div className="title">
-            <h2>About Us</h2>
+            <h2>Our Story</h2>
             <div className="underline"></div>
           </div>
           <p>
