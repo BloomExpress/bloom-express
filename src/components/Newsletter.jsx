@@ -35,9 +35,10 @@ const Newsletter = () => {
       {showPopup && (
         <PopupWrapper>
           <Wrapper className="section">
-            <CloseIcon onClick={handleClosePopup}>
+            <CloseButton onClick={handleClosePopup}>
               <FontAwesomeIcon icon={faTimes} />
-            </CloseIcon>
+              <CloseText>Close</CloseText>
+            </CloseButton>
             <div className="section-center">
               <h3>Join our newsletter and get 20% off</h3>
               <div className="content">
@@ -88,6 +89,7 @@ const Wrapper = styled.section`
   background-color: var(--clr-primary-lightpink);
   border: 10px double white;
   position: relative;
+  max-width: 600 px;
 
   h3 {
     text-transform: none;
@@ -156,12 +158,56 @@ const Wrapper = styled.section`
   }
 `;
 
-const CloseIcon = styled.div`
+const CloseButton = styled.button`
   position: absolute;
   top: 10px;
   right: 10px;
+  background: transparent;
+  border: none;
   cursor: pointer;
   color: var(--clr-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:focus {
+    outline: none;
+  }
+
+  /* Position at the bottom on mobile screens */
+  @media (max-width: 480px) {
+    right: 50px;
+    top: 150px;
+  }
+
+  @media (max-width: 320px) {
+    max-width: 80%;
+    right: 40px;
+    top: 180px;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+
+    .form-input,
+    .submit-btn {
+      font-size: 0.9rem;
+    }
+  }
+`;
+
+const CloseText = styled.span`
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  &:hover {
+    color: var(--clr-primary-hover);
+  }
 `;
 
 export default Newsletter;
