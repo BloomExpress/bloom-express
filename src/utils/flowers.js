@@ -140,7 +140,7 @@ const flowers = [
     category: "Anniversary",
   },
   {
-    id: "15",
+    id: 15,
     name: "Summer Breeze Bouquet",
     price: 25.99,
     color: "Mixed",
@@ -150,7 +150,7 @@ const flowers = [
     category: "Celebration",
   },
   {
-    id: "16",
+    id: 16,
     name: "Cheerful Wishes Bouquet",
     price: 19.99,
     color: "Yellow",
@@ -160,7 +160,7 @@ const flowers = [
     category: "Celebration",
   },
   {
-    id: "17",
+    id: 17,
     name: "Mellow Melodies Bouquet",
     price: 26.99,
     color: "Pink",
@@ -170,7 +170,7 @@ const flowers = [
     category: "Romance",
   },
   {
-    id: "18",
+    id: 18,
     name: "Heavenly Peace Bouquet",
     price: 22.99,
     color: "White",
@@ -180,7 +180,7 @@ const flowers = [
     category: "Sympathy",
   },
   {
-    id: "19",
+    id: 19,
     name: "Pure Serenity Bouquet",
     price: 35.99,
     color: "White",
@@ -190,7 +190,7 @@ const flowers = [
     category: "Sympathy",
   },
   {
-    id: "20",
+    id: 20,
     name: "Anniversary Splendor Bouquet",
     price: 32.99,
     color: "Red",
