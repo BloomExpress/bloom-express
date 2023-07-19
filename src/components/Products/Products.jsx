@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
-import { FaEuroSign, FaShoppingCart } from "react-icons/fa";
+import { FaEuroSign } from "react-icons/fa";
 import flowers from "../../utils/flowers";
 
 const Products = () => {
