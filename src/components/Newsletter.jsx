@@ -89,7 +89,7 @@ const Wrapper = styled.section`
   background-color: var(--clr-primary-lightpink);
   border: 10px double white;
   position: relative;
-  max-width: 600 px;
+  max-width: 1200px;
 
   h3 {
     text-transform: none;
