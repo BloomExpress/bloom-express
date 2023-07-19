@@ -1,6 +1,6 @@
 
 import styled from "styled-components";
-import aboutImg from "../assets/bouquet.avif";
+import aboutImg from "../assets/aboutlili.jpg";
 
 import PageHero from "./PageHero";
 import AboutGridGallery from "./AboutGridGallery";
