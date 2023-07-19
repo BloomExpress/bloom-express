@@ -8,21 +8,24 @@ const Login = () => {
   const { loginWithRedirect, myUser, logout } = useUserContext();
   return (
     <Wrapper>
-      <button type="button" className="auth-btn" onClick={loginWithRedirect}>
-        Login <FaUserPlus />
-      </button>
-      <button
+      {myUser ? (
+           <button
         type="button"
         className="auth-btn"
         onClick={() => logout({ returnTo: window.location.origin })}
       >
         Logout <FaUserMinus />
-      </button>
+      </button> 
+      ): (
+        <button type="button" className="auth-btn" onClick={loginWithRedirect}>
+        Login <FaUserPlus />
+      </button> 
+      )}
     </Wrapper>
   );
 };
 
-
+ 
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
