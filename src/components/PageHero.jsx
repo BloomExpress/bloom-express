@@ -8,7 +8,7 @@ const PageHero = ({ title }) => {
       <WrapperHero>
         <div className="section-center">
           <h4>
-            <Link to="/">Home</Link> {title}
+            <Link to="/">Home</Link> > {title}
           </h4>
         </div>
       </WrapperHero>
