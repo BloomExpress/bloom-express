@@ -132,7 +132,7 @@ const flowers = [
   {
     id: 14,
     name: "Eternal Love Bouquet",
-    price: 32.99,
+    price: 34.99,
     color: "Red",
     description: "red and white bouquet",
     image:

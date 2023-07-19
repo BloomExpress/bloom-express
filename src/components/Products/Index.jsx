@@ -1,9 +1,9 @@
-import Products from "./Products";
+import { Outlet } from "react-router-dom";
 
 const ProductsIndex = () => {
   return (
     <div>
-      <Products />
+      <Outlet />
     </div>
   );
 };
