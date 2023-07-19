@@ -44,7 +44,7 @@ const Products = () => {
     padding: "1rem 0.1rem",
   };
   const cardContainer = {
-    paddingBottom: "6rem",
+    paddingBottom: "3rem",
   };
 
   const card = {
@@ -136,9 +136,9 @@ const Products = () => {
 
           <div className="row">
             {filteredFlowers.map((f) => (
-              <div className=" col-md-4" style={cardContainer} key={f.id}>
+              <div className="col-md-4" style={cardContainer} key={f.id}>
                 <NavLink to={`${f.id}`}>
-                  <div style={card}>
+                  <div style={card} className="shadow mb-1 bg-white">
                     <img
                       src={f.image}
                       className="card-img-top"
@@ -150,7 +150,7 @@ const Products = () => {
                       }}
                     />
 
-                    <div style={cardBody}>
+                    <div style={cardBody} className="p-3">
                       <div style={links}>
                         <span className="fs-5 text-dark-emphasis">
                           {f.name}
