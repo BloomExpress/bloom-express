@@ -1,8 +1,11 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Newsletter = () => {
   const [email, setEmail] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -14,39 +17,77 @@ const Newsletter = () => {
     console.log(`Email: ${email}`);
     setEmail("");
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 5000); // 10 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
-    <Wrapper className="section">
-      <div className="section-center">
-        <h3>Join our newsletter and get 20% off</h3>
-        <div className="content">
-          <p>
-            We understand that arranging flowers can be a daunting task,
-            especially if you're new to it. That's why we're here to help! If
-            you have no idea how to arrange the flowers in your vase, don't
-            worry. We provide a comprehensive guideline and step-by-step example
-            pictures to help you manage your flower vase like a pro.
-          </p>
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              className="form-input"
-              placeholder="enter your email"
-              value={email}
-              onChange={handleEmailChange}
-            />
-            <button type="submit" className="submit-btn">
-              subscribe
-            </button>
-          </form>
-        </div>
-      </div>
-    </Wrapper>
+    <>
+      {showPopup && (
+        <PopupWrapper>
+          <Wrapper className="section">
+            <CloseIcon onClick={handleClosePopup}>
+              <FontAwesomeIcon icon={faTimes} />
+            </CloseIcon>
+            <div className="section-center">
+              <h3>Join our newsletter and get 20% off</h3>
+              <div className="content">
+                <p>
+                  We understand that arranging flowers can be a daunting task,
+                  especially if you're new to it. That's why we're here to help!
+                  If you have no idea how to arrange the flowers in your vase,
+                  don't worry. We provide a comprehensive guideline and
+                  step-by-step example pictures to help you manage your flower
+                  vase like a pro.
+                </p>
+                <form className="contact-form" onSubmit={handleSubmit}>
+                  <input
+                    type="email"
+                    className="form-input"
+                    placeholder="enter your email"
+                    value={email}
+                    onChange={handleEmailChange}
+                  />
+                  <button type="submit" className="submit-btn">
+                    subscribe
+                  </button>
+                </form>
+              </div>
+            </div>
+          </Wrapper>
+        </PopupWrapper>
+      )}
+    </>
   );
 };
+
+const PopupWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Wrapper = styled.section`
   min-height: 10vh;
   padding: 15rem 1rem;
   background-color: var(--clr-primary-lightpink);
+  border: 10px double white;
+  position: relative;
 
   h3 {
     text-transform: none;
@@ -54,6 +95,7 @@ const Wrapper = styled.section`
   p {
     line-height: 2;
     max-width: 50rem;
+    margin-left: 1.5rem;
     color: var(--clr-grey-5);
   }
   .contact-form {
@@ -112,6 +154,14 @@ const Wrapper = styled.section`
   @media (min-width: 1280px) {
     padding: 15rem 0;
   }
+`;
+
+const CloseIcon = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: var(--clr-black);
 `;
 
 export default Newsletter;
