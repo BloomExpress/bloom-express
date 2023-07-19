@@ -34,7 +34,7 @@ const Wrapper = styled.main`
   .btn {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    background-color: transparent;
+    background-color: var(--clr-primary-button);
     color: var(--clr-grey-1);
     text-transform: capitalize;
     letter-spacing: var(--spacing);

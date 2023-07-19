@@ -13,7 +13,7 @@ const About = () => {
         <img src={aboutImg} alt="bouquet" />
         <article>
           <div className="title">
-            <h2>About Us</h2>
+            <h2>Our Story</h2>
             <div className="underline"></div>
           </div>
           <p>
@@ -46,9 +46,13 @@ const About = () => {
 };
 
 const Wrapper = styled.section`
-  height: 100vh;
+  height: auto;
   display: grid;
   gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
   img {
     width: 100%;
     display: block;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,7 +9,7 @@ import {
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import styled from "styled-components";
-import contactbg from "../assets/contactbg.png"; // Import your background image
+import contactbg1 from "../assets/contactbg1.png";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -18,13 +18,10 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Process the form submission
-    // You can add your logic here, such as sending the data to a server or displaying a success message
     console.log("Form submitted!");
     console.log("Name:", name);
     console.log("Email:", email);
     console.log("Message:", message);
-    // Reset the form fields
     setName("");
     setEmail("");
     setMessage("");
@@ -84,9 +81,9 @@ const Contact = () => {
             </form>
           </div>
 
-          <div className="col-md-6">
-            <div className="border p-4">
-              <h2>Company Details</h2>
+          <div className="col-md-6 d-flex flex-column justify-content-center">
+            <div className="border py-5">
+              <h2>Bloom Express</h2>
               <p>
                 <a
                   href="mailto:bloomexpress2023@gmail.com"
@@ -170,10 +167,6 @@ const Contact = () => {
 };
 
 const Wrapper = styled.section`
-  background-image: url(${contactbg});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   min-height: 100vh;
 
   .btn {
@@ -213,6 +206,13 @@ const Wrapper = styled.section`
 
   .social-icons a:hover {
     transform: scale(1.1);
+  }
+
+  .border {
+    background-image: url(${contactbg1});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 `;
 
