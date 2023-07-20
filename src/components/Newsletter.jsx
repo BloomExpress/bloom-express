@@ -1,27 +1,17 @@
 import { useState, useEffect } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Newsletter = () => {
-  const [email, setEmail] = useState("");
+  const [state, handleSubmit] = useForm("xeqbokjw");
   const [showPopup, setShowPopup] = useState(false);
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(`Email: ${email}`);
-    setEmail("");
-  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(true);
-    }, 5000); // 10 seconds
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -40,29 +30,47 @@ const Newsletter = () => {
               <CloseText>Close</CloseText>
             </CloseButton>
             <div className="section-center">
-              <h3>Join our newsletter and get 20% off</h3>
-              <div className="content">
-                <p>
-                  We understand that arranging flowers can be a daunting task,
-                  especially if you're new to it. That's why we're here to help!
-                  If you have no idea how to arrange the flowers in your vase,
-                  don't worry. We provide a comprehensive guideline and
-                  step-by-step example pictures to help you manage your flower
-                  vase like a pro.
-                </p>
-                <form className="contact-form" onSubmit={handleSubmit}>
-                  <input
-                    type="email"
-                    className="form-input"
-                    placeholder="enter your email"
-                    value={email}
-                    onChange={handleEmailChange}
-                  />
-                  <button type="submit" className="submit-btn">
-                    subscribe
-                  </button>
-                </form>
-              </div>
+              {state.succeeded ? (
+                <ThankYouMessage>
+                  <h3>Thank you for joining our magical flower family!</h3>
+                </ThankYouMessage>
+              ) : (
+                <>
+                  <h3>Join our newsletter and get 20% off</h3>
+                  <div className="content">
+                    <p>
+                      We understand that arranging flowers can be a daunting
+                      task, especially if you're new to it. That's why we're
+                      here to help! If you have no idea how to arrange the
+                      flowers in your vase, don't worry. We provide a
+                      comprehensive guideline and step-by-step example pictures
+                      to help you manage your flower vase like a pro.
+                    </p>
+                    <form className="contact-form" onSubmit={handleSubmit}>
+                      <input
+                        type="email"
+                        name="name"
+                        className="form-input"
+                        placeholder="enter your email"
+                      />
+                      <ValidationError
+                        prefix="Email"
+                        field="email"
+                        errors={state.errors}
+                      />
+                      <button type="submit" className="submit-btn">
+                        subscribe
+                      </button>
+                      {state.submitting && <div>Submitting...</div>}
+                      {state.errors.length > 0 && (
+                        <ThankYouMessage>
+                          Error occurred while submitting the form.
+                        </ThankYouMessage>
+                      )}
+                    </form>
+                  </div>
+                </>
+              )}
             </div>
           </Wrapper>
         </PopupWrapper>
@@ -208,6 +216,13 @@ const CloseText = styled.span`
   &:hover {
     color: var(--clr-primary-hover);
   }
+`;
+const ThankYouMessage = styled.span`
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+  text-align: center;
+  margin-top: 2rem;
 `;
 
 export default Newsletter;
