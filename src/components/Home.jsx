@@ -84,7 +84,7 @@ const Wrapper = styled.section`
     .hero-btn {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
-      background-color: var(--clr-button);
+      background-color: var(--clr-primary-button);
       color: var(--clr-grey-1);
       text-transform: capitalize;
       letter-spacing: var(--spacing);
