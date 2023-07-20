@@ -68,7 +68,7 @@ const flowers = [
     image:
       "https://images.unsplash.com/photo-1549576351-2b0829ac81f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGluayUyMGJvdXF1ZXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
     category: "New Baby",
-    isAvailable: true,
+    isAvailable: false,
     customerReviews: [
       { rating: 2.5, review: "Beautiful bouquet! Highly recommended." },
       // More customer reviews...
@@ -138,7 +138,7 @@ const flowers = [
     id: 10,
     name: "Pure Joy Bouquet",
     price: 17.99,
-    color: ['Pink', 'White', 'Red'],
+    color: ['Pink', 'White', 'Yellow'],
     description: "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
       "https://images.unsplash.com/photo-1593704192197-d674dc9c913f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzY2fHxmbG93ZXIlMjBib3VxdWV0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
