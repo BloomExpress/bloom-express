@@ -95,7 +95,7 @@ const Container = styled.footer`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  background: var(--clr-navbar);
+  background: var(--clr-primary-navbar);
   padding: 3rem;
 
   .section-large {
