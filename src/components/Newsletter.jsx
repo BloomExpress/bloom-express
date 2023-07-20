@@ -1,19 +1,11 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 
 const Newsletter = () => {
-  const [email, setEmail] = useState("");
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(`Email: ${email}`);
-    setEmail("");
-  };
+  const [state, handleSubmit] = useForm("xeqbokjw");
+  if (state.succeeded) {
+    return <p>Thank you for joining our magical flower family!</p>;
+  }
   return (
     <Wrapper className="section">
       <div className="section-center">
@@ -29,10 +21,14 @@ const Newsletter = () => {
           <form className="contact-form" onSubmit={handleSubmit}>
             <input
               type="email"
+              name="email"
               className="form-input"
               placeholder="enter your email"
-              value={email}
-              onChange={handleEmailChange}
+            />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
             />
             <button type="submit" className="submit-btn">
               subscribe
