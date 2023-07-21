@@ -3,6 +3,7 @@ import { NavLink, useLoaderData } from "react-router-dom";
 import { FaEuroSign } from "react-icons/fa";
 import flowers from "../../utils/flowers";
 import PageHero from "../PageHero";
+import styled from "styled-components";
 
 const Products = () => {
   const [filteredFlowers, setFilteredFlowers] = useState(flowers);
@@ -142,15 +143,10 @@ const Products = () => {
                 <div className="col-md-4" style={cardContainer} key={f.id}>
                   <NavLink to={`${f.id}`}>
                     <div style={card} className="shadow mb-1 bg-white">
-                      <img
+                      <Image
                         src={f.image}
                         className="card-img-top"
                         alt="Card Image"
-                        style={{
-                          width: "100%",
-                          height: "13rem",
-                          objectFit: "cover",
-                        }}
                       />
 
                       <div style={cardBody} className="p-3">
@@ -166,10 +162,10 @@ const Products = () => {
                               alignItems: "center",
                             }}
                           >
+                            <FaEuroSign style={{ fontSize: "0.9rem" }} />
                             <span style={{ fontSize: "1.1rem" }}>
                               {f.price}
                             </span>
-                            <FaEuroSign style={{ fontSize: "0.9rem" }} />
                           </p>
                         </div>
                       </div>
@@ -187,5 +183,18 @@ const Products = () => {
 export const productsLoader = async () => {
   return flowers;
 };
+
+const Image = styled.img`
+  width: 100%;
+  height: 13rem;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+  }
+`;
 
 export default Products;
