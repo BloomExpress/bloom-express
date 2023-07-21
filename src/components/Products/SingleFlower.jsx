@@ -8,9 +8,12 @@ import {
 import { FaCircleCheck, FaCircleXmark } from "react-icons/fa6";
 import flowers from "../../utils/flowers";
 import Counter from "./Counter";
+import { dataCard } from "../../contexts/CartContextProvider";
+import { useContext } from "react";
 
 const SingleFlower = () => {
   const flower = useLoaderData();
+  const { state, dispatch } = useContext(dataCard);
 
   const headerStyle = {
     height: "3rem",
@@ -33,6 +36,10 @@ const SingleFlower = () => {
     padding: "0.2rem 1rem",
     verticalAlign: "middle",
   };
+  const addToCart = () => {
+    dispatch({ type: "ADD_TO_CART", flowerItem: flower });
+  };
+
   return (
     <div className="container">
       <h2 style={headerStyle}>Flower Details</h2>
@@ -123,7 +130,11 @@ const SingleFlower = () => {
           <Counter />
         </div>
         <div>
-          <button style={addToBasket} className="btn btn-sm btn-info">
+          <button
+            style={addToBasket}
+            className="btn btn-sm btn-info"
+            onClick={addToCart}
+          >
             <FaPlusCircle /> <FaShoppingCart />
           </button>
         </div>
