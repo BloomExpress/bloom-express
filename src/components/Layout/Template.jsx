@@ -4,11 +4,17 @@ import Footer from "./Footer";
 
 const Template = () => {
   return (
-    <div>
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 };
 
