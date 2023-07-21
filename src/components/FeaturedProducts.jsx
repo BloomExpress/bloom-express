@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import bouquet1 from "../assets/bouquet1.png";
-import bouquet2 from "../assets/bouquet2.png";
-import bouquet3 from "../assets/bouquet3.png";
-import bouquet4 from "../assets/bouquet4.png";
-import bouquet5 from "../assets/bouquet5.png";
-import bouquet6 from "../assets/bouquet6.png";
+import flowers from "../utils/flowers.js";
+import { FaEuroSign } from "react-icons/fa";
 
 const FeaturedProducts = () => {
+  const featuredFlowers = flowers.filter((flower) => flower.isFeatured);
+
   return (
     <Wrapper className="section">
       <div className="title">
@@ -15,30 +13,20 @@ const FeaturedProducts = () => {
         <div className="underline"></div>
       </div>
       <div className="section-center featured">
-        <div>
-          <img src={bouquet1} alt="..." />
-          <p>16 Aug</p>
-        </div>
-        <div>
-          <img src={bouquet2} alt="..." />
-          <p>16 Aug</p>
-        </div>
-        <div>
-          <img src={bouquet3} alt="..." />
-          <p>17 Aug</p>
-        </div>
-        <div>
-          <img src={bouquet4} alt="..." />
-          <p>18 Aug</p>
-        </div>
-        <div>
-          <img src={bouquet5} alt="..." />
-          <p>19 Aug</p>
-        </div>
-        <div>
-          <img src={bouquet6} alt="..." />
-          <p>20 Aug</p>
-        </div>
+        {featuredFlowers.map((flower) => (
+          <Link to={`/products/${flower.id}`} key={flower.id}>
+            <div>
+              <img src={flower.image} alt={flower.name} />
+              <p>
+                {flower.name}
+                <span>
+                  <FaEuroSign />
+                  {flower.price}
+                </span>
+              </p>
+            </div>
+          </Link>
+        ))}
       </div>
       <Link to="/products" className="btn">
         all products
