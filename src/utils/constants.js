@@ -21,12 +21,12 @@ export const links = [
     text: 'contact',
     url: '/contact',
   },
-  {
+ /*  {
     id: 5,
     text: 'cart',
     url: '/cart',
   },
-/*   {
+  {
     id: 6,
     text: 'login',
     url: '/login',
