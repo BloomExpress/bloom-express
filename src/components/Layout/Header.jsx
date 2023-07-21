@@ -1,10 +1,9 @@
-import React from "react";
 import styled from "styled-components";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { links } from "../../utils/constants";
 import Login from "../../components/Login";
-// import CartButtons from './CartButtons';
+// import CartButtons from "./CartButtons";
 // import { useProductContext } from '../context/products_context';
 // import { useUserContext } from '../context/user_context';
 const Nav = () => {
@@ -35,10 +34,7 @@ const Nav = () => {
               <Link to="/checkout">checkout</Link>
             </li> */}
         </ul>
-        {/* <CartButtons /> */}
-        <div>
-          <Login />
-        </div>
+        <Login />
       </div>
     </NavContainer>
   );

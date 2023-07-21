@@ -16,6 +16,7 @@ import {
 } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Products from "./components/Products/Products";
+import Cart from "./components/Products/Cart";
 
 function App() {
   const router = createBrowserRouter(
@@ -24,6 +25,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<ProductsIndex />}>
           <Route index element={<Products />} loader={productsLoader} />
           <Route

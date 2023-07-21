@@ -79,8 +79,8 @@ const Products = () => {
   };
 
   return (
-    <main>
-      <PageHero title="Products" />
+    <>
+      {/* <PageHero title="Products" /> */}
       <div className="container">
         <div className="row">
           <div className="col-md-2">
@@ -177,7 +177,7 @@ const Products = () => {
           </div>
         </div>
       </div>
-    </main>
+    </>
   );
 };
 export const productsLoader = async () => {

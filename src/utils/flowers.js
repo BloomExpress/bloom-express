@@ -79,6 +79,7 @@ const flowers = [
     category: "New Baby",
     isAvailable: true,
     isFeatured: false,
+
     customerReviews: [
       { rating: 2.5, review: "Beautiful bouquet! Highly recommended." },
       // More customer reviews...

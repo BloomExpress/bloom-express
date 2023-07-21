@@ -1,7 +1,13 @@
 import { useLoaderData } from "react-router-dom";
-import { FaEuroSign, FaStar, FaShoppingCart } from "react-icons/fa";
+import {
+  FaEuroSign,
+  FaStar,
+  FaPlusCircle,
+  FaShoppingCart,
+} from "react-icons/fa";
 import { FaCircleCheck, FaCircleXmark } from "react-icons/fa6";
 import flowers from "../../utils/flowers";
+import Counter from "./Counter";
 
 const SingleFlower = () => {
   const flower = useLoaderData();
@@ -23,6 +29,10 @@ const SingleFlower = () => {
     margin: "auto",
   };
 
+  const addToBasket = {
+    padding: "0.2rem 1rem",
+    verticalAlign: "middle",
+  };
   return (
     <div className="container">
       <h2 style={headerStyle}>Flower Details</h2>
@@ -30,12 +40,15 @@ const SingleFlower = () => {
         {flower.map((fl) => (
           <div className="row" key={fl.id}>
             <div className="col-md-6">
-              <img
-                src={fl.image}
-                alt="Img"
-                className="shadow-lg mb-5 bg-white"
+              <figure
+                className="figure shadow-lg mb-5 bg-white"
                 style={imgStyle}
-              />
+              >
+                <img src={fl.image} alt="Img" className="" style={imgStyle} />
+                <figcaption className="figure-caption bg-white p-2">
+                  {fl.name}
+                </figcaption>
+              </figure>
             </div>
             <div className="col-md-6">
               <div
@@ -60,25 +73,31 @@ const SingleFlower = () => {
                   />
                 </h4>
                 <p style={{ textAlign: "justify" }}>{fl.description}</p>
+                <hr />
+                <h6 style={{ marginBottom: "1rem" }}>
+                  <span>Occasion:</span>
+                  <span style={{ color: "darkgray" }}>&nbsp;{fl.category}</span>
+                </h6>
                 <p>
                   {fl.isAvailable ? (
                     <span style={{ display: "flex", alignItems: "center" }}>
                       <FaCircleCheck
                         style={{ fontSize: "1.2rem", color: "lightgreen" }}
                       />
-                      <span>&nbsp;Available in Stock</span>
+                      <span>&nbsp;available in stock</span>
                     </span>
                   ) : (
                     <span>
                       <FaCircleXmark
                         style={{ fontSize: "1.2rem", color: "red" }}
                       />
-                      <span>&nbsp;Not Available in Stock</span>
+                      <span>&nbsp;not available in stock</span>
                     </span>
                   )}
                 </p>
+                <hr />
                 <p className="p-3 bg-secondary-subtle rounded">
-                  Colors &nbsp;
+                  COLORS &nbsp;
                   {fl.color.map((c) => (
                     <span
                       key={c}
@@ -93,13 +112,22 @@ const SingleFlower = () => {
                     ></span>
                   ))}
                 </p>
-                <p>Category {fl.category}</p>
+                <p></p>
               </div>
             </div>
           </div>
         ))}
       </div>
-      <p>jlkjflks</p>
+      <div className="pb-5 d-flex justify-content-center align-items-center gap-5">
+        <div className="d-flex">
+          <Counter />
+        </div>
+        <div>
+          <button style={addToBasket} className="btn btn-sm btn-info">
+            <FaPlusCircle /> <FaShoppingCart />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
