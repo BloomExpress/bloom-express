@@ -80,7 +80,7 @@ const Products = () => {
 
   return (
     <>
-      {/* <PageHero title="Products" /> */}
+      <PageHero title="Products" />
       <div className="container">
         <div className="row">
           <div className="col-md-2">
@@ -188,8 +188,7 @@ const Image = styled.img`
   width: 100%;
   height: 13rem;
   object-fit: cover;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+  transition: filter 0.3s ease, transform 0.3s ease;
 
   &:hover {
     filter: brightness(1.2);

@@ -17,8 +17,13 @@ const FeaturedProducts = () => {
           <Link to={`/products/${flower.id}`} key={flower.id}>
             <div>
               <img src={flower.image} alt={flower.name} />
-              <p>
-                {flower.name}
+              <p
+                style={{
+                  display: "flex",
+                  justifyContent: "space-evenly",
+                }}
+              >
+                <span>{flower.name}</span>
                 <span>
                   <FaEuroSign />
                   {flower.price}
@@ -41,18 +46,20 @@ const Wrapper = styled.section`
     margin: 4rem auto;
     display: grid;
     gap: 2rem;
+    justify-content: center;
+    align-items: center;
+
     img {
-      width: 220px;
+      width: 300px;
       height: 300px;
       object-fit: cover;
       border-radius: var(--radius);
-      transition: var(--transition);
-      opacity: 0.7;
+      transition: filter 0.3s ease, transform 0.3s ease;
     }
   }
 
   img:hover {
-    opacity: 1;
+    filter: brightness(1.2);
     transform: scale(1.1);
   }
 
@@ -62,7 +69,7 @@ const Wrapper = styled.section`
 
   @media (min-width: 576px) {
     .featured {
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
   }
 `;
