@@ -13,6 +13,11 @@ import { useContext } from "react";
 
 const SingleFlower = () => {
   const flower = useLoaderData();
+  const flObj = flower.reduce((acc, currentValue) => {
+    acc = currentValue;
+    return acc;
+  }, {});
+
   const { state, dispatch } = useContext(dataCard);
 
   const headerStyle = {
@@ -37,11 +42,12 @@ const SingleFlower = () => {
     verticalAlign: "middle",
   };
   const addToCart = () => {
-    dispatch({ type: "ADD_TO_CART", flowerItem: flower });
+    dispatch({ type: "ADD_TO_CART", flowerItem: flObj });
   };
 
   return (
     <div className="container">
+      {console.log("Flower: ", flower)}
       <h2 style={headerStyle}>Flower Details</h2>
       <div className="pt-5 pb-5">
         {flower.map((fl) => (

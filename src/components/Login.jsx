@@ -2,16 +2,19 @@ import { useUserContext } from "../contexts/user_context";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaUserPlus, FaShoppingCart, FaUserMinus } from "react-icons/fa";
+import { useContext } from "react";
+import { dataCard } from "../contexts/CartContextProvider";
 
 const Login = () => {
   const { loginWithRedirect, myUser, logout } = useUserContext();
+  const { state } = useContext(dataCard);
   return (
     <Wrapper>
       <Link to="/cart" className="cart-btn">
         Cart
         <span className="cart-container">
           <FaShoppingCart />
-          <span className="cart-value">1</span>
+          <span className="cart-value">{state.cart.length}</span>
         </span>
       </Link>
       {myUser ? (

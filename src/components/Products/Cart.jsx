@@ -10,8 +10,8 @@ const Cart = () => {
   };
 
   const imgStyle = {
-    width: "300px",
-    height: "200px",
+    width: "150px",
+    height: "100px",
   };
   const { state, dispatch } = useContext(dataCard);
   return (
