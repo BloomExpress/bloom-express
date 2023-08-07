@@ -19,8 +19,8 @@ const Products = () => {
       : flowerProducts;
 
     sortFlower === "asc"
-      ? setFilteredFlowers(f.sort((a, b) => a.price - b.price))
-      : setFilteredFlowers(f.sort((a, b) => b.price - a.price));
+      ? setFilteredFlowers(f.sort((a, b) => b.price - a.price))
+      : setFilteredFlowers(f.sort((a, b) => a.price - b.price));
 
     setImgCount(f.length);
   }, [selectedCategory, sortFlower]);
