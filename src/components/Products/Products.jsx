@@ -19,8 +19,8 @@ const Products = () => {
       : flowerProducts;
 
     sortFlower === "asc"
-      ? setFilteredFlowers(f.sort((a, b) => b.price - a.price))
-      : setFilteredFlowers(f.sort((a, b) => a.price - b.price));
+      ? setFilteredFlowers(f.sort((a, b) => a.price - b.price))
+      : setFilteredFlowers(f.sort((a, b) => b.price - a.price));
 
     setImgCount(f.length);
   }, [selectedCategory, sortFlower]);
@@ -130,8 +130,8 @@ const Products = () => {
                     className="form-select form-select-sm"
                     onChange={sortByPrice}
                   >
-                    <option value="asc">Lowest</option>
-                    <option value="des">Highest</option>
+                    <option value="des">Lowest</option>
+                    <option value="asc">Highest</option>
                   </select>
                 </div>
               </span>
