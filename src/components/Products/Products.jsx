@@ -130,8 +130,8 @@ const Products = () => {
                     className="form-select form-select-sm"
                     onChange={sortByPrice}
                   >
-                    <option value="des">Lowest</option>
-                    <option value="asc">Highest</option>
+                    <option value="asc">Lowest</option>
+                    <option value="des">Highest</option>
                   </select>
                 </div>
               </span>
