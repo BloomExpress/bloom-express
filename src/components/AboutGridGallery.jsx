@@ -59,7 +59,7 @@ const AboutGridGallery = () => {
           </div>
         </div>
       </div>
-      <Link to="products" className="btn hero-btn">
+      <Link to="/products" className="btn hero-btn">
         Let's go buy us some flowers!
       </Link>
     </div>
