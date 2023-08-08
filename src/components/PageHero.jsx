@@ -29,6 +29,10 @@ const WrapperHero = styled.section`
   a:hover {
     color: var(--clr-grey-5);
   }
+
+  @media (max-width: 768px) {
+    margin-left: 1rem;
+  }
 `;
 
 export default PageHero;
