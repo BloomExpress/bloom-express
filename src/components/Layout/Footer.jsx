@@ -128,7 +128,7 @@ const Footer = () => {
         </section>
 
         {showBackToTop && (
-          <section className="section-small">
+          <section>
             <BackToTopLink href="#top" onClick={handleBackToTop}>
               Back to Top
               <FontAwesomeIcon icon={faArrowUpFromBracket} size="lg" />
@@ -242,7 +242,9 @@ const BackToTopLink = styled.a`
   align-items: flex-end;
   gap: 5px;
   transition: transform 0.3s;
-  margin-left: auto;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
 
   &:hover {
     color: #397f84;
@@ -260,7 +262,6 @@ const BackToTopLink = styled.a`
   @media (max-width: 768px) {
     position: fixed;
     bottom: 10px;
-    left: 50%;
     transform: translateX(-50%);
   }
 `;
