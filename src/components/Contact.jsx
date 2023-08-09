@@ -146,7 +146,7 @@ const Contact = () => {
                     <FontAwesomeIcon icon={faFacebook} size="2x" />
                   </a>
                   <a
-                    href="https://www.twitter.com"
+                    href="https://www.tiktok.com"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

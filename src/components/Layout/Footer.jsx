@@ -99,7 +99,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="https://www.twitter.com"
+                href="https://www.tiktok.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
