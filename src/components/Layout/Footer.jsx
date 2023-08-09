@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faWhatsapp,
   faFacebook,
-  faTwitter,
+  faTiktok,
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
@@ -103,7 +103,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FontAwesomeIcon icon={faTwitter} />
+                <FontAwesomeIcon icon={faTiktok} style={{ color: "#ffffff" }} />
               </a>
             </li>
             <li>
