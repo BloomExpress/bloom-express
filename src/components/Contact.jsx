@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
-  faTwitter,
+  faTiktok,
   faInstagram,
   faLinkedin,
   faWhatsapp,
@@ -150,7 +150,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <FontAwesomeIcon icon={faTwitter} size="2x" />
+                    <FontAwesomeIcon icon={faTiktok} size="2x" />
                   </a>
                   <a
                     href="https://www.instagram.com"
