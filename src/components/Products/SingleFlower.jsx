@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+
 import {
   FaEuroSign,
   FaStar,
@@ -10,15 +11,17 @@ import flowers from "../../utils/flowers";
 import Counter from "./Counter";
 import { dataCard } from "../../contexts/CartContextProvider";
 import { useContext } from "react";
+import { useState } from "react";
 
 const SingleFlower = () => {
+  const [addedToCart, setAddedToCart] = useState(false);
   const flower = useLoaderData();
   const flObj = flower.reduce((acc, currentValue) => {
     acc = currentValue;
     return acc;
   }, {});
-
-  const { state, dispatch } = useContext(dataCard);
+  console.log("FLG:", flObj);
+  const { state, dispatch1 } = useContext(dataCard);
 
   const headerStyle = {
     height: "3rem",
@@ -42,12 +45,15 @@ const SingleFlower = () => {
     verticalAlign: "middle",
   };
   const addToCart = () => {
-    dispatch({ type: "ADD_TO_CART", flowerItem: flObj });
+    dispatch1({ type: "ADD_TO_CART", flowerItem: flObj });
+    setAddedToCart(true);
+    setTimeout(() => {
+      setAddedToCart(false);
+    }, 3000);
   };
 
   return (
-    <div className="container">
-      {console.log("Flower: ", flower)}
+    <section className="container">
       <h2 style={headerStyle}>Flower Details</h2>
       <div className="pt-5 pb-5">
         {flower.map((fl) => (
@@ -112,17 +118,22 @@ const SingleFlower = () => {
                 <p className="p-3 bg-secondary-subtle rounded">
                   COLORS &nbsp;
                   {fl.color.map((c) => (
-                    <span
-                      key={c}
-                      style={{
-                        backgroundColor: `${c}`,
-                        width: "1rem",
-                        height: ".1rem",
-                        padding: "0rem .5rem",
-                        marginRight: "0.2rem",
-                        borderRadius: "100%",
-                      }}
-                    ></span>
+                    <span key={c}>
+                      <span
+                        style={{
+                          backgroundColor: `${c}`,
+                          verticalAlign: "middle",
+                          paddingTop: "3px",
+                          paddingLeft: "4px",
+                          paddingRight: "4px",
+                          paddingBottom: "1px",
+                          borderRadius: "100%",
+                        }}
+                      >
+                        <input type="radio" value={c} required name="color" />
+                      </span>
+                      <span className="vr ms-2 me-2 mt-2"></span>
+                    </span>
                   ))}
                 </p>
                 <p></p>
@@ -131,21 +142,56 @@ const SingleFlower = () => {
           </div>
         ))}
       </div>
-      <div className="pb-5 d-flex justify-content-center align-items-center gap-5">
-        <div className="d-flex">
-          <Counter />
-        </div>
-        <div>
-          <button
-            style={addToBasket}
-            className="btn btn-sm btn-info"
-            onClick={addToCart}
+      <svg xmlns="http://www.w3.org/2000/svg" className="d-none">
+        <symbol id="check-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+      </svg>
+      <div className="w-100 d-flex justify-content-center align-items-center">
+        <div
+          style={{
+            width: "30%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          className={
+            addedToCart
+              ? "alert alert-success alert-dismissible fade show"
+              : "alert-dismissible fade"
+          }
+          role="alert"
+        >
+          <svg
+            className="bi flex-shrink-0 me-2"
+            width="16"
+            height="16"
+            role="img"
+            aria-label="Success:"
           >
-            <FaPlusCircle /> <FaShoppingCart />
-          </button>
+            <use xlinkHref="#check-circle-fill" />
+          </svg>
+          <span>Success, Flower was added to the cart!</span>
         </div>
       </div>
-    </div>
+
+      <div className="pb-5 d-flex justify-content-center align-items-center gap-5">
+        <div className="d-flex">
+          <Counter isActive={flObj.isAvailable} />
+        </div>
+        <button
+          type="button"
+          style={addToBasket}
+          className={
+            flObj.isAvailable ? "btn btn-sm btn-info" : "btn btn-sm disabled"
+          }
+          onClick={addToCart}
+          id="liveAlertBtn"
+        >
+          <FaPlusCircle /> <FaShoppingCart />
+        </button>
+      </div>
+    </section>
   );
 };
 

@@ -1,25 +1,16 @@
-// import { useState } from "react";
-import { useReducer } from "react";
-import doReduce from "../../reducers/doReducer";
+import { useContext } from "react";
+import { numberOfItems } from "../../contexts/CounterContextProvider";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
-const Counter = () => {
-  //   const [data, setData] = useState(0);
-  const [state, dispatch] = useReducer(doReduce, { count: 1 });
-  console.log(state.count);
+const Counter = ({ isActive }) => {
+  const { number, handleDispatch } = useContext(numberOfItems);
+
   const increment = () => {
-    // setData(data + 1);
-    dispatch({ type: "inc" });
+    handleDispatch({ type: "inc" });
   };
 
   const decrement = () => {
-    // setData(data - 1);
-    dispatch({ type: "dec" });
-  };
-
-  const reset = () => {
-    // setData(0);
-    dispatch({ type: "res" });
+    handleDispatch({ type: "dec" });
   };
 
   const btnStyle = {
@@ -30,11 +21,19 @@ const Counter = () => {
   };
   return (
     <>
-      <button style={btnStyle} onClick={increment}>
+      <button
+        style={btnStyle}
+        className={!isActive ? "btn disabled" : ""}
+        onClick={increment}
+      >
         <FaPlus />
       </button>
-      <p style={{ margin: "1rem" }}> {state.count}</p>
-      <button style={btnStyle} onClick={decrement}>
+      <p style={{ margin: "1rem" }}> {isActive ? number : 0}</p>
+      <button
+        style={btnStyle}
+        onClick={decrement}
+        className={!isActive ? "btn disabled" : ""}
+      >
         <FaMinus />
       </button>
       {/* <button onClick={reset}>Reset</button> */}

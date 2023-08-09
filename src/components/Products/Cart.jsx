@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { dataCard } from "../../contexts/CartContextProvider";
+import Counter from "./Counter";
+import { FaTrash } from "react-icons/fa";
 
 const Cart = () => {
   const headerStyle = {
@@ -11,31 +13,52 @@ const Cart = () => {
 
   const imgStyle = {
     width: "150px",
-    height: "100px",
+    height: "110px",
+    objectFit: "center",
   };
-  const { state, dispatch } = useContext(dataCard);
+
+  const dividerStyle = {
+    height: "7rem",
+    marginTop: "1.1rem",
+  };
+
+  const trashIconStyle = {
+    color: "#B20001",
+    fontSize: "1.4rem",
+  };
+  const { state, dispatch1 } = useContext(dataCard);
   return (
     <div className="container">
       <h2 style={headerStyle}>Flower Details</h2>
+      <hr />
+      total:1
+      <hr />
       {console.log("state: ", state.cart)}
       {state.cart.length > 0 ? (
         state.cart.map((item, index) => (
-          <div className="row" key={index}>
-            <div className="col-md-3">
+          <div key={index}>
+            <div className="d-flex justify-content-center align-items-center gap-3 flex-wrap">
               <figure className="figure">
-                <img
-                  src={item.image}
-                  style={imgStyle}
-                  className="figure-img img-fluid rounded"
-                  alt={item.category + "/" + item.name}
-                />
                 <figcaption className="figure-caption text-center">
                   {item.name}
                 </figcaption>
+                <img
+                  src={item.image}
+                  style={imgStyle}
+                  className="figure-img rounded"
+                  alt={item.category + "/" + item.name}
+                />
               </figure>
+              <div className="vr" style={dividerStyle}></div>
+              <div>
+                <Counter />
+              </div>
+              <div className="vr" style={dividerStyle}></div>
+              <div>
+                <FaTrash style={trashIconStyle} />
+              </div>
             </div>
-            <div className="col-md-3"></div>
-            <div className="col-md-3"></div>
+            <hr />
           </div>
         ))
       ) : (

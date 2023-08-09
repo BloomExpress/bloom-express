@@ -7,6 +7,7 @@ import "./index.css";
 import { UserProvider } from "./contexts/user_context";
 import { Auth0Provider } from "@auth0/auth0-react";
 import CartContextProvider from "./contexts/CartContextProvider.jsx";
+import CounterContextProvider from "./contexts/CounterContextProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Auth0Provider
@@ -19,7 +20,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <UserProvider>
       <React.StrictMode>
         <CartContextProvider>
-          <App />
+          <CounterContextProvider>
+            <App />
+          </CounterContextProvider>
         </CartContextProvider>
       </React.StrictMode>
     </UserProvider>

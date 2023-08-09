@@ -6,14 +6,15 @@ import PageHero from "../PageHero";
 import styled from "styled-components";
 
 const Products = () => {
-  const [filteredFlowers, setFilteredFlowers] = useState(flowers);
+  const flowerProducts = useLoaderData();
+
+  const [filteredFlowers, setFilteredFlowers] = useState(flowerProducts);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [imgCount, setImgCount] = useState(0);
   const [sortFlower, setSortFlower] = useState("asc");
-  const flowerProducts = useLoaderData();
 
   useEffect(() => {
-    console.log("triggered!");
+    
     const f = selectedCategory
       ? flowerProducts.filter((flower) => flower.category === selectedCategory)
       : flowerProducts;
@@ -23,7 +24,7 @@ const Products = () => {
       : setFilteredFlowers(f.sort((a, b) => b.price - a.price));
 
     setImgCount(f.length);
-  }, [selectedCategory, sortFlower]);
+  }, [selectedCategory, sortFlower, flowerProducts]);
 
   const categories = flowers.reduce((acc, flower) => {
     if (!acc.includes(flower.category)) {
