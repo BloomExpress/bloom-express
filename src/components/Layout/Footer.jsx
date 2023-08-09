@@ -85,7 +85,7 @@ const Footer = () => {
             </li>
           </ul>
         </section>
-        <section>
+        <section className="section-small">
           <h5>Follow Us</h5>
           <ul className="social-icons">
             <li>
@@ -165,6 +165,9 @@ const FooterContent = styled.div`
     flex-direction: column;
     margin-bottom: 2rem;
     text-align: center;
+    border-left: 2px solid var(--clr-white);
+    padding-left: 2rem;
+    margin-left: 3em;
 
     h5 {
       color: var(--clr-white);
@@ -187,6 +190,16 @@ const FooterContent = styled.div`
         }
       }
     }
+  }
+
+  .section-small {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-left: 2px solid var(--clr-black);
+    padding-left: 2rem;
+    margin-left: 5rem;
   }
 
   .social-icons {
@@ -225,6 +238,8 @@ const FooterContent = styled.div`
     .section-small {
       width: 100%;
       max-width: 30rem;
+      margin-left: 0;
+      padding-left: 0;
     }
 
     .section-large:not(:last-child) {
