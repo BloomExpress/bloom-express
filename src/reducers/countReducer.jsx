@@ -1,13 +1,15 @@
-const countReduce = (st, act) => {
+export const countReduce = (state, act) => {
   switch (act.type) {
     case "inc":
-      return { count: st.count + 1 };
+      return { ...state, count: state.count + 1 };
     case "dec":
-      if (st.count > 1) {
-        return { count: st.count - 1 };
+      if (state.count > 1) {
+        return { ...state, count: state.count - 1 };
       } else {
-        return { count: st.count };
+        return state;
       }
+    case "res":
+      return { ...state, count: 1 };
     default:
       throw new Error("Unexpected action");
   }

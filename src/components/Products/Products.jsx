@@ -14,14 +14,13 @@ const Products = () => {
   const [sortFlower, setSortFlower] = useState("asc");
 
   useEffect(() => {
-    
     const f = selectedCategory
       ? flowerProducts.filter((flower) => flower.category === selectedCategory)
-      : flowerProducts;
+      : flowerProducts.filter((flower) => flower);
 
-    sortFlower === "asc"
-      ? setFilteredFlowers(f.sort((a, b) => a.price - b.price))
-      : setFilteredFlowers(f.sort((a, b) => b.price - a.price));
+    sortFlower === "des"
+      ? setFilteredFlowers(f.sort((a, b) => b.price - a.price))
+      : setFilteredFlowers(f.sort((a, b) => a.price - b.price));
 
     setImgCount(f.length);
   }, [selectedCategory, sortFlower, flowerProducts]);
@@ -39,8 +38,8 @@ const Products = () => {
   };
 
   const sortByPrice = (e) => {
-    let val = e.target.value;
-    setSortFlower(val);
+    // let val = ;
+    setSortFlower(e.target.value);
   };
 
   const cardBody = {
