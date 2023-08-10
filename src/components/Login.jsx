@@ -14,7 +14,11 @@ const Login = () => {
         Cart
         <span className="cart-container">
           <FaShoppingCart />
-          <span className="cart-value">{state.cart.length}</span>
+          {state.cart.length > 0 ? (
+            <span className="cart-value">{state.cart.length}</span>
+          ) : (
+            <span></span>
+          )}
         </span>
       </Link>
       {myUser ? (

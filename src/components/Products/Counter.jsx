@@ -4,7 +4,6 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 
 const Counter = ({ isActive }) => {
   const { number, handleDispatch } = useContext(numberOfItems);
-
   const increment = () => {
     handleDispatch({ type: "inc" });
   };
@@ -28,7 +27,7 @@ const Counter = ({ isActive }) => {
       >
         <FaPlus />
       </button>
-      <p style={{ margin: "1rem" }}> {isActive ? number : 0}</p>
+      <p style={{ margin: "1rem" }}> {isActive ? number.count : 0}</p>
       <button
         style={btnStyle}
         onClick={decrement}
