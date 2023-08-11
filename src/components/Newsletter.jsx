@@ -9,12 +9,12 @@ const Newsletter = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    const hasSeenPopup = localStorage.getItem("hasSeenPopup");
+    const hasSeenPopup = sessionStorage.getItem("hasSeenPopup");
 
     if (!hasSeenPopup) {
       const timer = setTimeout(() => {
         setShowPopup(true);
-        localStorage.setItem("hasSeenPopup", "true");
+        sessionStorage.setItem("hasSeenPopup", "true");
       }, 5000);
 
       return () => clearTimeout(timer);
