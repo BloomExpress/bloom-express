@@ -3,10 +3,21 @@ import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { links } from "../../utils/constants";
 import Login from "../../components/Login";
+import { FaBars } from "react-icons/fa";
+import { useState } from "react";
 // import CartButtons from "./CartButtons";
 // import { useProductContext } from '../context/products_context';
 // import { useUserContext } from '../context/user_context';
 const Nav = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
   // const { openSidebar } = useProductsContext();
   // const { myUser } = useUserContext();
   return (
@@ -16,16 +27,21 @@ const Nav = () => {
           <Link to="/">
             <img src={logo} alt="Bloom Express" />
           </Link>
+          <button type="button" className="nav-toggle" onClick={toggleSidebar}>
+            <FaBars />
+          </button>
           {/* <button type="button" className="nav-toggle" onClick={openSidebar}> */}
           {/* <FaBars />
           </button> */}
         </div>
-        <ul className="nav-links">
+        <ul className={`nav-links ${isSidebarOpen ? "show-sidebar" : ""}`}>
           {links.map((link) => {
             const { id, text, url } = link;
             return (
               <li key={id}>
-                <Link to={url}>{text}</Link>
+                <Link to={url} onClick={closeSidebar}>
+                  {text}
+                </Link>
               </li>
             );
           })}
@@ -64,10 +80,10 @@ const NavContainer = styled.nav`
   .nav-toggle {
     background: transparent;
     border: transparent;
-    color: var(--clr-primary-5);
+    color: var(--clr-black);
     cursor: pointer;
     svg {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
   .nav-links {
@@ -76,7 +92,8 @@ const NavContainer = styled.nav`
   .cart-btn-wrapper {
     display: none;
   }
-  @media (min-width: 992px) {
+
+  @media (min-width: 1024px) {
     .nav-toggle {
       display: none;
     }
@@ -103,6 +120,43 @@ const NavContainer = styled.nav`
         }
       }
     }
+    .cart-btn-wrapper {
+      display: grid;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .nav-links {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: -400px; 
+      width: 400px; 
+      height: 100%;
+      background-color: var(--clr-primary-navbar);
+      transition: right 0.3s ease-in-out;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+    .show-sidebar {
+      right: 0;
+    }
+    .nav-links li {
+      margin: 0.5rem 1rem;
+    }
+    .nav-links a {
+      color: var(--clr-white);
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      letter-spacing: var(--spacing);
+      padding: 1rem;
+      display: block;
+      transition: color 0.3s ease-in-out;
+    }
+    .nav-links a:hover {
+      color: var(--clr-primary-hover);
+    }
+  }
     .cart-btn-wrapper {
       display: grid;
     }

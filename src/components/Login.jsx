@@ -42,8 +42,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  
-  
+
   .cart-btn {
     color: var(--clr-grey-1);
     font-size: 1.5rem;
@@ -89,7 +88,27 @@ const Wrapper = styled.div`
     svg {
       margin-left: 5px;
     }
-  
+  }
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    justify-items: center;
+
+    .cart-btn {
+      font-size: 1rem;
+      align-items: flex-start;
+    }
+
+    .cart-container {
+      svg {
+        height: 1rem;
+      }
+    }
+
+    .auth-btn {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export default Login;
