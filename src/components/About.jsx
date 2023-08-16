@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 import aboutImg from "../assets/aboutlili.jpg";
 
@@ -52,6 +51,10 @@ const Wrapper = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+
+  @media (min-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   img {
     width: 100%;
