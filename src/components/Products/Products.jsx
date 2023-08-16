@@ -104,11 +104,7 @@ const Products = () => {
                 </label>
               </div>
             </div>
-            <div className="row mt-3">
-              <label htmlFor="">
-                <input type="text" name="ab" />
-              </label>
-            </div>
+            <div className="row mt-3"></div>
           </div>
           <div className="col-md-10">
             <div style={headerFlowers}>
