@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { dataCard } from "../../contexts/CartContextProvider";
-// import Counter from "./Counter";
+import { PiFlowerFill } from "react-icons/pi";
 import { FaTrash } from "react-icons/fa";
 import { useState } from "react";
 import PageHero from "../PageHero";
@@ -53,8 +53,9 @@ const Cart = () => {
               <h2 className="display-6 fs-5">items,</h2>
             </span>
             <span className="d-flex">
-              <h2 className="display-6 fs-5">total amount = </h2>&nbsp;{" "}
-              {totalCost}€
+              <h2 className="display-6 fs-5">total amount = </h2>&nbsp;
+              {totalCost.toFixed(2)}
+              <h2 className="fs-6">€</h2>
             </span>
             <span></span>
           </div>
@@ -65,7 +66,7 @@ const Cart = () => {
         <div className="w-100 d-flex justify-content-center align-items-center">
           <div
             style={{
-              width: "30%",
+              width: "300px",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -86,7 +87,7 @@ const Cart = () => {
             >
               <use xlinkHref="#check-circle-fill" />
             </svg>
-            <span>Ok, Flower was deleted from cart!</span>
+            <span>item deleted from cart!</span>
           </div>
         </div>
 
@@ -97,9 +98,6 @@ const Cart = () => {
                 style={{ width: "fit-content" }}
                 className="d-flex justify-content-center align-items-center gap-3 flex-wrap p-4 shadow"
               >
-                <h2 className="display-6 fs-5">
-                  {index + 1}.&nbsp;&nbsp;&nbsp;
-                </h2>
                 <figure className="figure">
                   <figcaption className="figure-caption text-center">
                     {item.item.name}
@@ -112,26 +110,22 @@ const Cart = () => {
                   />
                 </figure>
                 <div className="vr" style={dividerStyle}></div>
-                <div className="bg-secondary-subtle p-2 d-flex justify-content-center align-items-center">
-                  &nbsp;&nbsp;
+                <div className="bg-secondary-subtle p-3 d-flex flex-column justify-content-center">
                   <span>
-                    {item.count}&nbsp;&nbsp;x&nbsp;&nbsp;{item.item.price}€
+                    &nbsp;&nbsp;{item.count}&nbsp;&nbsp;x&nbsp;&nbsp;
+                    {item.item.price}&nbsp;€
                   </span>
-                  <span className="vr ms-3 me-3"></span>&nbsp;
-                  <span
-                    style={{
-                      backgroundColor: `${item.selectedColor}`,
-                      color: `${item.selectedColor}`,
-                      verticalAlign: "middle",
-                      paddingTop: "2px",
-                      paddingLeft: "6px",
-                      paddingRight: "6px",
-                      paddingBottom: "1px",
-                    }}
-                  >
-                    m
+                  <hr />
+                  <span>
+                    {item.item.color.map((c) => (
+                      <span key={c}>
+                        <span className="ms-2 me-2"></span>
+                        <PiFlowerFill
+                          style={{ color: `${c}`, fontSize: "1.9rem" }}
+                        />
+                      </span>
+                    ))}
                   </span>
-                  {/* <Counter isActive={item.item.isAvailable}/> */}
                 </div>
                 <div className="vr" style={dividerStyle}></div>
                 <div>

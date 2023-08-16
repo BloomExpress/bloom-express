@@ -5,8 +5,9 @@ import {
   FaPlusCircle,
   FaShoppingCart,
 } from "react-icons/fa";
-
 import { FaCircleCheck, FaCircleXmark, FaArrowLeftLong } from "react-icons/fa6";
+import { PiFlowerFill } from "react-icons/pi";
+
 import flowers from "../../utils/flowers";
 import Counter from "./Counter";
 import { dataCard } from "../../contexts/CartContextProvider";
@@ -23,25 +24,7 @@ const SingleFlower = () => {
   }, {});
 
   const [addedToCart, setAddedToCart] = useState(false);
-  const [selectedColor, setSelectedColor] = useState(flObj.color[0]);
-
   const itemDetail = {};
-
-  const handleMouseEnter = (e) => {
-    e.target.style.cursor = "pointer";
-    e.target.style.filter = "brightness(1.2)";
-    e.target.style.opacity = "0.7";
-  };
-
-  const handleMouseLeave = (e) => {
-    e.target.style.filter = "brightness(1)";
-    e.target.style.opacity = "1";
-  };
-
-  const handleChange = (e) => {
-    setSelectedColor(e.target.value);
-  };
-
   const { dispatch1 } = useContext(dataCard);
   const { number, handleDispatch } = useContext(numberOfItems);
 
@@ -54,6 +37,12 @@ const SingleFlower = () => {
   const details = {
     textAlign: "left",
     margin: "auto",
+  };
+  const alertStyle = {
+    width: "300px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   };
 
   const randomStr = () => {
@@ -72,13 +61,8 @@ const SingleFlower = () => {
   const addToCart = () => {
     try {
       itemDetail.id =
-        Math.round(Math.random() * 919) +
-        selectedColor +
-        number.count +
-        "_" +
-        randomStr();
+        Math.round(Math.random() * 919) + number.count + "_" + randomStr();
       itemDetail.item = flObj;
-      itemDetail.selectedColor = selectedColor;
       itemDetail.count = number.count;
       dispatch1({ type: "ADD_TO_CART", flowerItem: itemDetail });
       setAddedToCart(true);
@@ -121,7 +105,7 @@ const SingleFlower = () => {
           </NavLink>
         </span>
 
-        <div className="pt-5 pb-5">
+        <div className="pt-5 pb-1">
           {flower.map((fl) => (
             <div className="row" key={fl.id}>
               <div className="col-md-6">
@@ -183,37 +167,17 @@ const SingleFlower = () => {
                     )}
                   </p>
                   <hr />
-                  <p className="p-3 bg-secondary-subtle rounded">
-                    COLORS &nbsp;
+                  <h6 className="p-3 d-flex align-items-center bg-secondary-subtle rounded">
+                    <span> COLORS &nbsp;&nbsp;</span>
                     {fl.color.map((c) => (
                       <span key={c}>
-                        <label
-                          onMouseEnter={handleMouseEnter}
-                          onMouseLeave={handleMouseLeave}
-                          style={{
-                            backgroundColor: `${c}`,
-                            verticalAlign: "middle",
-                            paddingTop: "4px",
-                            paddingLeft: "7px",
-                            paddingRight: "7px",
-                            paddingBottom: "1px",
-                            borderRadius: "100%",
-                          }}
-                        >
-                          <input
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                            disabled={!fl.isAvailable}
-                            type="radio"
-                            value={c}
-                            name="color"
-                            onChange={handleChange}
-                          />
-                        </label>
-                        <span className="vr ms-2 me-2 mt-2"></span>
+                        <span className="vr ms-2 me-2"></span>
+                        <PiFlowerFill
+                          style={{ color: `${c}`, fontSize: "1.9rem" }}
+                        />
                       </span>
                     ))}
-                  </p>
+                  </h6>
                   <p></p>
                 </div>
               </div>
@@ -225,14 +189,9 @@ const SingleFlower = () => {
             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
           </symbol>
         </svg>
-        <div className="w-100 d-flex justify-content-center align-items-center">
-          <div
-            style={{
-              width: "30%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+        <div className="d-flex justify-content-center align-items-center">
+          <span
+            style={alertStyle}
             className={
               addedToCart
                 ? "alert alert-success alert-dismissible fade show"
@@ -249,8 +208,8 @@ const SingleFlower = () => {
             >
               <use xlinkHref="#check-circle-fill" />
             </svg>
-            <span>Success, Flower was added to the cart!</span>
-          </div>
+            <span>item added to the cart!</span>
+          </span>
         </div>
 
         <div className="pb-5 d-flex justify-content-center align-items-center gap-5">

@@ -37,7 +37,7 @@ const flowers = [
     id: 3,
     name: "Pretty in Pink Bouquet",
     price: 22.99,
-    color: ["Red", "Pink", "White", "Green"],
+    color: ["Red"],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
@@ -54,7 +54,7 @@ const flowers = [
     id: 4,
     name: "Purple Dream Bouquet",
     price: 29.99,
-    color: ["Purple", "White", "Pink", "Green"],
+    color: ["Purple", "White", "Pink"],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
@@ -71,7 +71,7 @@ const flowers = [
     id: 5,
     name: "Sweet Baby Bouquet",
     price: 15.99,
-    color: ["White", "pink", "yellow", "green"],
+    color: ["White", "yellow"],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
@@ -89,7 +89,7 @@ const flowers = [
     id: 6,
     name: "Bright Blooms Bouquet",
     price: 42.99,
-    color: ["Red", "Orange", "Purple", "White"],
+    color: ["Orange", "Purple", "White"],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
@@ -106,7 +106,7 @@ const flowers = [
     id: 7,
     name: "Sweet Home Bouquet",
     price: 34.99,
-    color: ["Pink", "Yellow", "Purple", "Red", "White"],
+    color: ["Pink", "Yellow", "White"],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
@@ -174,7 +174,7 @@ const flowers = [
     id: 11,
     name: "Harmony Garden Bouquet",
     price: 28.99,
-    color: ["Yellow", "Pink", "Orange", "Purple", "White", "Green"],
+    color: ["Yellow", "Pink", "Orange",],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
@@ -191,7 +191,7 @@ const flowers = [
     id: 12,
     name: "Country Charm Bouquet",
     price: 21.99,
-    color: ["Yellow", "Pink", "Orange", "Purple", "White", "Green"],
+    color: ["Orange", "Purple", "White"],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
@@ -225,7 +225,7 @@ const flowers = [
     id: 14,
     name: "Eternal Love Bouquet",
     price: 34.99,
-    color: ["Orange", "Red", "Pink", "White"],
+    color: ["Orange", "Red", "White"],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
@@ -242,7 +242,7 @@ const flowers = [
     id: 15,
     name: "Summer Breeze Bouquet",
     price: 25.99,
-    color: ["Yellow", "Orange", "Red", "Blue", "White"],
+    color: ["Yellow", "Orange", "White"],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
@@ -259,7 +259,7 @@ const flowers = [
     id: 16,
     name: "Cheerful Wishes Bouquet",
     price: 19.99,
-    color: ["Yellow", "Orange", "White", "Green"],
+    color: ["Yellow", "Orange", "White"],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
@@ -327,7 +327,7 @@ const flowers = [
     id: 20,
     name: "Anniversary Bouquet",
     price: 32.99,
-    color: ["Pink", "Red", "Green"],
+    color: ["Pink", "Red"],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
