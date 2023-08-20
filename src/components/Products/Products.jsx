@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
 import { FaEuroSign } from "react-icons/fa";
+import { PiFlowerFill } from "react-icons/pi";
 import flowers from "../../utils/flowers";
 import PageHero from "../PageHero";
 import styled from "styled-components";
@@ -12,7 +13,17 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [imgCount, setImgCount] = useState(0);
   const [sortFlower, setSortFlower] = useState("asc");
+  const [distinctColors, setDistinctColors] = useState([]);
 
+  const getDistinctColors = () => {
+    flowerProducts.filter((flower) => {
+      flower.color.forEach((color) => {
+        color = color[0].toLowerCase() + color.slice(1, color.length);
+        distinctColors.includes(color) ? "" : distinctColors.push(color);
+      });
+    });
+  };
+  getDistinctColors();
   useEffect(() => {
     const f = selectedCategory
       ? flowerProducts.filter((flower) => flower.category === selectedCategory)
@@ -104,7 +115,33 @@ const Products = () => {
                 </label>
               </div>
             </div>
-            <div className="row mt-3"></div>
+            <div className="row mt-3">
+              <h6 className="form-floating p-2 d-flex flex-column align-items-start">
+                {distinctColors.map((c) => (
+                  <div
+                    key={c}
+                    className="bg-secondary-subtle w-100 ps-2 pt-1 pb-1 rounded mb-1"
+                  >
+                    <label
+                      className="m-1 d-flex gap-1 align-items-center"
+                      onMouseOver={{ cursor: "pointer" }}
+                    >
+                      <input
+                        type="checkbox"
+                        style={{ width: "1rem", height: "1.3rem" }}
+                      />
+                      <PiFlowerFill
+                        style={{ color: `${c}`, fontSize: "1.3rem" }}
+                      />
+                      <span style={{ color: `#397f84`, fontSize: "1.3rem" }}>
+                        {c}
+                      </span>
+                      <br />
+                    </label>
+                  </div>
+                ))}
+              </h6>
+            </div>
           </div>
           <div className="col-md-10">
             <div style={headerFlowers}>
