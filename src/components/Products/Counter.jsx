@@ -22,18 +22,18 @@ const Counter = ({ isActive }) => {
     <>
       <button
         style={btnStyle}
-        className={!isActive ? "btn disabled" : ""}
-        onClick={increment}
-      >
-        <FaPlus />
-      </button>
-      <p style={{ margin: "1rem" }}> {isActive ? number.count : 0}</p>
-      <button
-        style={btnStyle}
         onClick={decrement}
         className={!isActive ? "btn disabled" : ""}
       >
         <FaMinus />
+      </button>
+      <p style={{ margin: "1rem" }}> {isActive ? number.count : 0}</p>
+      <button
+        style={btnStyle}
+        className={!isActive ? "btn disabled" : ""}
+        onClick={increment}
+      >
+        <FaPlus />
       </button>
       {/* <button onClick={reset}>Reset</button> */}
     </>
