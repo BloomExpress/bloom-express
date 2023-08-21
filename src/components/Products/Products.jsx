@@ -74,7 +74,7 @@ const Products = () => {
   };
 
   const dropDownLabel = {
-    transform: "scale(.85) translateY(-0.5rem) translateX(1rem)",
+    transform: "scale(.85) translateY(-0.5rem) translateX(0.7rem)",
   };
 
   const headerFlowers = {
@@ -83,6 +83,7 @@ const Products = () => {
     justifyContent: "space-between",
     padding: "1rem 0rem 0rem 0rem",
     alignItems: "center",
+    marginBottom: "1rem",
   };
 
   const foundItems = {
@@ -95,8 +96,19 @@ const Products = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-2">
-            <div className="row pt-3">
-              <div className="form-floating ">
+            <div style={headerFlowers}>
+              <span
+                style={{
+                  paddingTop: "0.7rem",
+                  paddingBottom: "0",
+                  color: "darkgray",
+                }}
+              >
+                Filter by :
+              </span>
+            </div>
+            <div className="row">
+              <div className="form-floating w-100 ps-2">
                 <select
                   className="form-select"
                   id="floatingSelect"
@@ -133,7 +145,7 @@ const Products = () => {
                       <PiFlowerFill
                         style={{ color: `${c}`, fontSize: "1.3rem" }}
                       />
-                      <span style={{ color: `#397f84`, fontSize: "1.3rem" }}>
+                      <span style={{ color: `#397f84`, fontWeight: "normal" }}>
                         {c}
                       </span>
                       <br />
@@ -174,7 +186,7 @@ const Products = () => {
                 </div>
               </span>
             </div>
-            <hr />
+            {/* <hr /> */}
 
             <div className="row">
               {filteredFlowers.map((f) => (
