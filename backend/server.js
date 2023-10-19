@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 
 // importing place for routes
 import userRoute from "./Routes/userRoute.js";
+import contactRoute from "./Routes/contactRoute.js";
 
 const app = express();
 dotenv.config();
@@ -18,7 +19,7 @@ app.use("/api/users/", userRoute);
 // app.use("/api/faqs/", );
 // app.use("/api/bouquets/", );
 // app.use("/api/carts/", );
-// app.use("/api/contacts/", );
+app.use("/api/contacts/", contactRoute);
 // app.use("/api/newsLetter/", );
 // app.use("/api/payments/", );
 
