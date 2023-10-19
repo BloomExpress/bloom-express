@@ -44,12 +44,22 @@ const Newsletter = () => {
                   <h3>Join our newsletter and get 20% off</h3>
                   <div className="content">
                     <p>
-                      We understand that arranging flowers can be a daunting
-                      task, especially if you're new to it. That's why we're
-                      here to help! If you have no idea how to arrange the
-                      flowers in your vase, don't worry. We provide a
-                      comprehensive guideline and step-by-step example pictures
-                      to help you manage your flower vase like a pro.
+                      Our newsletter opens the door to a world of floral wonder.
+                      <ul>
+                        <li>
+                          🌸 <strong>Bouquet of the Month:</strong> Be the first
+                          to discover our stunning, love-crafted bouquets.
+                        </li>
+                        <li>
+                          🌻 <strong>Exclusive Discounts:</strong> Enjoy special
+                          offers and seasonal savings.
+                        </li>
+                        <li>
+                          🌺 <strong>Floral Tips:</strong> Learn the secrets of
+                          vibrant, lasting flowers.
+                        </li>
+                      </ul>
+                      Don't miss out—subscribe today! 🌼
                     </p>
                     <form className="contact-form" onSubmit={handleSubmit}>
                       <input
