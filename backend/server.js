@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 
 // importing place for routes
 import userRoute from "./Routes/userRoute.js";
+import newsletterRoute from "./Routes/newsletterRoute.js";
 
 const app = express();
 dotenv.config();
@@ -19,7 +20,7 @@ app.use("/api/users/", userRoute);
 // app.use("/api/bouquets/", );
 // app.use("/api/carts/", );
 // app.use("/api/contacts/", );
-// app.use("/api/newsLetter/", );
+app.use("/api/newsletter/", newsletterRoute);
 // app.use("/api/payments/", );
 
 mongoose
