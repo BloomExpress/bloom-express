@@ -13,7 +13,8 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [imgCount, setImgCount] = useState(0);
   const [sortFlower, setSortFlower] = useState("asc");
-  const [distinctColors, setDistinctColors] = useState([]);
+  const distinctColors = [];
+  const checkedColors = [];
 
   const getDistinctColors = () => {
     flowerProducts.filter((flower) => {
@@ -53,6 +54,11 @@ const Products = () => {
     setSortFlower(e.target.value);
   };
 
+  const handleMouseEnter = (e) => {};
+  const handleColorSelectChange = (e) => {
+    console.log("Name: ",e.target.name);
+    console.log("Value: ",e.target.value);
+  };
   const cardBody = {
     padding: "1rem 0.1rem",
   };
@@ -136,11 +142,13 @@ const Products = () => {
                   >
                     <label
                       className="m-1 d-flex gap-1 align-items-center"
-                      onMouseOver={{ cursor: "pointer" }}
+                      onMouseEnter={handleMouseEnter}
                     >
                       <input
                         type="checkbox"
+                        onChange={handleColorSelectChange}
                         style={{ width: "1rem", height: "1.3rem" }}
+                        name={c}
                       />
                       <PiFlowerFill
                         style={{ color: `${c}`, fontSize: "1.3rem" }}
