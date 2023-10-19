@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 
 // importing place for routes
 import userRoute from "./Routes/userRoute.js";
+
+import newsletterRoute from "./Routes/newsletterRoute.js";
 import contactRoute from "./Routes/contactRoute.js";
 import faqRoute from "./Routes/faqRoute.js";
 
@@ -20,8 +22,10 @@ app.use("/api/users/", userRoute);
 app.use("/api/faqs/", faqRoute); 
 // app.use("/api/bouquets/", );
 // app.use("/api/carts/", );
+
+// app.use("/api/contacts/", );
+app.use("/api/newsletter/", newsletterRoute);
 app.use("/api/contacts/", contactRoute);
-// app.use("/api/newsLetter/", );
 // app.use("/api/payments/", );
 
 mongoose.connect(`${process.env.DB_CONNECTION}`).then(() => {
