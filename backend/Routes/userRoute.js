@@ -1,8 +1,8 @@
 import express from "express";
-import { createNewsletter } from "../Controllers/newsletterController.js";
+import { createNewUser } from "../Controllers/UserController.js";
 const router = express.Router();
 
 // route for creating new user
-router.post("/createNewsletter", createNewsletter);
+router.post("/create", createNewUser);
 
 export default router;
