@@ -6,7 +6,7 @@ const PageHero = ({ title }) => {
     <WrapperHero>
       <Container>
         <h4>
-          <Link to="/">Home </Link> > {title}
+          <Link to="/">Home </Link> &gt; {title}
         </h4>
       </Container>
     </WrapperHero>
