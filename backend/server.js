@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 
 // importing place for routes
 import userRoute from "./Routes/userRoute.js";
-
+import bouquetRoute from "./Routes/bouquetRoute.js";
 import newsletterRoute from "./Routes/newsletterRoute.js";
 import contactRoute from "./Routes/contactRoute.js";
 import faqRoute from "./Routes/faqRoute.js";
@@ -20,7 +20,7 @@ app.use(express.json());
 // Base Route
 app.use("/api/users/", userRoute);
 app.use("/api/faqs/", faqRoute);
-// app.use("/api/bouquets/", );
+app.use("/api/bouquets/", bouquetRoute);
 // app.use("/api/carts/", );
 
 // app.use("/api/contacts/", );
