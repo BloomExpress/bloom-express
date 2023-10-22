@@ -13,7 +13,6 @@ const flowers = [
     isFeatured: true,
     customerReviews: [
       { rating: 4.2, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -30,7 +29,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 4, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -47,7 +45,6 @@ const flowers = [
     isFeatured: true,
     customerReviews: [
       { rating: 2.6, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -64,7 +61,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 3.6, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -79,10 +75,8 @@ const flowers = [
     category: "New Baby",
     isAvailable: true,
     isFeatured: false,
-
     customerReviews: [
       { rating: 2.5, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -99,7 +93,6 @@ const flowers = [
     isFeatured: true,
     customerReviews: [
       { rating: 4.0, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -116,7 +109,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 3.4, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -133,7 +125,6 @@ const flowers = [
     isFeatured: true,
     customerReviews: [
       { rating: 3.8, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -150,7 +141,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 2.7, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -167,14 +157,13 @@ const flowers = [
     isFeatured: true,
     customerReviews: [
       { rating: 3.3, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
     id: 11,
     name: "Harmony Garden Bouquet",
     price: 28.99,
-    color: ["Yellow", "Pink", "Orange",],
+    color: ["Yellow", "Pink", "Orange"],
     description:
       "Capture the essence of elegance and grace with our Pretty in Pink Bouquet. This enchanting arrangement showcases a delightful mix of pink roses, symbolizing admiration, and red roses, symbolizing love. It's the perfect gift to celebrate joyous moments or express your deepest feelings on special occasions. Let these exquisite flowers speak the language of love and create cherished memories that will last forever.",
     image:
@@ -184,7 +173,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 2.6, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -201,7 +189,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 2.9, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -218,7 +205,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 2.5, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -235,7 +221,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 1.9, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -252,7 +237,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 2.5, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -269,7 +253,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 4.6, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -286,7 +269,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 4.2, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -303,7 +285,6 @@ const flowers = [
     isFeatured: true,
     customerReviews: [
       { rating: 4.3, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
@@ -320,7 +301,6 @@ const flowers = [
     isFeatured: false,
     customerReviews: [
       { rating: 4.5, review: "Beautiful bouquet! Highly recommended." },
-      // More customer reviews...
     ],
   },
   {
