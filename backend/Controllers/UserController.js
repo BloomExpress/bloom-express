@@ -2,6 +2,9 @@ import User from "../Models/User.js";
 import { validationResult } from "express-validator";
 import { StatusCodes } from "http-status-codes";
 import bcrypt from "bcrypt";
+import { Resend } from 'resend';
+import NewsLetter from "../Models/Newsletter.js";
+
 
 /**
  * the function named createNewUser is for creating new User.
@@ -279,4 +282,32 @@ export const subscribe = async (req, res) => {
     }
 };
 
-export const sendNewsletterToUser = () => { };
+
+/**
+ * for sending Newsletters to users
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+export const sendNewsletterToUser = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.uId).lean();
+        const newsLetter = await NewsLetter.find({}).sort({ _id: -1 }).limit(1);
+        if (user) {
+            const resend = new Resend('re_YRfdyDcY_8cciGm7768gTRzcfuwa8wukW');
+            const response = await resend.emails.send({
+                from: 'onboarding@resend.dev',
+                to: 'bloomexpress2023@gmail.com',
+                subject: `${newsLetter[0].bouquetOfTheMonth}`,
+                html: `<p>${newsLetter[0].exclusiveDiscount}! <strong>${newsLetter[0].floralTips
+                    }</strong>!</p>`
+            })
+            // response object return and id, we can use it to hint
+            return res.status(StatusCodes.OK).json({ message: 'response sent..!', response });
+        }
+    } catch (error) {
+        return res
+            .status(StatusCodes.INTERNAL_SERVER_ERROR)
+            .json({ message: error.toString() });
+    }
+};

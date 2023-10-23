@@ -10,7 +10,8 @@ import {
     updateAllField,
     subscribe,
     login,
-    changingPassword
+    changingPassword,
+    sendNewsletterToUser
 } from "../Controllers/UserController.js";
 const router = express.Router();
 
@@ -29,6 +30,7 @@ router.delete('/findByIdAndDelete/:uId', deleteUserBasedById);
 router.post('/subscribe/:uId', subscribe);
 router.post('/login', login);
 router.post('/changPass', changingPassword);
+router.post('/sendNewsLetter/:uId', sendNewsletterToUser)
 
 export default router;
 
