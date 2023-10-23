@@ -35,6 +35,22 @@ export const createBouquet = async (req, res) => {
   }
 };
 
+export const getAllBouquets = async (req, res) => {
+  try {
+    // http://localhost:5000/allBouquets?limit=20&skip=20 (20 is default limit, skip=20 will return the next 20 bouquets starting from 21th)
+    const limit = Number(req.query.limit) || 20;
+    const skip = Number(req.query.skip) || 20;
+
+    const bouquets = await Bouquet.find({}).limit(limit).skip(skip);
+
+    res.status(StatusCodes.OK).json(bouquets);
+  } catch (error) {
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: error.toString() });
+  }
+};
+
 export const updateBouquetById = async (req, res) => {
   try {
     const bouquet = await Bouquet.findByIdAndUpdate(req.params.id, {
