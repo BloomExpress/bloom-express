@@ -31,3 +31,4 @@ router.post('/login', login);
 router.post('/changPass', changingPassword);
 
 export default router;
+
