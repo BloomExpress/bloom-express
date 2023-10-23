@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createBouquet,
+  getAllBouquets,
   updateBouquetById,
   deleteBouquetById,
 } from "../Controllers/BouquetController.js";
@@ -8,6 +9,8 @@ import {
 const router = express.Router();
 
 router.post("/create", createBouquet);
+
+router.get("/allBouquets", getAllBouquets);
 
 router.patch("/update/:id", updateBouquetById);
 
