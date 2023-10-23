@@ -10,9 +10,17 @@ const userSchema = new Schema({
         street: { type: String, required: true },
         houseNumber: { type: String, required: true }
     },
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    mobilePhone: { type: String, required: true }
+    mobilePhone: { type: String, required: true },
+    subscribed: {
+        type: Boolean,
+        default: false,
+    },
+    discountClaimed: {
+        type: Boolean,
+        default: false,
+    },
 
 }, { timestamps: true });
 
