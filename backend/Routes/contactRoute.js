@@ -1,8 +1,17 @@
 import express from "express";
-import { createNewContact } from "../Controllers/ContactController.js";
+import {
+  createNewContact,
+  getAllContacts,
+  getContactById,
+  deleteContactById,
+} from "../Controllers/ContactController.js";
+
 const router = express.Router();
 
 // route for creating new contact
 router.post("/createContact", createNewContact);
+router.get("/getAllContacts", getAllContacts);
+router.get("/getContactById/:id", getContactById);
+router.delete("/deleteContactById/:id", deleteContactById);
 
 export default router;
