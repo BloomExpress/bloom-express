@@ -67,7 +67,7 @@ export const updateBouquetById = async (req, res) => {
     }
 
     return res
-      .status(StatusCodes.NO_CONTENT)
+      .status(StatusCodes.OK)
       .json({ message: "Bouquet updated successfully" });
   } catch (error) {
     return res
@@ -86,7 +86,7 @@ export const deleteBouquetById = async (req, res) => {
         .json({ message: "Bouquet not found" });
     }
 
-    return res.status(StatusCodes.OK).send({ message: "Bouquet deleted" });
+    return res.status(StatusCodes.OK).json({ message: "Bouquet deleted" });
   } catch (error) {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
