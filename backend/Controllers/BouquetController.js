@@ -41,7 +41,7 @@ export const getAllBouquets = async (req, res) => {
     const limit = Number(req.query.limit) || 20;
     const skip = Number(req.query.skip) || 20;
 
-    const bouquets = await Bouquet.find({}).limit(limit).skip(skip);
+    const bouquets = await Bouquet.find({}).limit(limit).skip(skip).lean(true);
 
     res.status(StatusCodes.OK).json(bouquets);
   } catch (error) {
