@@ -10,3 +10,4 @@ const faqSchema = new Schema(
 
 const Faq = model("faq", faqSchema);
 export default Faq;
+
