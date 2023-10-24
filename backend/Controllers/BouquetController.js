@@ -43,7 +43,7 @@ export const getAllBouquets = async (req, res) => {
 
     const bouquets = await Bouquet.find({}).limit(limit).skip(skip).lean(true);
 
-    res.status(StatusCodes.OK).json(bouquets);
+    res.status(StatusCodes.OK).send(bouquets);
   } catch (error) {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)

@@ -20,10 +20,12 @@ export const createNewFaq = async (req, res) => {
 
 export const getAllFaqs = async (req, res) => {
   try {
-    const faqs = await Faq.find({}).lean(true);
-    return res
-      .status(StatusCodes.OK)
-      .json({ faqs, message: "all faqs were retrieved...!" });
+    // http://localhost:5000/getAllFaqs?limit=10&skip=10
+    const limit = Number(req.query.limit) || 10;
+    const skip = Number(req.query.skip) || 10;
+
+    const faqs = await Faq.find({}).limit(limit).skip(skip).lean(true);
+    return res.status(StatusCodes.OK).json({ faqs });
   } catch (error) {
     return res
       .status(StatusCodes.NOT_FOUND)
@@ -31,23 +33,21 @@ export const getAllFaqs = async (req, res) => {
   }
 };
 
-
 export const findFaqById = async (req, res) => {
   try {
-      const faq = await Faq.findById(req.params.id).lean(true);
-      if (faq) {
-          return res.status(StatusCodes.OK).json({ faq });
-      }
-      return res
-          .status(StatusCodes.NOT_FOUND)
-          .json({ message: `faq with id=(${req.params.id}) not found...!` });
+    const faq = await Faq.findById(req.params.id).lean(true);
+    if (faq) {
+      return res.status(StatusCodes.OK).json({ faq });
+    }
+    return res
+      .status(StatusCodes.NOT_FOUND)
+      .json({ message: `faq with id=(${req.params.id}) not found...!` });
   } catch (error) {
-      return res
-          .status(StatusCodes.NOT_FOUND)
-          .json({ message: error.toString() });
+    return res
+      .status(StatusCodes.NOT_FOUND)
+      .json({ message: error.toString() });
   }
 };
-
 
 export const updateFaqById = async (req, res) => {
   try {
@@ -89,5 +89,3 @@ export const deleteFaqById = async (req, res) => {
       .json({ message: error.toString() });
   }
 };
-
-
