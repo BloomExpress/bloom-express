@@ -4,6 +4,7 @@ import { StatusCodes } from "http-status-codes";
 import bcrypt from "bcrypt";
 import { Resend } from 'resend';
 import NewsLetter from "../Models/Newsletter.js";
+import { generateJwt, verifyJWT } from "../helpers/jwt.js";
 
 
 /**
@@ -14,12 +15,7 @@ import NewsLetter from "../Models/Newsletter.js";
  */
 
 export const createNewUser = async (req, res) => {
-    const errors = validationResult(req);
-    //if there are errors 
-    if (!errors.isEmpty()) {
-        //response code 400
-        return res.status(StatusCodes.BAD_REQUEST).json({ errors: errors.array() })
-    }
+
     const hashedPassword = await bcrypt.hash(req.body.password, 12);
     const { firstName, lastName, address, email, password, mobilePhone } =
         req.body;
@@ -56,7 +52,11 @@ export const login = async (req, res) => {
         }
         const checkPassword = bcrypt.compare(password, user.password);
         if (checkPassword) {
-            return res.status(StatusCodes.OK).json({ message: 'logged in successfully...!' })
+            const token = generateJwt(user.id);
+            return res.cookie("jwt", token, {
+                httpOnly: true,
+                secure: false,
+            }).status(StatusCodes.OK).json({ message: 'logged in successfully...!' })
         } else {
             return res.status(StatusCodes.NOT_FOUND).json({ message: 'Email or password does not exist' });
         }
@@ -91,6 +91,7 @@ export const changingPassword = (req, res) => {
  * @returns
  */
 export const getAllUsers = async (req, res) => {
+
     try {
         const users = await User.find({}).lean(true);
         return res
@@ -311,3 +312,10 @@ export const sendNewsletterToUser = async (req, res) => {
             .json({ message: error.toString() });
     }
 };
+
+export const logoutUser = (req, res) => {
+    res.clearCookie("jwt", {
+        httpOnly: true,
+        secure: false
+    }).send('User logged out');
+}
