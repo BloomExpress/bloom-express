@@ -41,7 +41,7 @@ export const deleteNewsletterById = async (req, res) => {
         .json({ message: "newsletter not found" });
     }
 
-    return res.status(StatusCodes.OK).send({ message: "Newsletter deleted" });
+    return res.status(StatusCodes.OK).json({ message: "Newsletter deleted" });
   } catch (error) {
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
