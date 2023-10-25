@@ -16,6 +16,10 @@ const paymentSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    vatAmount: {
+      type: Number,
+      required: true,
+    },
     paymentMethod: {
       type: String,
       required: true,
