@@ -23,8 +23,6 @@ app.use("/api/users/", userRoute);
 app.use("/api/faqs/", faqRoute);
 app.use("/api/bouquets/", bouquetRoute);
 app.use("/api/carts/", cartRoute);
-
-// app.use("/api/contacts/", );
 app.use("/api/newsletter/", newsletterRoute);
 app.use("/api/contacts/", contactRoute);
 // app.use("/api/payments/", );
