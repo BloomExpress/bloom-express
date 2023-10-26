@@ -10,6 +10,7 @@ import newsletterRoute from "./Routes/newsletterRoute.js";
 import contactRoute from "./Routes/contactRoute.js";
 import faqRoute from "./Routes/faqRoute.js";
 import cartRoute from "./Routes/cartRoute.js";
+import paymentRoute from "./Routes/paymentRoute.js";
 
 const app = express();
 dotenv.config();
@@ -25,7 +26,7 @@ app.use("/api/bouquets/", bouquetRoute);
 app.use("/api/carts/", cartRoute);
 app.use("/api/newsletter/", newsletterRoute);
 app.use("/api/contacts/", contactRoute);
-// app.use("/api/payments/", );
+app.use("/api/payments/", paymentRoute);
 
 mongoose
   .connect(`${process.env.DB_CONNECTION}`)
