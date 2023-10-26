@@ -6,8 +6,11 @@ import {
   getOrdersByUserId,
   deleteCartById,
 } from "../Controllers/CartController.js";
+import { authorizeJwt } from "../middleware/auth.js";
 
 const router = express.Router();
+
+// router.use(authorizeJwt);
 
 router.post("/create", createCart);
 
