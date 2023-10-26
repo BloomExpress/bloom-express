@@ -10,13 +10,19 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import TermsAndConditionsModal from "../TermsAndConditionsModal";
+import TermsAndConditionsModal from "../TermsAndConditions";
+import FaqModal from "../Faq";
 
 const Footer = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showFaqModal, setShowFaqModal] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!showModal);
+  };
+
+  const toggleFaqModal = () => {
+    setShowFaqModal(!showFaqModal);
   };
 
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -61,6 +67,11 @@ const Footer = () => {
             <li>
               <a href="#" onClick={toggleModal}>
                 Terms and Conditions
+              </a>
+            </li>
+            <li>
+              <a href="#" onClick={toggleFaqModal}>
+                FAQs
               </a>
             </li>
           </ul>
@@ -139,6 +150,16 @@ const Footer = () => {
           isOpen={showModal}
           onRequestClose={toggleModal}
         />
+
+        {showBackToTop && (
+          <section>
+            <BackToTopLink href="#top" onClick={handleBackToTop}>
+              Back to Top
+              <FontAwesomeIcon icon={faArrowUpFromBracket} size="lg" />
+            </BackToTopLink>
+          </section>
+        )}
+        <FaqModal isOpen={showFaqModal} onRequestClose={toggleFaqModal} />
       </FooterContent>
 
       <Copyright>
