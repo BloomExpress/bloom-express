@@ -15,7 +15,12 @@ import paymentRoute from "./Routes/paymentRoute.js";
 const app = express();
 dotenv.config();
 // which client have access
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 // allow json to object transforming
 app.use(express.json());
 

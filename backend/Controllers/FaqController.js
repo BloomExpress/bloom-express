@@ -20,12 +20,12 @@ export const createNewFaq = async (req, res) => {
 
 export const getAllFaqs = async (req, res) => {
   try {
-    // http://localhost:5000/getAllFaqs?limit=10&skip=10
+    // http://localhost:5000/api/faqs/getAllFaqs?limit=10&skip=10
     const limit = Number(req.query.limit) || 10;
-    const skip = Number(req.query.skip) || 10;
+    const skip = Number(req.query.skip) || 0;
 
     const faqs = await Faq.find({}).limit(limit).skip(skip).lean(true);
-    return res.status(StatusCodes.OK).json({ faqs });
+    return res.status(StatusCodes.OK).send(faqs);
   } catch (error) {
     return res
       .status(StatusCodes.NOT_FOUND)
