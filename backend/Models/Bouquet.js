@@ -7,12 +7,12 @@ const bouquetSchema = new Schema({
   color: [String],
   description: String,
   image: String,
-  category: String,
+  category: String, // type: String, enum: [birtday] }
   isAvailable: Boolean,
   isFeatured: Boolean,
   customerReviews: [
     {
-      rating: Number,
+      rating: Number, // min / max
       review: String,
     },
   ],

@@ -1,25 +1,41 @@
 import Payment from "../Models/Payment.js";
 import { StatusCodes } from "http-status-codes";
+import { stripeInstance } from "../utils/stripeInstance.js";
 
 // Create a new payment
 export const createPayment = async (req, res) => {
   const { userId, cartId, totalAmount, paymentMethod, transactionId, gdpr } =
     req.body;
+
   try {
-    const newPayment = await Payment.create({
+    // Process a payment with Stripe
+    const stripeResponse = await stripeInstance.paymentIntents.create({
+      amount: totalAmount * 100, // Amount in cents
+      currency: "eur",
+    });
+
+    // Extract the Stripe transaction ID
+    const stripeTransactionId = stripeResponse.id;
+
+    // Create a new payment record and store the Stripe transaction ID
+    const newPayment = new Payment({
       userId,
       cartId,
       totalAmount,
       paymentMethod,
-      transactionId, // You can include this if provided
-      gdpr, // You can include this if provided
+      transactionId: stripeTransactionId,
+      gdpr,
     });
-    return res.status(201).json(newPayment);
+
+    // Save the payment record to your database
+    const savedPayment = await newPayment.save();
+
+    return res.status(StatusCodes.CREATED).json(savedPayment);
   } catch (error) {
     console.error(error);
     res
-      .status(500)
-      .json({ error: "An error occurred while creating the payment." });
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ error: "An error occurred while processing the payment." });
   }
 };
 
@@ -36,10 +52,10 @@ export const getPayments = async (req, res) => {
         select: "cartItems",
       });
 
-    res.status(200).json(payments);
+    res.status(StatusCodes.OK).json(payments);
   } catch (error) {
     res
-      .status(500)
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ error: "An error occurred while retrieving payments." });
   }
 };
