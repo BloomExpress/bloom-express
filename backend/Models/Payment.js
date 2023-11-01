@@ -13,20 +13,18 @@ const paymentSchema = new mongoose.Schema(
     },
     totalAmount: {
       type: Number,
-      required: true,
     },
     paymentMethod: {
       type: String,
-      required: true,
       enum: ["credit card", "PayPal", "Visa", "MasterCard", "other"],
     },
-    transactionId: {
-      type: String, // You can define the type accordingly (e.g., String, ObjectId)
-    },
-    gdpr: {
-      type: Boolean,
-      default: false,
-    },
+    // transactionId: {
+    //   type: String, // You can define the type accordingly (e.g., String, ObjectId)
+    // },
+    // gdpr: {
+    //   type: Boolean,
+    //   default: false,
+    // },
   },
   { timestamps: true }
 );
