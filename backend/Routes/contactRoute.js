@@ -8,7 +8,6 @@ import {
 
 const router = express.Router();
 
-// route for creating new contact
 router.post("/createContact", createNewContact);
 router.get("/getAllContacts", getAllContacts);
 router.get("/getContactById/:id", getContactById);

@@ -24,9 +24,42 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Create a data object to send to the server
+    const data = {
+      firstName,
+      lastName,
+      email,
+      message,
+    };
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_URL}/contacts/createContact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (response.ok) {
+        // Contact created successfully, you can handle this accordingly
+        alert("Contact created successfully");
+      } else {
+        // Handle error here
+        alert("Failed to create contact");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle the error here
+    }
+
+    // Reset the form fields
     setFirstName("");
     setLastName("");
     setEmail("");
@@ -51,7 +84,7 @@ const Contact = () => {
                     className="form-control"
                     id="firstName"
                     value={firstName}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => setFirstName(e.target.value)}
                     required
                   />
                 </div>
@@ -65,7 +98,7 @@ const Contact = () => {
                     className="form-control"
                     id="name"
                     value={lastName}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => setLastName(e.target.value)}
                     required
                   />
                 </div>
