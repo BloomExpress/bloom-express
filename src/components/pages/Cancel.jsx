@@ -5,7 +5,12 @@ function Cancel() {
   return (
     <Wrapper>
       <section>
-        <h3>Sorry to see you cancelled your Stripe payment!</h3>
+        <h3>Your payment was cancelled.</h3>
+        <h3>
+          If you have any questions or need assistance, please don't hesitate to
+          reach out to our support team.
+        </h3>
+        <h3>We're here to help!</h3>
         <Link to="/" className="btn">
           Continue shopping on our website
         </Link>
