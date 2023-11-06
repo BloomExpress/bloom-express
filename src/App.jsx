@@ -17,6 +17,8 @@ import {
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Products from "./components/Products/Products";
 import Cart from "./components/Products/Cart";
+import Success from "./components/pages/Success";
+import Cancel from "./components/pages/Cancel";
 
 function App() {
   const router = createBrowserRouter(
@@ -25,7 +27,11 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route>
+          <Route path="/cart" element={<Cart />} />
+          <Route path="success" element={<Success />} />
+          <Route path="cancel" element={<Cancel />} />
+        </Route>
         <Route path="/products" element={<ProductsIndex />}>
           <Route index element={<Products />} loader={productsLoader} />
           <Route

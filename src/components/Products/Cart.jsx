@@ -4,6 +4,8 @@ import { PiFlowerFill } from "react-icons/pi";
 import { FaTrash } from "react-icons/fa";
 import { useState } from "react";
 import PageHero from "../PageHero";
+import flowers from "../../utils/flowers.js";
+import styled from "styled-components";
 
 const Cart = () => {
   const { state, dispatch1 } = useContext(dataCard);
@@ -31,7 +33,7 @@ const Cart = () => {
     height: "110px",
     objectFit: "center",
   };
-
+  items: flowers.items;
   const dividerStyle = {
     height: "7rem",
     marginTop: "1.1rem",
@@ -42,8 +44,38 @@ const Cart = () => {
     fontSize: "1.4rem",
   };
 
+  const checkout = async () => {
+    const line_items = state.cart.map((item) => ({
+      price: item.item.sid,
+      quantity: item.count,
+    }));
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_URL}/payments/checkout`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ line_items }),
+        }
+      );
+
+      if (response.ok) {
+        const responseData = await response.json();
+        if (responseData.url) {
+          window.location.assign(responseData.url); // Forwarding user to Stripe
+        }
+      } else {
+        console.error("Failed to create payment session:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error creating payment session:", error);
+    }
+  };
+
   return (
-    <>
+    <Wrapper>
       <PageHero title="Cart Details" />
       <div className="container">
         {state.cart.length > 0 ? (
@@ -145,12 +177,23 @@ const Cart = () => {
         )}
         <hr />
         <span>
-          <button className="btn btn-primary">continue checkout</button>
+          <button
+            variant="success"
+            onClick={checkout}
+            className="btn btn-primary"
+          >
+            continue checkout
+          </button>
         </span>
         <br />
         <br />
       </div>
-    </>
+    </Wrapper>
   );
 };
+const Wrapper = styled.main`
+  height: 80vh;
+  width: 100%;
+  background: var(--clr-primary-background);
+`;
 export default Cart;
