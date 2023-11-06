@@ -14,6 +14,7 @@ import paymentRoute from "./Routes/paymentRoute.js";
 
 const app = express();
 dotenv.config();
+
 // which client have access
 app.use(
   cors({
@@ -21,6 +22,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(express.static("public"));
 // allow json to object transforming
 app.use(express.json());
 

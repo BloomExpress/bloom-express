@@ -15,6 +15,8 @@ export const createPaymentIntent = async (req, res) => {
       currency: "eur",
     });
 
+    console.log("Generated clientSecret:", paymentIntent.client_secret);
+
     const newPayment = new Payment({
       userId,
       cartId,
