@@ -1,6 +1,7 @@
 const flowers = [
   {
     id: 1,
+    sid: "price_1O8IbzAwCkFo89QRktXalE6t",
     name: "Sunshine Bouquet",
     price: 18.99,
     color: ["Yellow", "Orange", "Brown"],
@@ -17,6 +18,7 @@ const flowers = [
   },
   {
     id: 2,
+    sid: "price_1O8IckAwCkFo89QRcW26h9p7",
     name: "Classic Rose Bouquet",
     price: 24.99,
     color: ["Red", "White"],
@@ -33,6 +35,7 @@ const flowers = [
   },
   {
     id: 3,
+    sid: "price_1O8IdMAwCkFo89QRvy1UPdVH",
     name: "Pretty in Pink Bouquet",
     price: 22.99,
     color: ["Red"],
@@ -49,6 +52,7 @@ const flowers = [
   },
   {
     id: 4,
+    sid: "price_1O8IdrAwCkFo89QREQnZGjzB",
     name: "Purple Dream Bouquet",
     price: 29.99,
     color: ["Purple", "White", "Pink"],
@@ -65,6 +69,7 @@ const flowers = [
   },
   {
     id: 5,
+    sid: "price_1O8IebAwCkFo89QRqI1yChuz",
     name: "Sweet Baby Bouquet",
     price: 15.99,
     color: ["White", "yellow"],
@@ -81,6 +86,7 @@ const flowers = [
   },
   {
     id: 6,
+    sid: "price_1O8IfBAwCkFo89QR5WYKqBHq",
     name: "Bright Blooms Bouquet",
     price: 42.99,
     color: ["Orange", "Purple", "White"],
@@ -97,6 +103,7 @@ const flowers = [
   },
   {
     id: 7,
+    sid: "price_1O8IffAwCkFo89QRu8h3ktpb",
     name: "Sweet Home Bouquet",
     price: 34.99,
     color: ["Pink", "Yellow", "White"],
@@ -113,6 +120,7 @@ const flowers = [
   },
   {
     id: 8,
+    sid: "price_1O8IgBAwCkFo89QR7hPZN2MU",
     name: "Roses and Lilies Bouquet",
     price: 37.99,
     color: ["Pink", "red"],
@@ -129,6 +137,7 @@ const flowers = [
   },
   {
     id: 9,
+    sid: "price_1O8IgmAwCkFo89QRG9clrwUP",
     name: "Purple Rain Bouquet",
     price: 23.99,
     color: ["Purple", "blue"],
@@ -145,6 +154,7 @@ const flowers = [
   },
   {
     id: 10,
+    sid: "price_1O8IhKAwCkFo89QRmMBVZLGt",
     name: "Pure Joy Bouquet",
     price: 17.99,
     color: ["White", "Yellow", "Green"],
@@ -161,6 +171,7 @@ const flowers = [
   },
   {
     id: 11,
+    sid: "price_1O8IhlAwCkFo89QRj3GZ4ZCd",
     name: "Harmony Garden Bouquet",
     price: 28.99,
     color: ["Yellow", "Pink", "Orange"],
@@ -177,6 +188,7 @@ const flowers = [
   },
   {
     id: 12,
+    sid: "price_1O8IiKAwCkFo89QRDj9xXgR7",
     name: "Country Charm Bouquet",
     price: 21.99,
     color: ["Orange", "Purple", "White"],
@@ -193,6 +205,7 @@ const flowers = [
   },
   {
     id: 13,
+    sid: "price_1O8IizAwCkFo89QRozsVetxO",
     name: "Enchanted Forest Bouquet",
     price: 36.99,
     color: ["White", "Green", "Orange"],
@@ -209,6 +222,7 @@ const flowers = [
   },
   {
     id: 14,
+    sid: "price_1O8IjbAwCkFo89QRLYZAlhEH",
     name: "Eternal Love Bouquet",
     price: 34.99,
     color: ["Orange", "Red", "White"],
@@ -225,6 +239,7 @@ const flowers = [
   },
   {
     id: 15,
+    sid: "price_1O8Ik6AwCkFo89QR14FntUEE",
     name: "Summer Breeze Bouquet",
     price: 25.99,
     color: ["Yellow", "Orange", "White"],
@@ -241,6 +256,7 @@ const flowers = [
   },
   {
     id: 16,
+    sid: "price_1O8IklAwCkFo89QRSDrJWk4d",
     name: "Cheerful Wishes Bouquet",
     price: 19.99,
     color: ["Yellow", "Orange", "White"],
@@ -257,6 +273,7 @@ const flowers = [
   },
   {
     id: 17,
+    sid: "price_1O8IlJAwCkFo89QRXJd5oxWK",
     name: "Mellow Melodies Bouquet",
     price: 26.99,
     color: ["White", "Yellow", "Pink"],
@@ -273,6 +290,7 @@ const flowers = [
   },
   {
     id: 18,
+    sid: "price_1O8IlqAwCkFo89QRYwDNFCWN",
     name: "Heavenly Peace Bouquet",
     price: 22.99,
     color: ["White", "Purple", "Green"],
@@ -289,6 +307,7 @@ const flowers = [
   },
   {
     id: 19,
+    sid: "price_1O8ImQAwCkFo89QR4mdTccqN",
     name: "Pure Serenity Bouquet",
     price: 35.99,
     color: ["White", "Green"],
@@ -305,6 +324,7 @@ const flowers = [
   },
   {
     id: 20,
+    sid: "price_1O8In3AwCkFo89QRe7t1hmnF",
     name: "Anniversary Bouquet",
     price: 32.99,
     color: ["Pink", "Red"],

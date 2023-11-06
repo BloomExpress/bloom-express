@@ -56,8 +56,8 @@ const Products = () => {
 
   const handleMouseEnter = (e) => {};
   const handleColorSelectChange = (e) => {
-    console.log("Name: ",e.target.name);
-    console.log("Value: ",e.target.value);
+    console.log("Name: ", e.target.name);
+    console.log("Value: ", e.target.value);
   };
   const cardBody = {
     padding: "1rem 0.1rem",
