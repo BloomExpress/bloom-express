@@ -79,7 +79,7 @@ const Cart = () => {
       <PageHero title="Cart Details" />
       <div className="container">
         {state.cart.length > 0 ? (
-          <div className="hstack gap-3 p-3 d-flex justify-content-center">
+          <div className="gap-3 p-3 d-flex justify-content-center">
             <span className="d-flex">
               ({state.cart.length})&nbsp;
               <h2 className="display-6 fs-5">items,</h2>
@@ -192,7 +192,7 @@ const Cart = () => {
   );
 };
 const Wrapper = styled.main`
-  height: 80vh;
+  min-height: 100vh;
   width: 100%;
   background: var(--clr-primary-background);
 `;
