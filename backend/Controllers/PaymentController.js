@@ -3,32 +3,22 @@ import { StatusCodes } from "http-status-codes";
 import { stripeInstance } from "../utils/stripeInstance.js";
 import { calculateOrderAmount } from "../helpers/paymentHelper.js";
 
-export const createPaymentIntent = async (req, res) => {
-  const { userId, cartId } = req.body;
-
+export const createStripePayment = async (req, res) => {
+  console.log(req.body);
   try {
-    const totalAmount = await calculateOrderAmount(req.body.cartItems);
+    const lineItems = req.body.line_items;
 
-    // Process a payment with Stripe
-    const paymentIntent = await stripeInstance.paymentIntents.create({
-      amount: totalAmount,
-      currency: "eur",
+    const session = await stripeInstance.checkout.sessions.create({
+      line_items: lineItems,
+      mode: "payment",
+      success_url: "http://localhost:3000/success",
+      cancel_url: "http://localhost:3000/cancel",
     });
-
-    console.log("Generated clientSecret:", paymentIntent.client_secret);
-
-    const newPayment = new Payment({
-      userId,
-      cartId,
-      totalAmount,
-    });
-
-    const savedPayment = await newPayment.save();
-
-    return res.status(StatusCodes.CREATED).json({
-      payment: savedPayment,
-      clientSecret: paymentIntent.client_secret,
-    });
+    res.send(
+      JSON.stringify({
+        url: session.url,
+      })
+    );
   } catch (error) {
     console.error(error);
     res
