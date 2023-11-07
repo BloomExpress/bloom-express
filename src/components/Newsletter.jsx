@@ -29,9 +29,6 @@ const Newsletter = () => {
       if (response.status === 200) {
         setSubscriptionStatus("success");
         console.log("Subscription successful");
-      } else if (response.status === 404) {
-        setSubscriptionStatus("notfound");
-        console.log("User not found. You are not subscribed yet.");
       } else {
         setSubscriptionStatus("error");
         console.error("Subscription failed");
@@ -54,11 +51,7 @@ const Newsletter = () => {
               <CloseText>Close</CloseText>
             </CloseButton>
             <div className="section-center">
-              {subscriptionStatus === "notfound" ? (
-                <NotSubscribedMessage>
-                  You are not subscribed yet. Please sign up for our newsletter.
-                </NotSubscribedMessage>
-              ) : subscriptionStatus === "success" ? (
+              {subscriptionStatus === "success" ? (
                 <ThankYouMessage>
                   <h3>Thank you for joining our magical flower family!</h3>
                 </ThankYouMessage>
@@ -74,20 +67,19 @@ const Newsletter = () => {
                       Our newsletter opens the door to a world of floral wonder.
                       <ul>
                         <li>
-                          :cherry_blossom:{" "}
-                          <strong>Bouquet of the Month:</strong> Be the first to
-                          discover our stunning, love-crafted bouquets.
+                          🌸 <strong>Bouquet of the Month:</strong> Be the first
+                          to discover our stunning, love-crafted bouquets.
                         </li>
                         <li>
-                          :sunflower: <strong>Exclusive Discounts:</strong>{" "}
-                          Enjoy special offers and seasonal savings.
+                          🌻 <strong>Exclusive Discounts:</strong> Enjoy special
+                          offers and seasonal savings.
                         </li>
                         <li>
-                          :hibiscus: <strong>Floral Tips:</strong> Learn the
-                          secrets of vibrant, lasting flowers.
+                          🌺 <strong>Floral Tips:</strong> Learn the secrets of
+                          vibrant, lasting flowers.
                         </li>
                       </ul>
-                      Don't miss out—subscribe today! :blossom:
+                      Don't miss out—subscribe today! 🌼
                     </p>
                     <form
                       className="contact-form"
