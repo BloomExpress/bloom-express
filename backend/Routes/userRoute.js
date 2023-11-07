@@ -29,7 +29,7 @@ import {
 } from "../helpers/userValidation.js";
 
 // route for user
-router.post("/subscribe/:uId", subscribe);
+router.post("/subscribe", subscribe);
 router.post("/sendNewsLetter/:uId", sendNewsletterToUser);
 
 // router.use(authorizeJwt);
