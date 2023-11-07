@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import GreetingCard from './GreetingCard';
 
 function Success() {
   return (
@@ -7,10 +8,11 @@ function Success() {
       <section>
         <h3>Your payment has been successfully processed.</h3>
         <h3>
-          {" "}
+          {' '}
           You will receive a confirmation email shortly with the details of your
           order.
         </h3>
+        <GreetingCard />
         <Link to="/" className="btn">
           Continue shopping on our website
         </Link>
