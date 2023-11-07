@@ -85,9 +85,8 @@ const Cart = () => {
               <h2 className="display-6 fs-5">items,</h2>
             </span>
             <span className="d-flex">
-              <h2 className="display-6 fs-5">total amount = </h2>&nbsp;
+              <h2 className="display-6 fs-5">total amount = </h2>&nbsp; €
               {totalCost.toFixed(2)}
-              <h2 className="fs-6">€</h2>
             </span>
             <span></span>
           </div>
@@ -144,8 +143,8 @@ const Cart = () => {
                 <div className="vr" style={dividerStyle}></div>
                 <div className="bg-secondary-subtle p-3 d-flex flex-column justify-content-center">
                   <span>
-                    &nbsp;&nbsp;{item.count}&nbsp;&nbsp;x&nbsp;&nbsp;
-                    {item.item.price}&nbsp;€
+                    &nbsp;&nbsp;{item.count}&nbsp;&nbsp;x&nbsp;&nbsp; €
+                    {item.item.price}&nbsp;
                   </span>
                   <hr />
                   <span>
