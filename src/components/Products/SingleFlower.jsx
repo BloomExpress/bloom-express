@@ -136,10 +136,10 @@ const SingleFlower = () => {
                   </span>
 
                   <h4>
-                    <span>{fl.price}</span>
                     <FaEuroSign
                       style={{ fontSize: "1.1rem", verticalAlign: "baseline" }}
                     />
+                    <span>{fl.price}</span>
                   </h4>
                   <p style={{ textAlign: "justify" }}>{fl.description}</p>
                   <hr />

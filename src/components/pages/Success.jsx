@@ -1,18 +1,29 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import GreetingCard from './GreetingCard';
+import styled from "styled-components";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import GreetingCard from "./GreetingCard";
 
 function Success() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <Wrapper>
       <section>
         <h3>Your payment has been successfully processed.</h3>
-        <h3>
-          {' '}
-          You will receive a confirmation email shortly with the details of your
-          order.
-        </h3>
-        <GreetingCard />
+
+        <div>
+          <button onClick={openModal}>Personalize Your Greeting Card</button>
+
+          {isModalOpen && <GreetingCard onClose={closeModal} />}
+        </div>
+
         <Link to="/" className="btn">
           Continue shopping on our website
         </Link>
