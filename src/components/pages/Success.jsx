@@ -2,12 +2,17 @@ import styled from "styled-components";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import GreetingCard from "./GreetingCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesome here
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function Success() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [message, setMessage] = useState(
+    "Your payment has been successfully processed."
+  );
   const openModal = () => {
     setIsModalOpen(true);
+    setMessage("Thank you for purchasing, we hope to see you again soon!");
   };
 
   const closeModal = () => {
@@ -16,17 +21,17 @@ function Success() {
   return (
     <Wrapper>
       <section>
-        <h3>Your payment has been successfully processed.</h3>
+        <h3>{message}</h3>
 
         <div>
-          <button onClick={openModal}>Personalize Your Greeting Card</button>
-
+          <FontAwesomeIcon
+            icon={faEnvelope}
+            className="btn"
+            onClick={openModal}
+          />{" "}
+          Personalize Your Greeting Card
           {isModalOpen && <GreetingCard onClose={closeModal} />}
         </div>
-
-        <Link to="/" className="btn">
-          Continue shopping on our website
-        </Link>
       </section>
     </Wrapper>
   );
@@ -60,5 +65,9 @@ const Wrapper = styled.main`
     background-color: #397f84;
     color: var(--clr-white);
   }
+  .link-container {
+    margin-top: 20px; /* Add margin to separate the button and link */
+  }
 `;
+
 export default Success;
