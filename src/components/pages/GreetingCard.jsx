@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import flowers from "../../utils/flowers";
+import logo from "../../assets/logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function GreetingCardModal({ onClose }) {
-  const [name, setName] = useState("");
+function GreetingCard({ onClose }) {
   const [message, setMessage] = useState("");
   const [from, setFrom] = useState("");
   const [bouquet, setBouquet] = useState("");
@@ -12,8 +15,8 @@ function GreetingCardModal({ onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (name && message && from && bouquet) {
-      const personalizedGreeting = `To: ${name}\nMessage: ${message}\nFrom: ${from}\nSelected Bouquet: ${bouquet}`;
+    if (message && from && bouquet) {
+      const personalizedGreeting = `${message}\n ${from}\n`;
       setGreeting(personalizedGreeting);
     } else {
       setGreeting("Please fill in all the fields.");
@@ -25,57 +28,76 @@ function GreetingCardModal({ onClose }) {
 
   return (
     <ModalWrapper>
-      <ModalContent>
-        <h3>Greeting Card</h3>
-        <h5>Let's create the message for your gift</h5>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="bouquet">Select a Bouquet:</label>
-          <select
-            id="bouquet"
-            value={bouquet}
-            onChange={(e) => setBouquet(e.target.value)}
-            required
-          >
-            <option value="">Select a bouquet</option>
-            {bouquetOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          <label htmlFor="name">To:</label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-          <label htmlFor="message">Message:</label>
-          <textarea
-            id="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-          ></textarea>
-          <label htmlFor="from">From:</label>
-          <input
-            type="text"
-            id="from"
-            value={from}
-            onChange={(e) => setFrom(e.target.value)}
-            required
-          />
+      <ModalContent className="container p-0">
+        <FormSection className="col-lg-6 col-md-8 col-sm-12 mx-auto p-4">
+          <h4 className="text-center">Greeting Card</h4>
+          <h5 className="text-center">
+            Let's create the message for your gift
+          </h5>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="bouquet" className="form-label">
+                Select a Bouquet:
+              </label>
+              <select
+                id="bouquet"
+                className="form-select"
+                value={bouquet}
+                onChange={(e) => setBouquet(e.target.value)}
+                required
+                size={3}
+              >
+                <option value="">Select a bouquet</option>
+                {bouquetOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="message">Gift Message:</label>
+              <textarea
+                id="message"
+                value={message}
+                placeholder="Dear [Name],
+                [Your Message]
+                Love,"
+                onChange={(e) => setMessage(e.target.value)}
+                required
+              ></textarea>
+            </div>
 
-          <button type="submit">Generate Greeting</button>
-        </form>
-        <div id="greeting-output">
+            <div className="mb-3">
+              <label htmlFor="from" className="form-label">
+                From:
+              </label>
+              <input
+                type="text"
+                id="from"
+                className="form-control"
+                value={from}
+                onChange={(e) => setFrom(e.target.value)}
+                required
+              />
+            </div>
+
+            <button className="hero-btn" type="submit">
+              Generate Greeting
+            </button>
+          </form>
+        </FormSection>
+
+        <MessageOutput className="col-lg-6 col-md-4 col-sm-12 text-center p-4">
+          <img src={logo} alt="Bloom Express" />
           {greeting.split("\n").map((line, index) => (
             <p key={index}>{line}</p>
           ))}
-        </div>
-
-        <button onClick={onClose}>Close</button>
+        </MessageOutput>
+        <CloseButton onClick={onClose}>
+          <FontAwesomeIcon icon={faTimes} />
+          <CloseText>Close</CloseText>
+        </CloseButton>
       </ModalContent>
     </ModalWrapper>
   );
@@ -91,35 +113,110 @@ const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  img {
+    width: 175px;
+    margin-left: -15px;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+  .hero-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--clr-primary-button);
+    color: var(--clr-grey-1);
+    text-transform: capitalize;
+    letter-spacing: var(--spacing);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .hero-btn:hover {
+    background-color: #397f84;
+    color: var(--clr-white);
+  }
 `;
 
 const ModalContent = styled.div`
-  max-width: 400px;
-  padding: 20px;
-  text-align: center;
-  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  max-width: 800px;
+  background-color: var(--clr-primary-navbar);
   border: 1px solid #ccc;
   border-radius: 5px;
+  @media (min-width: 300px) and (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+`;
 
+const FormSection = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+  background-color: #f0f0f0;
   label {
     display: block;
     margin-top: 10px;
   }
-
   textarea {
     width: 100%;
     height: 100px;
   }
-
   button {
     margin-top: 10px;
   }
-
-  #greeting-output {
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: bold;
+  @media (max-width: 376px) {
+    padding: 5px;
+    label {
+      margin-top: 5px;
+    }
+    textarea {
+      height: 80px;
+    }
+    button {
+      margin-top: 5px;
+    }
+  }
+`;
+const MessageOutput = styled.div`
+  flex: 1;
+  margin: 20px;
+  padding: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  @media (max-width: 576px) {
+    justify-content: center;
+    align-items: center;
+  }
+`;
+const CloseButton = styled.div`
+  position: relative;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  font-size: 12px;
+  svg {
+    font-size: 18px;
   }
 `;
 
-export default GreetingCardModal;
+const CloseText = styled.span`
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  &:hover {
+    color: var(--clr-primary-hover);
+  }
+`;
+
+export default GreetingCard;

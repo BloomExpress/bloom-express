@@ -57,7 +57,7 @@ const Newsletter = () => {
                 </ThankYouMessage>
               ) : subscriptionStatus === "error" ? (
                 <ErrorMessage>
-                  User not found. You are not registered yet.
+                  User not found. Have you already signed up?
                 </ErrorMessage>
               ) : (
                 <>
@@ -249,8 +249,8 @@ const ThankYouMessage = styled.span`
   margin-top: 2rem;
 `;
 const ErrorMessage = styled.span`
-  font-size: 1rem;
-  color: red;
+  font-size: 1.5rem;
+  color: #ed518a;
   text-align: center;
   margin-top: 2rem;
 `;
