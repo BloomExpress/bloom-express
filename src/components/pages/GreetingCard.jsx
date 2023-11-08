@@ -184,6 +184,18 @@ const FormSection = styled.div`
       margin-top: 5px;
     }
   }
+  @media (max-width: 320px) {
+    padding: 2px;
+    label {
+      margin-top: 2px;
+    }
+    textarea {
+      height: 70px;
+    }
+    button {
+      margin-top: 2px;
+    }
+  }
 `;
 const MessageOutput = styled.div`
   flex: 1;

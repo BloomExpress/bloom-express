@@ -90,7 +90,7 @@ const Newsletter = () => {
                     >
                       <input
                         type="email"
-                        name="email" // Change name to "email"
+                        name="email"
                         className="form-input"
                         placeholder="enter your email"
                       />
