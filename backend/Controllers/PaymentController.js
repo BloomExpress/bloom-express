@@ -1,7 +1,6 @@
-import Payment from "../Models/Payment.js";
+import PaymentSession from "../Models/PaymentSession.js";
 import { StatusCodes } from "http-status-codes";
 import { stripeInstance } from "../utils/stripeInstance.js";
-import { calculateOrderAmount } from "../helpers/paymentHelper.js";
 
 export const createStripePayment = async (req, res) => {
   console.log(req.body);
@@ -14,16 +13,52 @@ export const createStripePayment = async (req, res) => {
       success_url: "http://localhost:3000/success",
       cancel_url: "http://localhost:3000/cancel",
     });
-    console.log(session);
-    res.send(
+    return res.send(
       JSON.stringify({
         url: session.url,
       })
     );
   } catch (error) {
     console.error(error);
-    res
+    return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ error: "An error occurred while processing the payment." });
+  }
+};
+
+export const retrieveSession = async (req, res) => {
+  const sessionId = req.query.session_id;
+  try {
+    const session = await stripeInstance.checkout.sessions.retrieve(sessionId);
+
+    const email = session.customer_details.email;
+    const name = session.customer_details.name;
+    const payment_status = session.payment_status;
+
+    console.log("Email:", email);
+    console.log("Name:", name);
+    console.log("Payment Status:", payment_status);
+
+    const paymentSession = new PaymentSession({
+      sessionId,
+      email,
+      name,
+      payment_status,
+    });
+
+    await paymentSession.save();
+
+    return res.send(
+      JSON.stringify({
+        sessionId,
+        email,
+        name,
+        payment_status,
+      })
+    );
+  } catch (error) {
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: error.toString() });
   }
 };
