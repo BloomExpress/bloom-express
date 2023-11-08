@@ -27,12 +27,15 @@ const Nav = () => {
           <Link to="/">
             <img src={logo} alt="Bloom Express" />
           </Link>
-          <button role="button" type="button" className="nav-toggle" onClick={toggleSidebar}>
+          <button
+            aria-label={isSidebarOpen ? "Close sidebar menu" : "Open sidebar menu"}
+            aria-expanded={isSidebarOpen ? "true" : "false"}
+            type="button"
+            className="nav-toggle"
+            onClick={toggleSidebar}
+          >
             <FaBars />
           </button>
-          {/* <button type="button" className="nav-toggle" onClick={openSidebar}> */}
-          {/* <FaBars />
-          </button> */}
         </div>
         <ul className={`nav-links ${isSidebarOpen ? "show-sidebar" : ""}`}>
           {links.map((link) => {
