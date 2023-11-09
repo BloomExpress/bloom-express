@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import GreetingCard from "./GreetingCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesome here
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
