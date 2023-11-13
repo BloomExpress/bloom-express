@@ -21,16 +21,16 @@ const AboutGridGallery = () => {
         </h3>
         <div className="col-4">
           <div className="row mb-3">
-            <img src={gridImg1} alt="Lady picking flowers in a flower garden." />
+            <img src={gridImg1} alt="Clara Osbourne, owner and farmer of Pasture Song Farm in Chester County, PA, harvests organic ranunculus for spring bouquets." />
           </div>
           <div className="row mt-5">
             <img src={gridImg2} alt="Women holding a bouquet of flowers on her left shoulder." />
           </div>
           <div className="row mt-5">
-            <img src={gridImg6} alt="Three flower tops in front of a wooden background." />
+            <img src={gridImg6} alt="Three colorful flower buckets of ranunculus harvest, in front of a wooden background, at Pasture Song Farm in Pottstown, PA. " />
           </div>
           <div className="row mt-3">
-            <img src={gridImg11} alt="A field of different flowers next to a forest." />
+            <img src={gridImg11} alt="A meadow of different blooming flowers next to a forest." />
           </div>
         </div>
         <div className="col-4">
@@ -38,24 +38,24 @@ const AboutGridGallery = () => {
             <img src={gridImg5} alt="A lady florist taking care of hanging pots of flowers in a garden glasshouse." />
           </div>
           <div className="row mt-5">
-            <img src={gridImg7} alt="grid7" />
+            <img src={gridImg7} alt="Potting up lisianthus seedlings in the greenhouse in early spring at Pasture Song Farm in Pottstown, PA." />
           </div>
           <div className="row mt-3">
-            <img src={gridImg10} alt="grid10" />
+            <img src={gridImg10} alt="Linda's Baby dahlias in a bucket just after harvest." />
           </div>
           <div className="row mt-5 mb-5">
-            <img src={gridImg12} alt="A basket full of young tulips" />
+            <img src={gridImg12} alt="A crate of freshly harvested tulips awaits processing and arranging on the porch of the flower workshop at Pasture Song Farm, Pottstown, PA." />
           </div>
         </div>
         <div className="col-4">
           <div className="row mb-3">
-            <img src={gridImg4} alt="grid4" />
+            <img src={gridImg4} alt="Magical close up of pink flowers in a field with bubble." />
           </div>
           <div className="row mb-3">
-            <img src={gridImg3} alt="A girl in a blue jacket smiling and holding a pot of flowers on her left shoulder." />
+            <img src={gridImg3} alt="A girl in a blue jacket, smiling and holding a pot of flowers on her left shoulder." />
           </div>
           <div className="row mb-3">
-            <img src={gridImg9} alt="A girl, with a white hat, in a sunflower field holding a sunflower in front of her face." />
+            <img src={gridImg9} alt="A girl, with a white hat in a sunflower field, holding a sunflower in front of her face." />
           </div>
         </div>
       </div>
