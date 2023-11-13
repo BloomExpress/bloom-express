@@ -5,19 +5,31 @@ import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "../../utils/axiosInstance";
 
 function GreetingCard({ onClose }) {
   const [message, setMessage] = useState("");
-  const [from, setFrom] = useState("");
+  const [email, setEmail] = useState("");
   const [bouquet, setBouquet] = useState("");
   const [greeting, setGreeting] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (message && from && bouquet) {
-      const personalizedGreeting = `${message}\n ${from}\n`;
+    if (message && email && bouquet) {
+      const personalizedGreeting = `${message}\n ${email}\n`;
       setGreeting(personalizedGreeting);
+
+      try {
+        const response = await axios.put(
+          `/api/payments/greetingCard/${encodeURIComponent(email)}`,
+          { bouquet, message, email }
+        );
+
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error updating greeting card:", error);
+      }
     } else {
       setGreeting("Please fill in all the fields.");
     }
@@ -60,24 +72,22 @@ function GreetingCard({ onClose }) {
               <textarea
                 id="message"
                 value={message}
-                placeholder="Dear [Name],
-                [Your Message]
-                Love,"
+                placeholder="Dear [Name], [Your Message] Love, [Your Name]"
                 onChange={(e) => setMessage(e.target.value)}
                 required
               ></textarea>
             </div>
 
             <div className="mb-3">
-              <label htmlFor="from" className="form-label">
-                From:
+              <label htmlFor="email" className="form-label">
+                E-Mail:
               </label>
               <input
                 type="text"
-                id="from"
+                id="email"
                 className="form-control"
-                value={from}
-                onChange={(e) => setFrom(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
