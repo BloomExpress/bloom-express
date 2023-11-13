@@ -11,8 +11,8 @@ import CounterContextProvider from "./contexts/CounterContextProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Auth0Provider
-    domain="dev-b1yrp4nddow16wl0.us.auth0.com"
-    clientId="0G4fhD0YGkiY2DWtl4Kpe4G6PyeVPtY3"
+    domain="dev-ezirzi43py2t1ip3.us.auth0.com"
+    clientId="BSzR1PyS4JC6950ej4qaWBky1xRYGQ1F"
     authorizationParams={{
       redirect_uri: window.location.origin,
     }}
