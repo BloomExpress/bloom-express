@@ -6,6 +6,12 @@ const paymentSessionSchema = new mongoose.Schema(
     email: String,
     name: String,
     payment_status: String,
+    greetingCard: {
+      enabled: { type: Boolean, default: false },
+      bouquet: String,
+      message: String,
+      email: String,
+    },
   },
   { timestamps: true }
 );

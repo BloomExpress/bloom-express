@@ -62,3 +62,34 @@ export const retrieveSession = async (req, res) => {
       .json({ message: error.toString() });
   }
 };
+
+export const updateGreetingCard = async (req, res) => {
+  const { bouquet, message, email } = req.body;
+  try {
+    const paymentSession = await PaymentSession.findOneAndUpdate(
+      { email: req.params.email },
+      {
+        $set: {
+          "greetingCard.enabled": true,
+          "greetingCard.bouquet": bouquet,
+          "greetingCard.message": message,
+          "greetingCard.email": email,
+        },
+      },
+      { new: true }
+    );
+    if (!paymentSession) {
+      return res
+        .status(StatusCodes.NOT_FOUND)
+        .json({ message: "Payment session not found" });
+    }
+
+    return res
+      .status(StatusCodes.OK)
+      .json({ message: "Greeting Card added successfully" });
+  } catch (error) {
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: error.toString() });
+  }
+};
