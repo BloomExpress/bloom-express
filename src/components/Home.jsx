@@ -42,12 +42,12 @@ const Hero = () => {
       <article className="img-container">
         <img
           src={heroImg1}
-          alt="bike with a basket of flowers"
+          alt="A bicycle with a basket of different flower bouquets on the back."
           className="main-img"
         />
         <img
           src={heroImg2}
-          alt="heart made with flowers"
+          alt="Two hands holding up a flowers bouquet in the shape of a heart on a light pink background"
           className="accent-img"
         />
       </article>

@@ -9,7 +9,7 @@ const About = () => {
     <main>
       <PageHero title="about" />
       <Wrapper className="page section section-center">
-        <img src={aboutImg} alt="bouquet" />
+        <img src={aboutImg} alt="Pink Calla Lilies" />
         <article>
           <div className="title">
             <h2>Our Story</h2>
