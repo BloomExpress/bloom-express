@@ -9,12 +9,12 @@ const About = () => {
     <main>
       <PageHero title="about" />
       <Wrapper className="page section section-center">
-        <img src={aboutImg} alt="Pink Calla Lilies" />
+        <img src={aboutImg} alt="Pink Calla Lilies" aria-hidden="true" />
         <article>
-          <div className="title">
+          <header className="title">
             <h2>Our Story</h2>
             <div className="underline"></div>
-          </div>
+          </header>
           <p>
             In the ever-evolving world of technology and convenience, Lily and
             Rose realized that their love for flowers could touch the lives of
