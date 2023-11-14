@@ -8,9 +8,11 @@ const TermsAndConditionsModal = ({ isOpen, onRequestClose }) => {
         isOpen={isOpen}
         onRequestClose={onRequestClose}
         contentLabel="Terms and Conditions Modal"
+        aria-labelledby="modal-title"
+        aria-describedby="modal-content"
       >
-        <h2>Terms and Conditions</h2>
-        <Content>
+        <ModalHeader id="modal-title">Terms and Conditions</ModalHeader>
+        <Content id="modal-content">
           <p>
             Welcome to Bloom-Express! These Terms and Conditions outline the
             rules and regulations for the use of our online flower shop. By
@@ -78,20 +80,25 @@ const TermsAndConditionsModal = ({ isOpen, onRequestClose }) => {
             please contact our customer support team.
           </p>
         </Content>
-
-        <Button onClick={onRequestClose}>Close</Button>
+        <CloseButton onClick={onRequestClose}>Close</CloseButton>
       </Modal>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section``;
+
+const ModalHeader = styled.h1`
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+`;
+
 const Content = styled.div`
   padding: 1rem;
   margin-top: 1rem;
 `;
 
-const Button = styled.button`
+const CloseButton = styled.button`
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   background-color: var(--clr-primary-button);
