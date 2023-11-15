@@ -5,8 +5,9 @@ const PageHero = ({ title }) => {
   return (
     <WrapperHero>
       <Container>
-        <h4>
-          <Link to="/">Home </Link> &gt; {title}
+        <h4 aria-label="Breadcrumb">
+          <Link to="/" aria-label="Go back to the home page">Home</Link>&gt;
+          <span aria-current="page"> {title}</span>
         </h4>
       </Container>
     </WrapperHero>
