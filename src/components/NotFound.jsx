@@ -6,9 +6,9 @@ const NotFound = () => {
   return (
     <Wrapper>
       <section>
-        <img src={error} alt="error404" />
+        <img src={error} alt="Error 404 - Not Found" />
         <h3>Sorry, look like we sent you to the wrong way</h3>
-        <Link to="/" className="btn">
+        <Link to="/" className="btn" aria-label="Go back to the home page">
           Let us guide you back!
         </Link>
       </section>
