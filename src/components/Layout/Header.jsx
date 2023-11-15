@@ -24,7 +24,7 @@ const Nav = () => {
     <NavContainer>
       <div className="nav-center">
         <div className="nav-header">
-          <Link to="/">
+          <Link to="/" aria-label="Go to home">
             <img src={logo} alt="Bloom Express" />
           </Link>
           <button
