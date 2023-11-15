@@ -53,17 +53,17 @@ const Footer = () => {
           <h5>Products</h5>
           <ul>
             <li>
-              <Link to="/products">Our Products</Link>
+              <Link to="/products" aria-label="Go to products page">Our Products</Link>
             </li>
             <li>
-              <Link to="/cart">Your Cart</Link>
+              <Link to="/cart" aria-label="Go to cart page">Your Cart</Link>
             </li>
           </ul>
         </section>
         <section className="section-large">
           <h5>About Us</h5>
           <ul>
-            <Link to="/about">Our History</Link>
+            <Link to="/about" aria-label="Go to about page">Our History</Link>
             <li>
               <a href="#" onClick={toggleModal}>
                 Terms and Conditions
@@ -80,7 +80,7 @@ const Footer = () => {
         <section className="section-large">
           <h5>Contact</h5>
           <ul>
-            <Link to="/contact">Contact Us</Link>
+            <Link to="/contact" aria-label="Go to contact page">Contact Us</Link>
             <li>
               <a
                 href="https://wa.me/1234567890"
