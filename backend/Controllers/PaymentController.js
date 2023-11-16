@@ -1,6 +1,9 @@
 import PaymentSession from "../Models/PaymentSession.js";
 import { StatusCodes } from "http-status-codes";
 import { stripeInstance } from "../utils/stripeInstance.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const createStripePayment = async (req, res) => {
   console.log(req.body);
@@ -10,7 +13,8 @@ export const createStripePayment = async (req, res) => {
     const session = await stripeInstance.checkout.sessions.create({
       line_items: lineItems,
       mode: "payment",
-      success_url: "http://localhost:3000/success",
+      success_url:
+        "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: "http://localhost:3000/cancel",
     });
     return res.send(
@@ -29,6 +33,20 @@ export const createStripePayment = async (req, res) => {
 export const retrieveSession = async (req, res) => {
   const sessionId = req.query.session_id;
   try {
+    const existingSession = await PaymentSession.findOne({ sessionId });
+    if (existingSession) {
+      const { sessionId, email, name, payment_status } = existingSession;
+      return res.send(
+        JSON.stringify({
+          paymentSessionId: existingSession._id,
+          sessionId,
+          email,
+          name,
+          payment_status,
+        })
+      );
+    }
+
     const session = await stripeInstance.checkout.sessions.retrieve(sessionId);
 
     const email = session.customer_details.email;
@@ -50,6 +68,7 @@ export const retrieveSession = async (req, res) => {
 
     return res.send(
       JSON.stringify({
+        paymentSessionId: paymentSession._id,
         sessionId,
         email,
         name,
@@ -64,16 +83,15 @@ export const retrieveSession = async (req, res) => {
 };
 
 export const updateGreetingCard = async (req, res) => {
-  const { bouquet, message, email } = req.body;
+  const { message } = req.body;
+  const { paymentSessionId } = req.params;
   try {
-    const paymentSession = await PaymentSession.findOneAndUpdate(
-      { email: req.params.email },
+    const paymentSession = await PaymentSession.findByIdAndUpdate(
+      paymentSessionId,
       {
         $set: {
           "greetingCard.enabled": true,
-          "greetingCard.bouquet": bouquet,
           "greetingCard.message": message,
-          "greetingCard.email": email,
         },
       },
       { new: true }

@@ -8,9 +8,7 @@ const paymentSessionSchema = new mongoose.Schema(
     payment_status: String,
     greetingCard: {
       enabled: { type: Boolean, default: false },
-      bouquet: String,
       message: String,
-      email: String,
     },
   },
   { timestamps: true }
