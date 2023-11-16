@@ -17,7 +17,9 @@ function Success() {
 
   const openModal = () => {
     setIsModalOpen(true);
-    setMessage("Thank you for purchasing, we hope to see you again soon!");
+    setMessage(
+      "Greeting Card added successfully. Thank you for purchasing, we hope to see you again soon!"
+    );
   };
 
   const closeModal = () => {
@@ -35,7 +37,6 @@ function Success() {
     }
   };
   useEffect(() => {
-    console.log("useEffect");
     const stripePaymentId = searchParams.get("session_id");
 
     if (!stripePaymentId) return;
@@ -50,7 +51,13 @@ function Success() {
   return (
     <Wrapper>
       <section>
-        <h3>{message}</h3>
+        <div>
+          <h3>
+            {message.split(".").map((line, index) => (
+              <div key={index}>{line}</div>
+            ))}
+          </h3>
+        </div>
 
         <div>
           <FontAwesomeIcon
