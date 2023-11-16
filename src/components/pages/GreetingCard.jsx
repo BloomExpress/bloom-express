@@ -7,23 +7,23 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "../../utils/axiosInstance";
 
-function GreetingCard({ onClose }) {
+function GreetingCard({ onClose, paymentSessionId }) {
   const [message, setMessage] = useState("");
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [bouquet, setBouquet] = useState("");
   const [greeting, setGreeting] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (message && email && bouquet) {
-      const personalizedGreeting = `${message}\n ${email}\n`;
+    console.log("Handle Submit triggered");
+    if (message) {
+      const personalizedGreeting = `${message}`;
       setGreeting(personalizedGreeting);
 
       try {
         const response = await axios.put(
-          `/api/payments/greetingCard/${encodeURIComponent(email)}`,
-          { bouquet, message, email }
+          `/api/payments/greetingCard/${paymentSessionId}`,
+          { message }
         );
 
         console.log(response.data);
@@ -35,9 +35,6 @@ function GreetingCard({ onClose }) {
     }
   };
 
-  // Create an array of bouquet names for the dropdown
-  const bouquetOptions = flowers.map((flower) => flower.name);
-
   return (
     <ModalWrapper>
       <ModalContent className="container p-0">
@@ -48,48 +45,17 @@ function GreetingCard({ onClose }) {
           </h5>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label htmlFor="bouquet" className="form-label">
-                Select a Bouquet:
-              </label>
-              <select
-                id="bouquet"
-                className="form-select"
-                value={bouquet}
-                onChange={(e) => setBouquet(e.target.value)}
-                required
-                size={3}
-              >
-                <option value="">Select a bouquet</option>
-                {bouquetOptions.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="mb-3">
               <label htmlFor="message">Gift Message:</label>
               <textarea
                 id="message"
                 value={message}
-                placeholder="Dear [Name], [Your Message] Love, [Your Name]"
+                placeholder="Dear [Name], 
+                [Your Message] 
+                Love, 
+                [Your Name]"
                 onChange={(e) => setMessage(e.target.value)}
                 required
               ></textarea>
-            </div>
-
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                E-Mail:
-              </label>
-              <input
-                type="text"
-                id="email"
-                className="form-control"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
             </div>
 
             <button className="hero-btn" type="submit">

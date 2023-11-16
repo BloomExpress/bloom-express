@@ -1,14 +1,20 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GreetingCard from "./GreetingCard";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesome here
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { useSearchParams } from "react-router-dom";
+import axios from "../../utils/axiosInstance";
 
 function Success() {
+  const [searchParams] = useSearchParams();
+  console.log(searchParams.get("session_id"));
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [message, setMessage] = useState(
     "Your payment has been successfully processed."
   );
+  const [payment, setPayment] = useState();
+
   const openModal = () => {
     setIsModalOpen(true);
     setMessage("Thank you for purchasing, we hope to see you again soon!");
@@ -17,6 +23,30 @@ function Success() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const getData = async (session_id) => {
+    try {
+      const response = await axios.get(
+        `/api/payments/success?session_id=${session_id}`
+      );
+      console.log(response.data);
+      setPayment(response.data.paymentSessionId);
+    } catch (error) {
+      console.error("Error retrieving payment data:", error);
+    }
+  };
+  useEffect(() => {
+    console.log("useEffect");
+    const stripePaymentId = searchParams.get("session_id");
+
+    if (!stripePaymentId) return;
+    console.log(stripePaymentId);
+
+    //http://localhost:5000/api/payments/success?session_id=
+    // retrieve details from API
+
+    getData(stripePaymentId);
+  }, [searchParams]);
+
   return (
     <Wrapper>
       <section>
@@ -29,7 +59,9 @@ function Success() {
             onClick={openModal}
           />{" "}
           Personalize Your Greeting Card
-          {isModalOpen && <GreetingCard onClose={closeModal} />}
+          {isModalOpen && (
+            <GreetingCard onClose={closeModal} paymentSessionId={payment} />
+          )}
         </div>
       </section>
     </Wrapper>

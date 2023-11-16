@@ -21,12 +21,6 @@ const Cart = () => {
     acc += cartItem.count * cartItem.item.price;
     return acc;
   }, 0);
-  // const headerStyle = {
-  //   height: "3rem",
-  //   verticalAlign: "middle",
-  //   padding: "1rem",
-  //   fontSize: "2rem",
-  // };
 
   const imgStyle = {
     width: "150px",

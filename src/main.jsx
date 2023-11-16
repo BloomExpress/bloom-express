@@ -18,13 +18,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     }}
   >
     <UserProvider>
-      <React.StrictMode>
-        <CartContextProvider>
-          <CounterContextProvider>
-            <App />
-          </CounterContextProvider>
-        </CartContextProvider>
-      </React.StrictMode>
+      <CartContextProvider>
+        <CounterContextProvider>
+          <App />
+        </CounterContextProvider>
+      </CartContextProvider>
     </UserProvider>
   </Auth0Provider>
 );
