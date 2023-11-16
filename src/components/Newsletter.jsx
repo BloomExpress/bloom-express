@@ -14,7 +14,7 @@ const Newsletter = () => {
       const timer = setTimeout(() => {
         setShowPopup(true);
         sessionStorage.setItem("hasSeenPopup", "true");
-      }, 5000);
+      }, 10000);
       return () => clearTimeout(timer);
     }
   }, []);
