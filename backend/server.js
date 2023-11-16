@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
+import bodyParser from "body-parser";
 
 // importing place for routes
 import userRoute from "./Routes/userRoute.js";
@@ -23,7 +24,6 @@ app.use(
   })
 );
 app.use(express.static("public"));
-// allow json to object transforming
 app.use(express.json());
 
 // Base Route
