@@ -49,10 +49,14 @@ const Contact = () => {
 
       if (response.ok) {
         // Contact created successfully, you can handle this accordingly
-        alert("Contact created successfully");
+        alert(
+          "Thank you for reaching out. We'll be in touch with you shortly."
+        );
       } else {
         // Handle error here
-        alert("Failed to create contact");
+        alert(
+          "Oops! Something went wrong. We're on it and will fix the error. Thank you for bringing it to our attention."
+        );
       }
     } catch (error) {
       console.error("Error:", error);
