@@ -7,7 +7,7 @@ import NotFound from "./components/NotFound";
 import SingleFlower from "./components/Products/SingleFlower";
 import { productsLoader } from "./components/Products/Products";
 import { singleProductLoader } from "./components/Products/SingleFlower";
-//import Login from "./components/Login";
+// import Login from "./components/Login";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -19,6 +19,7 @@ import Products from "./components/Products/Products";
 import Cart from "./components/Products/Cart";
 import Success from "./components/pages/Success";
 import Cancel from "./components/pages/Cancel";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   const router = createBrowserRouter(
@@ -28,7 +29,14 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route>
-          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/cart"
+            element={
+              <PrivateRoute>
+                <Cart />
+              </PrivateRoute>
+            }
+          />
           <Route path="success" element={<Success />} />
           <Route path="cancel" element={<Cancel />} />
         </Route>
