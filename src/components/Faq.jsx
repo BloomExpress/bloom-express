@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Import Font Awesome icons
 import styled from "styled-components";
 import axios from "../utils/axiosInstance";
 
@@ -26,7 +27,7 @@ const FaqModal = ({ isOpen, onRequestClose }) => {
         const response = await axios.get(
           `/api/faqs/getAllFaqs?limit=${limit}&skip=${skip}`
         );
-        console.log("API Response:", response.data); // Log the response data
+        console.log("API Response:", response.data);
         if (response.data && response.data) {
           setData(response.data);
         } else {
@@ -38,6 +39,9 @@ const FaqModal = ({ isOpen, onRequestClose }) => {
     };
     getAllFaqs();
   }, [skip]);
+
+  const isFirstPage = skip === 0;
+  const isLastPage = data.length < limit;
 
   return (
     <Wrapper>
@@ -61,10 +65,19 @@ const FaqModal = ({ isOpen, onRequestClose }) => {
             ))}
           </ul>
         </Content>
+        {!isFirstPage && (
+          <IconButton onClick={handlePrevious}>
+            <FaArrowLeft />
+          </IconButton>
+        )}
 
         <Button onClick={onRequestClose}>Close</Button>
-        <Button onClick={handlePrevious}>Previous</Button>
-        <Button onClick={handleNext}>Next</Button>
+
+        {!isLastPage && (
+          <IconButton onClick={handleNext}>
+            <FaArrowRight />
+          </IconButton>
+        )}
       </Modal>
     </Wrapper>
   );
@@ -77,6 +90,7 @@ const Content = styled.div`
 `;
 
 const Button = styled.button`
+  margin: 0.5rem;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   background-color: var(--clr-primary-button);
@@ -93,4 +107,9 @@ const Button = styled.button`
     color: var(--clr-white);
   }
 `;
+
+const IconButton = styled(Button)`
+  padding: 0.5rem;
+`;
+
 export default FaqModal;
