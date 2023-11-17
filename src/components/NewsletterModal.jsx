@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import axios from "../utils/axiosInstance";
+
 const Newsletter = () => {
   const [state, handleSubmit] = useForm("xeqbokjw");
   const [showPopup, setShowPopup] = useState(false);
@@ -14,7 +15,7 @@ const Newsletter = () => {
       const timer = setTimeout(() => {
         setShowPopup(true);
         sessionStorage.setItem("hasSeenPopup", "true");
-      }, 10000);
+      }, 7000);
       return () => clearTimeout(timer);
     }
   }, []);
