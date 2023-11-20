@@ -145,6 +145,7 @@ const Contact = () => {
                 <p>
                   <a
                     href="https://www.google.com/maps"
+                    aria-label="Location of our store on Google Maps"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -170,6 +171,7 @@ const Contact = () => {
                 <p>
                   <a
                     href="mailto:bloomexpress2023@gmail.com"
+                    aria-label="Go to write an email to Bloom Express"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -181,6 +183,7 @@ const Contact = () => {
                   <FontAwesomeIcon icon={faWhatsapp} />
                   <a
                     href="https://wa.me/1234567890"
+                    aria-label="Go to write a message on WhatsApp to Bloom Express"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -190,6 +193,7 @@ const Contact = () => {
                 <div className="social-icons">
                   <a
                     href="https://www.facebook.com"
+                    aria-label="Go to Bloom Express on Facebook"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -197,6 +201,7 @@ const Contact = () => {
                   </a>
                   <a
                     href="https://www.tiktok.com"
+                    aria-label="Go to Bloom Express on TikTok"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -204,6 +209,7 @@ const Contact = () => {
                   </a>
                   <a
                     href="https://www.instagram.com"
+                    aria-label="Go to Bloom Express on Instagram"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -211,6 +217,7 @@ const Contact = () => {
                   </a>
                   <a
                     href="https://www.linkedin.com"
+                    aria-label="Go to Bloom Express on Linkedin"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -233,6 +240,7 @@ const Contact = () => {
                       <p>Ingolstadt Store Manager</p>
                       <a
                         href="https://github.com/JimeRowe"
+                        aria-label="Go to Jime's GitHub profile"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -251,6 +259,7 @@ const Contact = () => {
                       <p>Muldestausee</p>
                       <a
                         href="https://github.com/ApiradeeH"
+                        aria-label="Go to Apiradee's GitHub profile"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -269,6 +278,7 @@ const Contact = () => {
                       <p>Leipzig Store Manager</p>
                       <a
                         href="https://github.com/MarkoTertinek"
+                        aria-label="Go to Marko's GitHub profile"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -287,6 +297,7 @@ const Contact = () => {
                       <p>Berlin Store Manager</p>
                       <a
                         href="https://github.com/manoloscipi"
+                        aria-label="Go to Manolo's GitHub profile
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -305,6 +316,7 @@ const Contact = () => {
                       <p>Berlin Store Manager(A)</p>
                       <a
                         href="https://github.com/coderahmadi"
+                        aria-label="Go to Jamal's GitHub profile
                         target="_blank"
                         rel="noopener noreferrer"
                       >
