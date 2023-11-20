@@ -107,7 +107,7 @@ const Products = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       <PageHero title="Products" />
       <div className="container">
         <div className="row">
@@ -243,12 +243,17 @@ const Products = () => {
           </div>
         </div>
       </div>
-    </>
+    </Wrapper>
   );
 };
 export const productsLoader = async () => {
   return flowers;
 };
+
+const Wrapper = styled.section`
+  position: relative;
+  z-index: 0;
+`;
 
 const Image = styled.img`
   width: 100%;
