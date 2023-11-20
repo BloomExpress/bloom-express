@@ -297,7 +297,7 @@ const Contact = () => {
                       <p>Berlin Store Manager</p>
                       <a
                         href="https://github.com/manoloscipi"
-                        aria-label="Go to Manolo's GitHub profile
+                        aria-label="Go to Manolo's GitHub profile"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
