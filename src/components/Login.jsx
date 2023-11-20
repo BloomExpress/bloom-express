@@ -10,7 +10,7 @@ const Login = () => {
   const { state } = useContext(dataCard);
   return (
     <Wrapper>
-      <Link to="/cart" className="cart-btn">
+      <Link to="/cart" aria-label="Go to cart page" className="cart-btn">
         Cart
         <span className="cart-container">
           <FaShoppingCart />

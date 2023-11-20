@@ -35,7 +35,7 @@ const Hero = () => {
           mission is to provide you with the joy and vibrancy of seasonal
           flowers throughout the year.
         </p>
-        <Link to="products" className="btn hero-btn">
+        <Link to="products" aria-label="Go to products page" className="btn hero-btn">
           Shop Now
         </Link>
       </article>
