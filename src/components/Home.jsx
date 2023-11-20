@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import heroImg1 from "../assets/flower-power.avif";
 import heroImg2 from "../assets/flower-power2.avif";
-import Newsletter from "./Newsletter";
+import NewsletterModal from "./NewsletterModal";
 import FeaturedProducts from "./FeaturedProducts";
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
     <main>
       <Hero />
       <FeaturedProducts />
-      <Newsletter />
+      <NewsletterModal />
     </main>
   );
 };

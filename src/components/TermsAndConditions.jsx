@@ -86,7 +86,10 @@ const TermsAndConditionsModal = ({ isOpen, onRequestClose }) => {
   );
 };
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+  z-index: 1000;
+  position: absolute;
+`;
 
 const ModalHeader = styled.h1`
   font-size: 1.5rem;

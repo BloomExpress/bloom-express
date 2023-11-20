@@ -13,8 +13,8 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [imgCount, setImgCount] = useState(0);
   const [sortFlower, setSortFlower] = useState("asc");
+  const [colorChecked, setColorChecked] = useState({});
   const distinctColors = [];
-  const checkedColors = [];
 
   const getDistinctColors = () => {
     flowerProducts.filter((flower) => {
@@ -25,17 +25,23 @@ const Products = () => {
     });
   };
   getDistinctColors();
+
   useEffect(() => {
     const f = selectedCategory
       ? flowerProducts.filter((flower) => flower.category === selectedCategory)
       : flowerProducts.filter((flower) => flower);
 
-    sortFlower === "des"
-      ? setFilteredFlowers(f.sort((a, b) => b.price - a.price))
-      : setFilteredFlowers(f.sort((a, b) => a.price - b.price));
+    const filteredByColors = Object.keys(colorChecked).length
+      ? f.filter((flower) =>
+          flower.color.some((color) => colorChecked[color.toLowerCase()])
+        )
+      : f.filter((flower) => flower);
 
-    setImgCount(f.length);
-  }, [selectedCategory, sortFlower, flowerProducts]);
+    sortFlower === "des"
+      ? setFilteredFlowers(filteredByColors.sort((a, b) => b.price - a.price))
+      : setFilteredFlowers(filteredByColors.sort((a, b) => a.price - b.price));
+    setImgCount(filteredByColors.length);
+  }, [selectedCategory, sortFlower, flowerProducts, colorChecked]);
 
   const categories = flowers.reduce((acc, flower) => {
     if (!acc.includes(flower.category)) {
@@ -50,15 +56,19 @@ const Products = () => {
   };
 
   const sortByPrice = (e) => {
-    // let val = ;
     setSortFlower(e.target.value);
   };
 
-  const handleMouseEnter = (e) => {};
   const handleColorSelectChange = (e) => {
-    console.log("Name: ", e.target.name);
-    console.log("Value: ", e.target.value);
+    console.log("Name", e.target.name);
+    const name = e.target.name;
+    const isChecked = e.target.checked;
+    setColorChecked((prevColorChecked) => ({
+      ...prevColorChecked,
+      [name]: isChecked,
+    }));
   };
+
   const cardBody = {
     padding: "1rem 0.1rem",
   };
@@ -97,7 +107,7 @@ const Products = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       <PageHero title="Products" />
       <div className="container">
         <div className="row">
@@ -140,15 +150,13 @@ const Products = () => {
                     key={c}
                     className="bg-secondary-subtle w-100 ps-2 pt-1 pb-1 rounded mb-1"
                   >
-                    <label
-                      className="m-1 d-flex gap-1 align-items-center"
-                      onMouseEnter={handleMouseEnter}
-                    >
+                    <label className="m-1 d-flex gap-1 align-items-center">
                       <input
                         type="checkbox"
                         onChange={handleColorSelectChange}
                         style={{ width: "1rem", height: "1.3rem" }}
                         name={c}
+                        checked={colorChecked[c]}
                       />
                       <PiFlowerFill
                         style={{ color: `${c}`, fontSize: "1.3rem" }}
@@ -235,12 +243,17 @@ const Products = () => {
           </div>
         </div>
       </div>
-    </>
+    </Wrapper>
   );
 };
 export const productsLoader = async () => {
   return flowers;
 };
+
+const Wrapper = styled.section`
+  position: relative;
+  z-index: 0;
+`;
 
 const Image = styled.img`
   width: 100%;

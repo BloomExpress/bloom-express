@@ -49,10 +49,14 @@ const Contact = () => {
 
       if (response.ok) {
         // Contact created successfully, you can handle this accordingly
-        alert("Contact created successfully");
+        alert(
+          "Thank you for reaching out. We'll be in touch with you shortly."
+        );
       } else {
         // Handle error here
-        alert("Failed to create contact");
+        alert(
+          "Oops! Something went wrong. We're on it and will fix the error. Thank you for bringing it to our attention."
+        );
       }
     } catch (error) {
       console.error("Error:", error);
@@ -226,82 +230,7 @@ const Contact = () => {
                 <h2>Our Team</h2>
                 <div className="team-grid">
                   {/* Team Member 1 */}
-                  <div className="team-member">
-                    <TeamMemberCard>
-                      <div className="team-member-image">
-                        <img src={jamal} alt="Jamal's Photo" />
-                      </div>
-                      <h4>Sayed Jamal Hussain Ahmadi</h4>
-                      <p>Berlin Store Manager(A)</p>
-                      <a
-                        href="https://github.com/coderahmadi"
-                        aria-label="Go to Jamal's GitHub profile"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FontAwesomeIcon icon={faGithub} size="2xl" />
-                      </a>
-                    </TeamMemberCard>
-                  </div>
 
-                  {/* Team Member 2 */}
-                  <div className="team-member">
-                    <TeamMemberCard>
-                      <div className="team-member-image">
-                        <img src={manolo} alt="Manolo's Photo" />
-                      </div>
-                      <h4>Manolos Cipi</h4>
-                      <p>Berlin Store Manager(B)</p>
-                      <a
-                        href="https://github.com/manoloscipi"
-                        aria-label="Go to Manolo's GitHub profile"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FontAwesomeIcon icon={faGithub} size="2xl" />
-                      </a>
-                    </TeamMemberCard>
-                  </div>
-
-                  {/* Team Member 3 */}
-                  <div className="team-member">
-                    <TeamMemberCard>
-                      <div className="team-member-image">
-                        <img src={marko} alt="Marko's Photo" />
-                      </div>
-                      <h4>Marko Tertinek </h4>
-                      <p>Leipzig Store Manager(A)</p>
-                      <a
-                        href="https://github.com/MarkoTertinek"
-                        aria-label="Go to Marko's GitHub profile"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FontAwesomeIcon icon={faGithub} size="2xl" />
-                      </a>
-                    </TeamMemberCard>
-                  </div>
-
-                  {/* Team Member 4 */}
-                  <div className="team-member">
-                    <TeamMemberCard>
-                      <div className="team-member-image">
-                        <img src={apiradee} alt="Apiradee's Photo" />
-                      </div>
-                      <h4>Apiradee Haeusler</h4>
-                      <p>Leipzig Store Manager(B)</p>
-                      <a
-                        href="https://github.com/ApiradeeH"
-                        aria-label="Go to Apiradee's GitHub profile"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FontAwesomeIcon icon={faGithub} size="2xl" />
-                      </a>
-                    </TeamMemberCard>
-                  </div>
-
-                  {/* Team Member 5 */}
                   <div className="team-member">
                     <TeamMemberCard>
                       <div className="team-member-image">
@@ -319,6 +248,82 @@ const Contact = () => {
                       </a>
                     </TeamMemberCard>
                   </div>
+
+                  {/* Team Member 2 */}
+                  <div className="team-member">
+                    <TeamMemberCard>
+                      <div className="team-member-image">
+                        <img src={apiradee} alt="Apiradee's Photo" />
+                      </div>
+                      <h4>Apiradee Haeusler</h4>
+                      <p>Muldestausee</p>
+                      <a
+                        href="https://github.com/ApiradeeH"
+                        aria-label="Go to Apiradee's GitHub profile"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon icon={faGithub} size="2xl" />
+                      </a>
+                    </TeamMemberCard>
+                  </div>
+
+                  {/* Team Member 3 */}
+                  <div className="team-member">
+                    <TeamMemberCard>
+                      <div className="team-member-image">
+                        <img src={marko} alt="Marko's Photo" />
+                      </div>
+                      <h4>Marko Tertinek</h4>
+                      <p>Leipzig Store Manager</p>
+                      <a
+                        href="https://github.com/MarkoTertinek"
+                        aria-label="Go to Marko's GitHub profile"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon icon={faGithub} size="2xl" />
+                      </a>
+                    </TeamMemberCard>
+                  </div>
+
+                  {/* Team Member 4 */}
+                  <div className="team-member">
+                    <TeamMemberCard>
+                      <div className="team-member-image">
+                        <img src={manolo} alt="Manolo's Photo" />
+                      </div>
+                      <h4>Manolos Cipi</h4>
+                      <p>Berlin Store Manager</p>
+                      <a
+                        href="https://github.com/manoloscipi"
+                        aria-label="Go to Manolo's GitHub profile
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon icon={faGithub} size="2xl" />
+                      </a>
+                    </TeamMemberCard>
+                  </div>
+
+                  {/* Team Member 5 */}
+                  {/* <div className="team-member">
+                    <TeamMemberCard>
+                      <div className="team-member-image">
+                        <img src={jamal} alt="Jamal's Photo" />
+                      </div>
+                      <h4>Sayed Jamal Hussain Ahmadi</h4>
+                      <p>Berlin Store Manager(A)</p>
+                      <a
+                        href="https://github.com/coderahmadi"
+                        aria-label="Go to Jamal's GitHub profile
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon icon={faGithub} size="2xl" />
+                      </a>
+                    </TeamMemberCard>
+                  </div> */}
                 </div>
               </div>
             </div>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import axios from "../utils/axiosInstance";
+
 const Newsletter = () => {
   const [state, handleSubmit] = useForm("xeqbokjw");
   const [showPopup, setShowPopup] = useState(false);
@@ -14,7 +15,7 @@ const Newsletter = () => {
       const timer = setTimeout(() => {
         setShowPopup(true);
         sessionStorage.setItem("hasSeenPopup", "true");
-      }, 5000);
+      }, 7000);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -57,7 +58,7 @@ const Newsletter = () => {
                 </ThankYouMessage>
               ) : subscriptionStatus === "error" ? (
                 <ErrorMessage>
-                  User not found. You are not registered yet.
+                  User not found. Have you already signed up?
                 </ErrorMessage>
               ) : (
                 <>
@@ -90,7 +91,7 @@ const Newsletter = () => {
                     >
                       <input
                         type="email"
-                        name="email" // Change name to "email"
+                        name="email"
                         className="form-input"
                         placeholder="enter your email"
                       />
@@ -249,8 +250,8 @@ const ThankYouMessage = styled.span`
   margin-top: 2rem;
 `;
 const ErrorMessage = styled.span`
-  font-size: 1rem;
-  color: red;
+  font-size: 1.5rem;
+  color: #ed518a;
   text-align: center;
   margin-top: 2rem;
 `;

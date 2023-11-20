@@ -28,7 +28,9 @@ const Nav = () => {
             <img src={logo} alt="Bloom Express" />
           </Link>
           <button
-            aria-label={isSidebarOpen ? "Close sidebar menu" : "Open sidebar menu"}
+            aria-label={
+              isSidebarOpen ? "Close sidebar menu" : "Open sidebar menu"
+            }
             aria-expanded={isSidebarOpen ? "true" : "false"}
             type="button"
             className="nav-toggle"
@@ -61,7 +63,7 @@ const Nav = () => {
 };
 
 const NavContainer = styled.nav`
-  height: 5rem;
+  height: 6.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +79,7 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     img {
-      width: 175px;
+      width: 250px;
       margin-left: -15px;
     }
   }

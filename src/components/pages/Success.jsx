@@ -1,32 +1,75 @@
 import styled from "styled-components";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import GreetingCard from "./GreetingCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { useSearchParams } from "react-router-dom";
+import axios from "../../utils/axiosInstance";
 
 function Success() {
+  const [searchParams] = useSearchParams();
+  console.log(searchParams.get("session_id"));
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [message, setMessage] = useState(
+    "Your payment has been successfully processed."
+  );
+  const [payment, setPayment] = useState();
 
   const openModal = () => {
     setIsModalOpen(true);
+    setMessage(
+      "Greeting Card added successfully. Thank you for purchasing, we hope to see you again soon!"
+    );
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const getData = async (session_id) => {
+    try {
+      const response = await axios.get(
+        `/api/payments/success?session_id=${session_id}`
+      );
+      console.log(response.data);
+      setPayment(response.data.paymentSessionId);
+    } catch (error) {
+      console.error("Error retrieving payment data:", error);
+    }
+  };
+  useEffect(() => {
+    const stripePaymentId = searchParams.get("session_id");
+
+    if (!stripePaymentId) return;
+    console.log(stripePaymentId);
+
+    //http://localhost:5000/api/payments/success?session_id=
+    // retrieve details from API
+
+    getData(stripePaymentId);
+  }, [searchParams]);
+
   return (
     <Wrapper>
       <section>
-        <h3>Your payment has been successfully processed.</h3>
-
         <div>
-          <button onClick={openModal}>Personalize Your Greeting Card</button>
-
-          {isModalOpen && <GreetingCard onClose={closeModal} />}
+          <h3>
+            {message.split(".").map((line, index) => (
+              <div key={index}>{line}</div>
+            ))}
+          </h3>
         </div>
 
-        <Link to="/" className="btn">
-          Continue shopping on our website
-        </Link>
+        <div>
+          <FontAwesomeIcon
+            icon={faEnvelope}
+            className="btn"
+            onClick={openModal}
+          />{" "}
+          Personalize Your Greeting Card
+          {isModalOpen && (
+            <GreetingCard onClose={closeModal} paymentSessionId={payment} />
+          )}
+        </div>
       </section>
     </Wrapper>
   );
@@ -60,5 +103,9 @@ const Wrapper = styled.main`
     background-color: #397f84;
     color: var(--clr-white);
   }
+  .link-container {
+    margin-top: 20px; /* Add margin to separate the button and link */
+  }
 `;
+
 export default Success;
