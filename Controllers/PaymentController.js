@@ -17,8 +17,8 @@ export const createStripePayment = async (req, res) => {
       },
       mode: "payment",
       success_url:
-        "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "http://localhost:3000/cancel",
+        "https://bloom-express.onrender.com/success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "https://bloom-express.onrender.com/cancel",
     });
     return res.send(
       JSON.stringify({
