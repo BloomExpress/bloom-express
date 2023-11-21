@@ -37,7 +37,7 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/contacts/createContact`,
+        `${import.meta.env.VITE_BASE_URL}/api/contacts/createContact`,
         {
           method: "POST",
           headers: {
