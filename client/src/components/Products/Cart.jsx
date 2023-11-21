@@ -45,7 +45,7 @@ const Cart = () => {
     }));
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/payments/checkout`,
+        `${import.meta.env.VITE_BASE_URL}/api/payments/checkout`,
         {
           method: "POST",
           headers: {
