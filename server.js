@@ -3,6 +3,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
 // importing place for routes
 import userRoute from "./Routes/userRoute.js";
@@ -13,13 +16,14 @@ import faqRoute from "./Routes/faqRoute.js";
 import cartRoute from "./Routes/cartRoute.js";
 import paymentRoute from "./Routes/paymentRoute.js";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const app = express();
 dotenv.config();
 
 // which client have access
 app.use(
   cors({
-    origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -34,6 +38,13 @@ app.use("/api/carts/", cartRoute);
 app.use("/api/newsletter/", newsletterRoute);
 app.use("/api/contacts/", contactRoute);
 app.use("/api/payments/", paymentRoute);
+
+// !! Your middleware should not go below this line !!
+// Serve frontend client/build folder
+app.use(express.static(path.join(__dirname, "client/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/dist/index.html"));
+});
 
 mongoose
   .connect(`${process.env.DB_CONNECTION}`)
