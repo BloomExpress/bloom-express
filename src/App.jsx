@@ -19,6 +19,7 @@ import Products from "./components/Products/Products";
 import Cart from "./components/Products/Cart";
 import Success from "./components/pages/Success";
 import Cancel from "./components/pages/Cancel";
+import AuthWrapper from "./components/pages/AuthWrapper";
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
@@ -55,9 +56,9 @@ function App() {
   );
 
   return (
-    <>
+    <AuthWrapper>
       <RouterProvider router={router} />
-    </>
+    </AuthWrapper>
   );
 }
 

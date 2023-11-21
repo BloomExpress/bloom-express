@@ -12,6 +12,9 @@ export const createStripePayment = async (req, res) => {
 
     const session = await stripeInstance.checkout.sessions.create({
       line_items: lineItems,
+      automatic_tax: {
+        enabled: true,
+      },
       mode: "payment",
       success_url:
         "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
