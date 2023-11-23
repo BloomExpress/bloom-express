@@ -4,7 +4,6 @@ import cors from "cors";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 
-// importing place for routes
 import userRoute from "./Routes/userRoute.js";
 import bouquetRoute from "./Routes/bouquetRoute.js";
 import newsletterRoute from "./Routes/newsletterRoute.js";
