@@ -2,7 +2,7 @@
 
 ![logo](./client/src/assets/logo.png)
 
-Bloom Express is a delightful online store for flower enthusiasts, providing a seamless shopping experience for beautiful bouquets. This project is a collaborative effort by four junior developers as part of the Final Project of the DCI Further Training program as Web & Software Developers.
+Welcome to Bloom Express, where the beauty of flowers meets the convenience of online shopping. Our goal is to provide customers with a user-friendly platform to explore and purchase exquisite bouquets. This project was developed as a group effort during the Final Project of the DCI Further Training program as Web & Software Developers.
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@ Bloom Express is a delightful online store for flower enthusiasts, providing a s
 
 ## Introduction
 
-Welcome to Bloom Express, where the beauty of flowers meets the convenience of online shopping. Our goal is to provide customers with a user-friendly platform to explore and purchase exquisite bouquets. This project was developed as a group effort during the Final Project of the DCI Further Training program.
+Bloom Express is a delightful online store for flower enthusiasts, providing a seamless shopping experience for beautiful bouquets.
 
 ## Contributors: Blooming Developers
 
