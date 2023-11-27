@@ -36,6 +36,7 @@ Bloom Express follows a modular structure, implementing the MVC (Model-View-Cont
 
 ## Directory Structure
 
+<pre>
 bloom-express/
 │
 ├── backend/
@@ -52,6 +53,7 @@ bloom-express/
 │ └── assets/
 │
 └── server.js
+</pre>
 
 Briefly, here's an explanation of each directory:
 
