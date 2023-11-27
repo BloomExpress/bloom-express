@@ -1,6 +1,6 @@
 # BloomExpress
 
-![logo](./src/assets/logo.png)
+![logo](./client/src/assets/logo.png)
 
 Bloom Express is a delightful online store for flower enthusiasts, providing a seamless shopping experience for beautiful bouquets. This project is a collaborative effort by four junior developers as part of the Final Project of the DCI Further Training program as Web & Software Developers.
 
@@ -97,4 +97,4 @@ To get started with Bloom Express on your local machine, follow these steps:
 
 This screenshot captures the Bloom Express homepage, showcasing a visually appealing layout with featured bouquets. The navigation bar provides easy access to different sections of the online store. Additionally, the responsive design ensures a seamless experience across various devices.
 
-![Bloom Express Homepage](./src/assets/screenshot.png)
+![Bloom Express Homepage](./client/src/assets/screenshot.png)
