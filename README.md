@@ -63,7 +63,9 @@ To get started with Bloom Express on your local machine, follow these steps:
 3. Run the server: ` cd backend && npm i && nodemon server`
 4. Access the application: `npm i && npm run dev`
 
-## Deployed Version of Bloom Express can be found [here](https://bloom-express.onrender.com)
+## Deployed Version
+
+The deployed version of Bloom Express can be found [here](https://bloom-express.onrender.com)
 
 ## Test Card Numbers:
 
