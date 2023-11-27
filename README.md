@@ -8,6 +8,8 @@ Welcome to Bloom Express, where the beauty of flowers meets the convenience of o
 
 - [Introduction](#introduction)
 - [Contributors](#contributors)
+- [Project Structure](#project-structure)
+- [Directory Structure](#directory-structure)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -27,6 +29,45 @@ Bloom Express is a delightful online store for flower enthusiasts, providing a s
 - Apiradee Haeusler - https://github.com/ApiradeeH
 - Marko Tertinek - https://github.com/MarkoTertinek
 - Manolos Cipi - https://github.com/manoloscipi
+
+## Project Structure
+
+Bloom Express follows a modular structure, implementing the MVC (Model-View-Controller) pattern. The backend is organized into separate folders for models, controllers, routes, and middleware.
+
+## Directory Structure
+
+bloom-express/
+│
+├── backend/
+│ ├── controllers/
+│ ├── models/
+│ ├── routes/
+│ └── middleware/
+│
+├── client/
+│ ├── public/
+│ └── src/
+│ ├── components/
+│ ├── pages/
+│ └── assets/
+│
+└── server.js
+
+Briefly, here's an explanation of each directory:
+
+- **backend/controllers:** Contains controllers that handle business logic.
+- **backend/models:** Defines data models.
+- **backend/routes:** Defines API routes.
+- **backend/middleware:** Houses middleware functions.
+
+- **client/public:** Public assets for the React frontend.
+- **client/src/components:** Reusable React components.
+- **client/src/pages:** Components representing different pages.
+- **client/src/assets:** Assets used in the frontend, such as images.
+
+### MVC Pattern
+
+Bloom Express uses the MVC (Minimum Viable Product) pattern to separate concerns and enhance maintainability and scalability.
 
 ## Features
 
