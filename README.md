@@ -53,12 +53,12 @@ To get started with Bloom Express on your local machine, follow these steps:
 
 - Create a .env file in the backend and add the necessary variables
 
-  ```bash
-  DB_CONNECTION=mongodb+srv://blooms:54321@cluster0.9jsvdk7.mongodb.net/db-blooms?retryWrites=true&w=majority
-  PORT=5000
-  JWT_KEY=bloomingDevelopers2JA2M
-  STRIPE_API_KEY=sk_test_51O6rDqAwCkFo89QRohTjEECEYgnTKealYxaTUA3zcUaol7wUlVaXsTWDPFA5y8Bmg3m4yrR9eUQ7yjGtyT5SHtGO001A2wDUMA
-  ```
+- Ensure you have the following environment variables set up in your backend:
+
+- `DB_CONNECTION`: MongoDB connection string for storing product and user information.
+- `PORT`: Port on which the server runs.
+- `JWT_KEY`: Secret key for JWT token generation.
+- `STRIPE_API_KEY`: Stripe API key for payment processing.
 
 3. Run the server: ` cd backend && npm i && nodemon server`
 4. Access the application: `npm i && npm run dev`
