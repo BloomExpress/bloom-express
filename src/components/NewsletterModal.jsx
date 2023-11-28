@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { useForm, ValidationError } from "@formspree/react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import axios from "../utils/axiosInstance";
 
 const Newsletter = () => {
-  const [state, handleSubmit] = useForm("xeqbokjw");
   const [showPopup, setShowPopup] = useState(false);
   const [subscriptionStatus, setSubscriptionStatus] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const hasSeenPopup = sessionStorage.getItem("hasSeenPopup");
     if (!hasSeenPopup) {
@@ -19,17 +19,31 @@ const Newsletter = () => {
       return () => clearTimeout(timer);
     }
   }, []);
+
   const handleClosePopup = () => {
     setShowPopup(false);
   };
+
   const subscribe = async (email) => {
     try {
+      setLoading(true);
+
       const response = await axios.post("/api/users/subscribe", {
         email,
       });
+
       if (response.status === 200) {
-        setSubscriptionStatus("success");
-        console.log("Subscription successful");
+        const { message, response: emailResponse } = response.data;
+
+        if (message.includes("Oops! It looks like you're already part")) {
+          setSubscriptionStatus("existingUser");
+        } else {
+          setSubscriptionStatus("success");
+          console.log("Subscription successful");
+
+          // Handle emailResponse if needed
+          console.log("Email response:", emailResponse);
+        }
       } else {
         setSubscriptionStatus("error");
         console.error("Subscription failed");
@@ -40,8 +54,11 @@ const Newsletter = () => {
         "Error occurred while making the subscription request",
         error
       );
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
     <>
       {showPopup && (
@@ -56,9 +73,15 @@ const Newsletter = () => {
                 <ThankYouMessage>
                   <h3>Thank you for joining our magical flower family!</h3>
                 </ThankYouMessage>
+              ) : subscriptionStatus === "existingUser" ? (
+                <ErrorMessage>
+                  Oops! It looks like you're already part of our exclusive
+                  community. Stay tuned for more special offers and updates
+                  coming your way next month. We appreciate your support!
+                </ErrorMessage>
               ) : subscriptionStatus === "error" ? (
                 <ErrorMessage>
-                  User not found. Have you already signed up?
+                  Subscription failed. Please try again.
                 </ErrorMessage>
               ) : (
                 <>
@@ -95,15 +118,9 @@ const Newsletter = () => {
                         className="form-input"
                         placeholder="enter your email"
                       />
-                      <ValidationError
-                        prefix="Email"
-                        field="email"
-                        errors={state.errors}
-                      />
                       <button type="submit" className="submit-btn">
                         subscribe
                       </button>
-                      {state.submitting && <div>Submitting...</div>}
                     </form>
                   </div>
                 </>

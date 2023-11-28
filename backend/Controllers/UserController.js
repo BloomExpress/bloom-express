@@ -262,47 +262,48 @@ export const deleteUserBasedById = async (req, res) => {
  * @returns
  */
 export const subscribe = async (req, res) => {
-  const filter = { email: req.body.email }; // Assuming email is sent in the request body
-  const update = { subscribed: true, discountClaimed: true };
-  const returnNew = { new: true };
+  const filter = { email: req.body.email };
+  const update = {
+    email: req.body.email,
+    subscribed: true,
+    discountClaimed: true,
+  };
+  const options = { upsert: true, new: true };
+
   try {
-    const user = await User.findOneAndUpdate(filter, update, returnNew);
-    if (!user) {
-      return res
-        .status(StatusCodes.NOT_FOUND)
-        .json({ message: `User with email (${req.body.email}) not found..!` });
+    // Check if the user already exists
+    const existingUser = await User.findOne(filter);
+
+    if (existingUser) {
+      return res.status(StatusCodes.OK).json({
+        message:
+          "Oops! It looks like you're already part of our exclusive community. Stay tuned for more special offers and updates coming your way next month. We appreciate your support!",
+      });
     }
-    return res
-      .status(StatusCodes.OK)
-      .json({ message: "You subscribed successfully...!" });
-  } catch (error) {
-    return res
-      .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ message: error.toString() });
-  }
-};
-/**
- * for sending Newsletters to users
- * @param {*} req
- * @param {*} res
- * @returns
- */
-export const sendNewsletterToUser = async (req, res) => {
-  try {
-    const user = await User.findById(req.params.uId).lean();
-    const newsLetter = await NewsLetter.find({}).sort({ _id: -1 }).limit(1);
+
+    // If the user doesn't exist, create or update as needed
+    const user = await User.findOneAndUpdate(filter, update, options);
+
     if (user) {
+      // Send email to the user
+      const newsLetter = await NewsLetter.find({}).sort({ _id: -1 }).limit(1);
+
       const resend = new Resend("re_YRfdyDcY_8cciGm7768gTRzcfuwa8wukW");
       const response = await resend.emails.send({
         from: "onboarding@resend.dev",
-        to: "bloomexpress2023@gmail.com",
+        to: req.body.email,
         subject: `${newsLetter[0].bouquetOfTheMonth}`,
         html: `<p>${newsLetter[0].exclusiveDiscount}! <strong>${newsLetter[0].floralTips}</strong>!</p>`,
       });
-      // response object return and id, we can use it to hint
+
+      return res.status(StatusCodes.OK).json({
+        message: "You subscribed successfully. Email sent!",
+        response,
+      });
+    } else {
       return res
-        .status(StatusCodes.OK)
-        .json({ message: "response sent..!", response });
+        .status(StatusCodes.INTERNAL_SERVER_ERROR)
+        .json({ message: "Failed to update/create user." });
     }
   } catch (error) {
     return res
@@ -310,6 +311,36 @@ export const sendNewsletterToUser = async (req, res) => {
       .json({ message: error.toString() });
   }
 };
+
+// /**
+//  * for sending Newsletters to users
+//  * @param {*} req
+//  * @param {*} res
+//  * @returns
+//  */
+// export const sendNewsletterToUser = async (req, res) => {
+//   try {
+//     const user = await User.findById(req.params.uId).lean();
+//     const newsLetter = await NewsLetter.find({}).sort({ _id: -1 }).limit(1);
+//     if (user) {
+//       const resend = new Resend("re_YRfdyDcY_8cciGm7768gTRzcfuwa8wukW");
+//       const response = await resend.emails.send({
+//         from: "onboarding@resend.dev",
+//         to: "bloomexpress2023@gmail.com",
+//         subject: `${newsLetter[0].bouquetOfTheMonth}`,
+//         html: `<p>${newsLetter[0].exclusiveDiscount}! <strong>${newsLetter[0].floralTips}</strong>!</p>`,
+//       });
+//       // response object return and id, we can use it to hint
+//       return res
+//         .status(StatusCodes.OK)
+//         .json({ message: "response sent..!", response });
+//     }
+//   } catch (error) {
+//     return res
+//       .status(StatusCodes.INTERNAL_SERVER_ERROR)
+//       .json({ message: error.toString() });
+//   }
+// };
 
 export const logoutUser = (req, res) => {
   res
