@@ -86,11 +86,10 @@ Bloom Express uses the MVC (Minimum Viable Product) pattern to separate concerns
 To get started with Bloom Express on your local machine, follow these steps:
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/BloomExpress/bloom-express.git
    ```
-
-- Run development in main-backup branch `git checkout main-backup`
 
 2. Set up environment variables:
 
@@ -103,8 +102,8 @@ To get started with Bloom Express on your local machine, follow these steps:
 - `JWT_KEY`: Secret key for JWT token generation.
 - `STRIPE_API_KEY`: Stripe API key for payment processing.
 
-3. Run the server: ` cd backend && npm i && nodemon server`
-4. Access the application: `npm i && npm run dev`
+3. Run the server: `npm i && nodemon server`
+4. Access the application: `cd client && npm i && npm run dev`
 
 ## Deployed Version
 

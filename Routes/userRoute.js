@@ -11,7 +11,6 @@ import {
   subscribe,
   login,
   changingPassword,
-  sendNewsletterToUser,
   logoutUser,
 } from "../Controllers/UserController.js";
 import { authorizeJwt } from "../middleware/auth.js";
@@ -30,7 +29,7 @@ import {
 
 // route for user
 router.post("/subscribe", subscribe);
-router.post("/sendNewsLetter/:uId", sendNewsletterToUser);
+// router.post("/sendNewsLetter/:uId", sendNewsletterToUser);
 
 // router.use(authorizeJwt);
 

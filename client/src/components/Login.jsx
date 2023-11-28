@@ -8,25 +8,32 @@ import { dataCard } from "../contexts/CartContextProvider";
 const Login = () => {
   const { loginWithRedirect, myUser, logout } = useUserContext();
   const { state } = useContext(dataCard);
+
+  const handleLogout = () => {
+    const returnUrl =
+      window.location.origin + (window.location.port === "3000" ? "/" : ""); // Adjust the port based on your development server
+
+    logout({ returnTo: returnUrl });
+  };
+
   return (
     <Wrapper>
-      <Link to="/cart" aria-label="Go to cart page" className="cart-btn">
-        Cart
-        <span className="cart-container">
-          <FaShoppingCart />
-          {state.cart.length > 0 ? (
-            <span className="cart-value">{state.cart.length}</span>
-          ) : (
-            <span></span>
-          )}
-        </span>
-      </Link>
+      {myUser && (
+        <Link to="/cart" aria-label="Go to cart page" className="cart-btn">
+          Cart
+          <span className="cart-container">
+            <FaShoppingCart />
+            {state.cart.length > 0 ? (
+              <span className="cart-value">{state.cart.length}</span>
+            ) : (
+              <span></span>
+            )}
+          </span>
+        </Link>
+      )}
+
       {myUser ? (
-        <button
-          type="button"
-          className="auth-btn"
-          onClick={() => logout({ returnTo: window.location.origin })}
-        >
+        <button type="button" className="auth-btn" onClick={handleLogout}>
           Logout <FaUserMinus />
         </button>
       ) : (
