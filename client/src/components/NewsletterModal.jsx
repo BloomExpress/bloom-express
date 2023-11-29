@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import fetch from 'node-fetch';
 
 const Newsletter = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -32,7 +33,7 @@ const Newsletter = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email: email }),
+        body: JSON.stringify(data),
       });
 
       const data = await response.json();
