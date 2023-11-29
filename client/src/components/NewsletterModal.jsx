@@ -28,14 +28,9 @@ const Newsletter = () => {
     try {
       setLoading(true);
 
-      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/users/subscribe`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
+      const response = await axios.post(`/api/users/subscribe`,  {email  
       });
-
+console.log(response);
       if (response.status === 200) {
         const { message, response: emailResponse } = response.data;
 
