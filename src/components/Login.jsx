@@ -10,17 +10,20 @@ const Login = () => {
   const { state } = useContext(dataCard);
   return (
     <Wrapper>
-      <Link to="/cart" aria-label="Go to cart page" className="cart-btn">
-        Cart
-        <span className="cart-container">
-          <FaShoppingCart />
-          {state.cart.length > 0 ? (
-            <span className="cart-value">{state.cart.length}</span>
-          ) : (
-            <span></span>
-          )}
-        </span>
-      </Link>
+       {myUser && (
+        <Link to="/cart" aria-label="Go to cart page" className="cart-btn">
+          Cart
+          <span className="cart-container">
+            <FaShoppingCart />
+            {state.cart.length > 0 ? (
+              <span className="cart-value">{state.cart.length}</span>
+            ) : (
+              <span></span>
+            )}
+          </span>
+        </Link>
+      )}
+      
       {myUser ? (
         <button
           type="button"
