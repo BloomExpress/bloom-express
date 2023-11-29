@@ -11,10 +11,11 @@ const Login = () => {
 
   const handleLogout = () => {
     const returnUrl =
-      window.location.origin + (window.location.port === "3000" ? "/" : ""); // Adjust the port based on your development server
-
+      process.env.NODE_ENV === 'development'
+        ? window.location.origin + '/'
+        : 'https://bloom-express.onrender.com/';
     logout({ returnTo: returnUrl });
-  };
+  };  
 
   return (
     <Wrapper>

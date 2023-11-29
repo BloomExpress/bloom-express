@@ -36,8 +36,9 @@ const Newsletter = () => {
         body: JSON.stringify({ email }),
       });
 
-      if (response.status === 200 || response.status === 201) {
-        const { message, response: emailResponse } = await response.json(); 
+      if (response.status === 200) {
+        const { message, response: emailResponse } = response.data;
+
         if (message.includes("Oops! It looks like you're already part")) {
           setSubscriptionStatus("existingUser");
         } else {
@@ -47,7 +48,10 @@ const Newsletter = () => {
           // Handle emailResponse if needed
           console.log("Email response:", emailResponse);
         }
-      } 
+      } else {
+        setSubscriptionStatus("error");
+        console.error("Subscription failed");
+      }
     } catch (error) {
       setSubscriptionStatus("error");
       console.error(
@@ -58,7 +62,7 @@ const Newsletter = () => {
       setLoading(false);
     }
   };
-
+  
   return (
     <>
       {showPopup && (
