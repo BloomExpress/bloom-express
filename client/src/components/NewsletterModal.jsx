@@ -29,7 +29,11 @@ const Newsletter = () => {
       setLoading(true);
 
       const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/users/subscribe`, {
-        email,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
       });
 
       if (response.status === 200) {
