@@ -36,9 +36,8 @@ const Newsletter = () => {
         body: JSON.stringify({ email }),
       });
 
-      if (response.status === 200) {
-        const { message, response: emailResponse } = response.data;
-
+      if ((response.status === 200)) {
+        const { message, response: emailResponse } = await response.json(); 
         if (message.includes("Oops! It looks like you're already part")) {
           setSubscriptionStatus("existingUser");
         } else {
