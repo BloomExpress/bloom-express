@@ -28,11 +28,17 @@ const Newsletter = () => {
     try {
       setLoading(true);
 
-      const response = await axios.post(`/api/users/subscribe`,  {email  
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/users/subscribe`,  {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({email: email}),
       });
-console.log(response);
+      const data = await response.json();
+      console.log(data);
       if (response.status === 200) {
-        const { message, response: emailResponse } = response.data;
+        const { message, response: emailResponse } = data;
 
         if (message.includes("Oops! It looks like you're already part")) {
           setSubscriptionStatus("existingUser");

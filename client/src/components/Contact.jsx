@@ -48,19 +48,16 @@ const Contact = () => {
       );
 
       if (response.ok) {
-        // Contact created successfully, you can handle this accordingly
         alert(
           "Thank you for reaching out. We'll be in touch with you shortly."
         );
       } else {
-        // Handle error here
         alert(
           "Oops! Something went wrong. We're on it and will fix the error. Thank you for bringing it to our attention."
         );
       }
     } catch (error) {
       console.error("Error:", error);
-      // Handle the error here
     }
 
     // Reset the form fields
