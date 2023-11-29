@@ -47,10 +47,7 @@ const Newsletter = () => {
           // Handle emailResponse if needed
           console.log("Email response:", emailResponse);
         }
-      } else {
-        setSubscriptionStatus("error");
-        console.error("Subscription failed");
-      }
+      } 
     } catch (error) {
       setSubscriptionStatus("error");
       console.error(
