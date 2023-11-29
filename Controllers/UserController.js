@@ -291,7 +291,7 @@ export const subscribe = async (req, res) => {
       const resend = new Resend("re_YRfdyDcY_8cciGm7768gTRzcfuwa8wukW");
       const response = await resend.emails.send({
         from: "onboarding@resend.dev",
-        to: req.body.email,
+        to: "bloomexpress2023@gmail.com",
         subject: `${newsLetter[0].bouquetOfTheMonth}`,
         html: `<p>${newsLetter[0].exclusiveDiscount}! <strong>${newsLetter[0].floralTips}</strong>!</p>`,
       });
