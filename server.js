@@ -24,7 +24,7 @@ dotenv.config();
 // which client have access
 app.use(
   cors({
-    // origin: ["http://localhost:3000", "*"],
+    origin: "https://bloom-express.onrender.com",
     credentials: true,
   })
 );
