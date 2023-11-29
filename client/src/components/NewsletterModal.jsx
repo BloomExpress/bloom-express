@@ -28,13 +28,14 @@ const Newsletter = () => {
     try {
       setLoading(true);
 
-      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/users/subscribe`,  {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/users/subscribe`, {
         method: "POST",
-        headers: {
+        headers: new Headers({
           "Content-Type": "application/json",
-        },
-        body: JSON.stringify({email: email}),
+        }),
+        body: JSON.stringify({ email: email }),
       });
+      
       const data = await response.json();
       console.log(data);
       if (response.status === 200) {
