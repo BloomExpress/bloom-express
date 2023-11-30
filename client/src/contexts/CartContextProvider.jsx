@@ -14,7 +14,7 @@ const getCartFromSessionStorage = () => {
 };
 
 function CartContextProvider({ children }) {
-  const [state, dispatch1] = useReducer(cartReducer, getCartFromLocalStorage());
+  const [state, dispatch1] = useReducer(cartReducer, getCartFromSessionStorage());
 
   useEffect(()=>{
     localStorage.setItem("cart", JSON.stringify(state));
