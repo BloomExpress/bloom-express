@@ -288,25 +288,13 @@ export const subscribe = async (req, res) => {
       // Send email to the user
       const newsLetter = await NewsLetter.find({}).sort({ _id: -1 }).limit(1);
 
-      const resend = new Resend("re_YRfdyDcY_8cciGm7768gTRzcfuwa8wukW");
-      let response;
-      try{
-        response = await resend.emails.send({
-        from: "onboarding@resend.dev",
-        to: "bloomexpress2023@gmail.com",
-        subject: `${newsLetter[0].bouquetOfTheMonth}`,
-        html: `<p>${newsLetter[0].exclusiveDiscount}! <strong>${newsLetter[0].floralTips}</strong>!</p>`,
-      });
-      }catch (error) {
-        console.error('Error sending email:', error);
-        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-          message: 'Failed to send email.',
-        });
-      }
-      
-      if (response.error) {
-        console.error(response.error);
-      } else {
+      // const resend = new Resend("re_YRfdyDcY_8cciGm7768gTRzcfuwa8wukW");
+      // const response = await resend.emails.send({
+      //   from: "onboarding@resend.dev",
+      //   to: "bloomexpress2023@gmail.com",
+      //   subject: `${newsLetter[0].bouquetOfTheMonth}`,
+      //   html: `<p>${newsLetter[0].exclusiveDiscount}! <strong>${newsLetter[0].floralTips}</strong>!</p>`,
+      // });
 
       return res.status(StatusCodes.OK).json({
         message: "You subscribed successfully. Email sent!"
