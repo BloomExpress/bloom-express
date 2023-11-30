@@ -291,13 +291,23 @@ export const subscribe = async (req, res) => {
       // Send email to the user
       const newsLetter = await NewsLetter.find({}).sort({ _id: -1 }).limit(1);
 
-      const resend = new Resend(process.env.RESEND_API_KEY);
-      resend.apiKeys.create({
-        name : 'Production',
-        permission : 'full_access',
-       });    
-       
-      const response = await resend.emails.send({
+      let apiKey = process.env.RESEND_API_KEY;
+
+      if (!apiKey) {
+        // If the API key doesn't exist, create it
+        const resend = new Resend();
+        apiKey = await resend.apiKeys.create({
+          name: 'Production',
+          permission: 'full_access',
+        });
+
+        // Save the API key for future use
+        process.env.RESEND_API_KEY = apiKey;
+      }
+
+      const resendWithApiKey = new Resend(apiKey);
+
+      const response = await resendWithApiKey.emails.send({
         from: "onboarding@resend.dev",
         to: "bloomexpress2023@gmail.com",
         subject: `${newsLetter[0].bouquetOfTheMonth}`,
