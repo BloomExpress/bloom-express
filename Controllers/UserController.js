@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import { Resend } from "resend";
 import NewsLetter from "../Models/Newsletter.js";
 import { generateJwt, verifyJWT } from "../helpers/jwt.js";
+import fetch, {Headers} from 'node-fetch'
 
 /**
  * the function named createNewUser is for creating new User.
