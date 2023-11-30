@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Import Font Awesome icons
 import styled from "styled-components";
-import axios from "../utils/axiosInstance";
 
 const FaqModal = ({ isOpen, onRequestClose }) => {
   const limit = 5;
@@ -24,12 +23,12 @@ const FaqModal = ({ isOpen, onRequestClose }) => {
   useEffect(() => {
     const getAllFaqs = async () => {
       try {
-        const response = await axios.get(
-          `/api/faqs/getAllFaqs?limit=${limit}&skip=${skip}`
-        );
-        console.log("API Response:", response.data);
-        if (response.data && response.data) {
-          setData(response.data);
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/faqs/getAllFaqs?limit=${limit}&skip=${skip}`);
+      
+        if (response.ok) {
+          const data = await response.json();
+          console.log("API Response:", data);
+          setData(data);
         } else {
           console.error("No data found in the API response.");
         }
