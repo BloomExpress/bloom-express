@@ -38,16 +38,13 @@ const Newsletter = () => {
       const data = await response.json();
       console.log(data);
       if (response.status === 200) {
-        const { message, response: emailResponse } = data;
+        const { message } = data;
 
         if (message.includes("Oops! It looks like you're already part")) {
           setSubscriptionStatus("existingUser");
         } else {
           setSubscriptionStatus("success");
           console.log("Subscription successful");
-
-          // Handle emailResponse if needed
-          console.log("Email response:", emailResponse);
         }
       } else {
         setSubscriptionStatus("error");
