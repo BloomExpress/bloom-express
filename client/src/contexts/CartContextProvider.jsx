@@ -7,18 +7,18 @@ const initialValue = {
   cart: [],
 };
 
-const getCartFromSessionStorage = () => {
-  const cart = sessionStorage.getItem("cart");
+// const getCartFromSessionStorage = () => {
+//   const cart = sessionStorage.getItem("cart");
 
-  return cart ? JSON.parse(cart) : initialValue;
-};
+//   return cart ? JSON.parse(cart) : initialValue;
+// };
 
 function CartContextProvider({ children }) {
-  const [state, dispatch1] = useReducer(cartReducer, getCartFromSessionStorage());
+  const [state, dispatch1] = useReducer(cartReducer, initialValue);
 
-  useEffect(()=>{
-    sessionStorage.setItem("cart", JSON.stringify(state));
-  },[state])
+  // useEffect(()=>{
+  //   sessionStorage.setItem("cart", JSON.stringify(state));
+  // },[state])
   return (
     <dataCard.Provider value={{ state, dispatch1 }}>
       {children}
