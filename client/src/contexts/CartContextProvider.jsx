@@ -7,8 +7,8 @@ const initialValue = {
   cart: [],
 };
 
-const getCartFromLocalStorage = () => {
-  const cart = localStorage.getItem("cart");
+const getCartFromSessionStorage = () => {
+  const cart = sessionStorage.getItem("cart");
 
   return cart ? JSON.parse(cart) : initialValue;
 };
