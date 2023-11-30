@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import fetch, {Headers} from 'node-fetch'
 
 const Newsletter = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -29,9 +30,9 @@ const Newsletter = () => {
 
       const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/users/subscribe`, {
         method: "POST",
-        headers: {
+        headers: new Headers({
           "Content-Type": "application/json",
-        },
+        }),
         body: JSON.stringify({ email: email }),
       });
 
