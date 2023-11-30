@@ -306,6 +306,7 @@ export const subscribe = async (req, res) => {
         .json({ message: "Failed to update/create user." });
     }
   } catch (error) {
+    console.log(error);
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ message: error.toString() });
