@@ -5,6 +5,9 @@ import bcrypt from "bcrypt";
 import { Resend } from "resend";
 import NewsLetter from "../Models/Newsletter.js";
 import { generateJwt, verifyJWT } from "../helpers/jwt.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 /**
  * the function named createNewUser is for creating new User.
@@ -288,7 +291,7 @@ export const subscribe = async (req, res) => {
       // Send email to the user
       const newsLetter = await NewsLetter.find({}).sort({ _id: -1 }).limit(1);
 
-      const resend = new Resend("re_YRfdyDcY_8cciGm7768gTRzcfuwa8wukW");
+      const resend = new Resend(process.env.RESEND_API_KEY);
       const response = await resend.emails.send({
         from: "onboarding@resend.dev",
         to: "bloomexpress2023@gmail.com",
