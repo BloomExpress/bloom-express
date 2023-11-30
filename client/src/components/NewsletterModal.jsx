@@ -31,6 +31,7 @@ const Newsletter = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": "Bearer re_YRfdyDcY_8cciGm7768gTRzcfuwa8wukW"
         },
         body: JSON.stringify({ email: email }),
       });

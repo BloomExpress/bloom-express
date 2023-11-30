@@ -292,6 +292,11 @@ export const subscribe = async (req, res) => {
       const newsLetter = await NewsLetter.find({}).sort({ _id: -1 }).limit(1);
 
       const resend = new Resend(process.env.RESEND_API_KEY);
+      resend.apiKeys.create({
+        name : 'Production',
+        permission : 'full_access',
+       });    
+       
       const response = await resend.emails.send({
         from: "onboarding@resend.dev",
         to: "bloomexpress2023@gmail.com",
