@@ -297,8 +297,8 @@ export const subscribe = async (req, res) => {
       });
 
       return res.status(StatusCodes.OK).json({
-        message: "You subscribed successfully. Email sent!"
-        // response: response,
+        message: "You subscribed successfully. Email sent!",
+        response: response,
       });
     } else {
       return res
