@@ -30,7 +30,8 @@ const Newsletter = () => {
       const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/users/subscribe`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'Authorization': `Bearer ${import.meta.env.VITE_RESEND_API_KEY}`,
         },
         body: JSON.stringify({ email: email }),
       });
