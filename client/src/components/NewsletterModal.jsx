@@ -31,11 +31,11 @@ const Newsletter = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          'Authorization': `Bearer ${import.meta.env.RESEND_API_KEY}`,
+          'Authorization': `Bearer re_YRfdyDcY_8cciGm7768gTRzcfuwa8wukW`,
         },
         body: JSON.stringify({ email: email }),
       });
-
+  console.log(import.meta.env.RESEND_API_KEY);
       const data = await response.json();
       console.log(data);
       if (response.status === 200) {
