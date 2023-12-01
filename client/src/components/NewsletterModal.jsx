@@ -35,7 +35,7 @@ const Newsletter = () => {
         },
         body: JSON.stringify({ email: email }),
       });
-  console.log(import.meta.env.RESEND_API_KEY);
+  
       const data = await response.json();
       console.log(data);
       if (response.status === 200) {
