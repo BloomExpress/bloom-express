@@ -5,22 +5,26 @@ import { FaUserPlus, FaShoppingCart, FaUserMinus } from "react-icons/fa";
 import { useContext } from "react";
 import { dataCard } from "../contexts/CartContextProvider";
 
-const handleLogout = () => {
-  let returnUrl;
+const Login = () => {
+  const { loginWithRedirect, myUser, logout } = useUserContext();
+  const { state } = useContext(dataCard);
 
-  if (process.env.NODE_ENV === "development") {
-    returnUrl = window.location.origin + "/";
-  } else {
-    // For production or other environments
-    const path = state.purchaseSuccess
-      ? "/success?session_id=" + state.sessionId
-      : "/cancel";
+  const handleLogout = () => {
+    let returnUrl;
 
-    returnUrl = "https://bloom-express.onrender.com" + path;
-  }
+    if (process.env.NODE_ENV === "development") {
+      returnUrl = window.location.origin + "/";
+    } else {
+      // For production or other environments
+      const path = state.purchaseSuccess
+        ? "/success?session_id=" + state.sessionId
+        : "/cancel";
 
-  logout({ returnTo: returnUrl });
-};
+      returnUrl = "https://bloom-express.onrender.com" + path;
+    }
+
+    logout({ returnTo: returnUrl });
+  };
 
   return (
     <Wrapper>
