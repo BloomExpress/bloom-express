@@ -27,15 +27,17 @@ const Newsletter = () => {
     try {
       setLoading(true);
 
-      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/users/subscribe`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          'Authorization': `Bearer re_YRfdyDcY_8cciGm7768gTRzcfuwa8wukW`,
-        },
-        body: JSON.stringify({ email: email }),
-      });
-  
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_URL}/api/users/subscribe`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: email }),
+        }
+      );
+
       const data = await response.json();
       console.log(data);
       if (response.status === 200) {
@@ -61,7 +63,7 @@ const Newsletter = () => {
       setLoading(false);
     }
   };
-  
+
   return (
     <>
       {showPopup && (
