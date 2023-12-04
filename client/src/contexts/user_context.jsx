@@ -22,6 +22,7 @@ export const UserProvider = ({ children }) => {
       setMyUser(user);
       saveUserToSessionStorage(user);
     } else {
+      // setMyUser(null);
       sessionStorage.removeItem("user");
     }
   }, [user]);

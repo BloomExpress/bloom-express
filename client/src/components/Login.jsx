@@ -11,11 +11,11 @@ const Login = () => {
 
   const handleLogout = () => {
     const returnUrl =
-      process.env.NODE_ENV === 'development'
-        ? window.location.origin + '/'
-        : 'https://bloom-express.onrender.com/';
+      process.env.NODE_ENV === "development"
+        ? window.location.origin + "/"
+        : "https://bloom-express.onrender.com/";
     logout({ returnTo: returnUrl });
-  };  
+  };
 
   return (
     <Wrapper>

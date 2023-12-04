@@ -42,9 +42,6 @@ function Success() {
     if (!stripePaymentId) return;
     console.log(stripePaymentId);
 
-    //http://localhost:5000/api/payments/success?session_id=
-    // retrieve details from API
-
     getData(stripePaymentId);
   }, [searchParams]);
 
