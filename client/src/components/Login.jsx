@@ -10,20 +10,29 @@ const Login = () => {
   const { state } = useContext(dataCard);
 
   const handleLogout = () => {
+    const defaultReturnUrl =
+      process.env.NODE_ENV === "development"
+        ? window.location.origin + "/"
+        : "https://bloom-express.onrender.com/";
+
     let returnUrl;
 
-    if (process.env.NODE_ENV === "development") {
-      returnUrl = window.location.origin + "/";
-    } else {
-      // For production or other environments
+    try {
       const path = state.purchaseSuccess
         ? "/success?session_id=" + state.sessionId
         : "/cancel";
 
       returnUrl = "https://bloom-express.onrender.com" + path;
+    } catch (error) {
+      console.error("Error constructing logout URL", error);
+      returnUrl = defaultReturnUrl;
     }
 
-    logout({ returnTo: returnUrl });
+    console.log("Logout: returnUrl", returnUrl);
+
+    logout({ returnTo: returnUrl })
+      .then(() => console.log("Logout success"))
+      .catch((error) => console.error("Logout error", error));
   };
 
   return (
