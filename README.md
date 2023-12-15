@@ -25,10 +25,11 @@ Bloom Express is a delightful online store for flower enthusiasts, providing a s
 
 ## Contributors: Blooming Developers
 
-- Jime Rowe - https://github.com/JimeRowe
 - Apiradee Haeusler - https://github.com/ApiradeeH
 - Marko Tertinek - https://github.com/MarkoTertinek
 - Manolos Cipi - https://github.com/manoloscipi
+- Jime Rowe - https://github.com/JimeRowe
+- Sayed Jamal Hussain Ahmadi - https://github.com/coderahmadi
 
 ## Project Structure
 
