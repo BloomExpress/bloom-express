@@ -304,7 +304,7 @@ const Contact = () => {
                   </div>
 
                   {/* Team Member 5 */}
-                  {/* <div className="team-member">
+                  <div className="team-member">
                     <TeamMemberCard>
                       <div className="team-member-image">
                         <img src={jamal} alt="Jamal's Photo" />
@@ -313,14 +313,14 @@ const Contact = () => {
                       <p>Berlin Store Manager(A)</p>
                       <a
                         href="https://github.com/coderahmadi"
-                        aria-label="Go to Jamal's GitHub profile
+                        aria-label="Go to Jamal's GitHub profile"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <FontAwesomeIcon icon={faGithub} size="2xl" />
                       </a>
                     </TeamMemberCard>
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>
