@@ -70,7 +70,7 @@ Briefly, here's an explanation of each directory:
 
 ### MVC Pattern
 
-Bloom Express uses the MVC (Minimum Viable Product) pattern to separate concerns and enhance maintainability and scalability.
+Bloom Express uses the MVP (Minimum Viable Product) pattern to separate concerns and enhance maintainability and scalability.
 
 ## Features
 
